@@ -1,0 +1,3 @@
+/cicada/sibsutis/2sem/prog/lab5+~/cicada/sibsutis/2sem/prog/lab4
+cicada/sibsutis/2sem/prog/lab5+~/cicada/sibsutis/2sem/prog/lab4
+~/games/packman.cpp+~alex/docs     +     ~/study/Prog/lab4.c+/usr/bin/gcc
