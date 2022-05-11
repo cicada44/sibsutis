@@ -1,6 +1,7 @@
 #include "func.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void print_dict(char** dict, int cnt)
 {
@@ -40,4 +41,44 @@ char** read_dict(int cnt)
 
     fclose(fp);
     return dict;
+}
+
+int isOpnBracket(char* arr)
+{
+    for (int c = 0; *(arr + c) != '\n'; c++) {
+        if (*(arr + c) == '(') {
+            return c;
+        }
+    }
+    return -1;
+}
+
+int isClsBracket(char* arr)
+{
+    for (int x = 0; *(arr + x) != '\n'; x++) {
+        if (*(arr + x) == ')') {
+            return x;
+        }
+    }
+    return -1;
+}
+
+int cncatNameFunc(char* arr, int pos)
+{
+    for (int x = pos; x < strlen(arr); x--) {
+        if (*(arr + x - 1) == ' ')
+            return x;
+    }
+    return -1;
+}
+
+char* read_to_opnbr(char* arr)
+{
+    int x = 0;
+    char* buf = malloc(SIZE_STR * sizeof(char));
+    while (*(arr + x) != '(') {
+        *(buf + x) = *(arr + x);
+        x++;
+    }
+    return buf;
 }

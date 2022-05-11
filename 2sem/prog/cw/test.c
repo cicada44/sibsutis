@@ -10,6 +10,10 @@ int func2(int a)
     float x;
     func1(x);
 }
+int func3(int a)
+{
+    int a, b;
+}
 int main()
 {
     int a, var1;
