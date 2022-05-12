@@ -6,6 +6,7 @@ int func1(int a)
 }
 int func2(int a)
 {
+    func3(a);
     int x, y, z;
     float x;
     func1(x);

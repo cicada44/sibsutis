@@ -11,8 +11,10 @@ int main(int argc, char* argv[])
     int p1, p2;
     char* testc;
     char* isis;
+
     char* name = (char*)malloc(sizeof(char*));
     int cnt = read_cnt();
+    int ignore_dict[cnt];
 
     char** dict_functions = (char**)malloc(5 * sizeof(char*));
     for (int i = 0; i < cnt; i++) {
@@ -52,32 +54,45 @@ int main(int argc, char* argv[])
                     }
                     strcpy(dict_nontype_functions[y], name);
                     dict_functions[y] = testc;
+                    ignore_dict[y] = x;
                     y++;
                 }
             }
         }
     }
 
+    for (int x = 0; x < y; x++)
+        printf("ingore - %d\n", ignore_dict[x]);
+
     for (int x = 0; x < y; x++) {
         char* temp = read_to_opnbr(dict_nontype_functions[x]);
         strcpy(dict_clear_functions[x], temp);
-        printf("str - %s\tlen - %ld\n",
-               dict_clear_functions[x],
-               strlen(dict_clear_functions[x]));
+        // printf("str - %s\n", dict_clear_functions[x]);
     }
 
     int calls_num[y];
+    for (int x = 0; x < y; x++)
+        calls_num[x] = 0;
 
     for (int x = 0; x < cnt; x++) {
-        for (int i = 0; i < 5; i++) {
-            // isis = strstr(dict[x], );
+        for (int j = 0; j < y; j++)
+            if (x == ignore_dict[j]) {
+                x++;
+                break;
+            }
+        for (int i = 0; i < y; i++) {
+            isis = strstr(dict[x], dict_clear_functions[i]);
+            if (isis != NULL) {
+                (calls_num[i])++;
+            }
         }
     }
-    // for (int x = 0; x < y; x++)
-    //     printf("%s", dict_functions[x]);
 
-    for (int x = 0; x < y; x++)
-        printf("%s\n", dict_nontype_functions[x]);
+    for (int x = 0; x < y; x++) {
+        printf("func - %s, calls - %d\n",
+               dict_clear_functions[x],
+               calls_num[x]);
+    }
 
     return 0;
 }
