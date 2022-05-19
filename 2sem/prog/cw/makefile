@@ -1,2 +1,2 @@
 all:
-	gcc -Wall main.c func.c
+	gcc -Wall src/main.c src/func.c

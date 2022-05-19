@@ -1,19 +1,22 @@
 #include <stdio.h>
 int var1, x; // глобальные переменные
+int func();
+int func3();
+int func5();
+int func()
+{
+    func(x);
+}
 int func1(int a)
 {
     char z;
 }
 int func2(int a)
 {
-    func3(a);
     int x, y, z;
     float x;
     func1(x);
-}
-int func3(int a)
-{
-    int a, b;
+    func3(x);
 }
 int main()
 {
