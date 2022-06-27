@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include "listr.h"
 
 uint64_t cnt_sym(char *s, char sym)
@@ -202,4 +203,94 @@ int strcmp_r(char *s1, char *s2)
         i++;
     }
     return 0;
+}
+
+char *str_cp(char *s1, char *buf)
+{
+    for (int x = 0; *(s1 + x) != '\0'; x++)
+        *(buf + x) = *(s1 + x);
+    return buf;
+}
+
+char *snake_to_camel(char *s1, char *buf)
+{
+    int i = 0;
+    for (int x = 0; *(s1 + x) != '\0'; x++)
+    {
+        if (*(s1 + x) == '_')
+        {
+            ++x;
+            *(buf + i) = toupper(*(s1 + x));
+            i++;
+            continue;
+        }
+        *(buf + i) = *(s1 + x);
+        i++;
+    }
+    return buf;
+}
+
+char *camel_to_snake(char *s1, char *buf)
+{
+    int i = 0;
+    for (int x = 0; *(s1 + x) != '\0'; x++)
+    {
+        *(buf + i) = *(s1 + x);
+        if (isupper(*(s1 + x)))
+        {
+            *(buf + i) = '_';
+            *(buf + i + 1) = tolower(*(s1 + x));
+            i++;
+        }
+        i++;
+    }
+    return buf;
+}
+
+void str_tok(char *s, char del, char **arr)
+{
+    int i = 0, j = 0;
+    for (int x = 0; *(s + x) != '\0'; x++)
+    {
+        if (*(s + x) == del)
+        {
+            i++;
+            j = 0;
+            continue;
+        }
+        arr[i][j] = *(s + x);
+        j++;
+    }
+}
+
+int str_locate_locket_sym(char *src, char *symb, unsigned int c)
+{
+    for (int x = 0; x < c; x++)
+    {
+        for (int i = 0; *(symb + i) != '\0'; i++)
+        {
+            if (*(symb + i) == *(src + x))
+                return 1;
+        }
+    }
+    return 0;
+}
+
+char *str_str(char *src, char *find_s)
+{
+    int len = strlen(find_s);
+    int i = 0, j = 0;
+    for (int x = 0; *(src + x) != '\0'; x++)
+    {
+        j = x;
+        i = 0;
+        while ((*(src + j) == *(find_s + i)) != '\0')
+        {
+            if (len - 1 == i)
+                return src + x;
+            i++;
+            j++;
+        }
+    }
+    return NULL;
 }
