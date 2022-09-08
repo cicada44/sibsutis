@@ -6,18 +6,28 @@ void printArray2D(int** arr, int N);
 int** mallocArray2D(int N);
 void randArray2D(int** arr, int N);
 void rightDiagonal(int** arr2d, int* arr, int N);
+void leftDiagonal(int** arr2d, int* arr, int N);
+void printArray(int* array, int N);
 
 int main(void)
 {
     srand(time(0));
 
-    int size = rand() % 10;
+    int size = rand() % 5;
     int** array2d = mallocArray2D(size);
     randArray2D(array2d, size);
+    cout << "Array2d:" << endl;
     printArray2D(array2d, size);
 
     int* array = (int*)malloc(sizeof(int) * size * size);
     rightDiagonal(array2d, array, size);
+    cout << endl;
+    cout << "rightDiagonal:" << endl;
+    printArray(array, size * size);
+    leftDiagonal(array2d, array, size);
+    cout << endl;
+    cout << "leftDiagonal:" << endl;
+    printArray(array, size * size);
 
     if (array2d)
         free(array2d);
@@ -55,11 +65,52 @@ void printArray2D(int** arr, int N)
     }
 }
 
-// void rightDiagonal(int** arr2d, int* arr, int N)
-// {
-//     for (int i = 0; i < N; ++i) {
-//         for (int j = N; j >= 0; --j) {
+void rightDiagonal(int** arr2d, int* arr, int N)
+{
+    int k = 0;
+    for (int j = N - 1; j >= 0; --j) {
+        int i = 0;
+        int l = j;
+        while (l < N && i < N) {
+            arr[k] = arr2d[i][l];
+            ++i, ++l, ++k;
+        }
+    }
+    for (int i = 1; i < N; ++i) {
+        int j = 0;
+        int m = i;
+        while (j < N && m < N) {
+            arr[k] = arr2d[m][j];
+            ++k, ++j, ++m;
+        }
+    }
+}
 
-//         }
-//     }
-// }
+void leftDiagonal(int** arr2d, int* arr, int N)
+{
+    int k = 0;
+    for (int i = 0; i < N; ++i) {
+        int j = 0, m = i;
+        while (j < N && j <= i && m >= 0) {
+            arr[k] = arr2d[m][j];
+            ++k, ++j, --m;
+        }
+    }
+    for (int j = 1; j < N; ++j) {
+        int i = N - 1;
+        int l = j;
+        int m = i;
+        while (l < N) {
+            arr[k] = arr2d[m][l];
+            ++k, ++l, --m;
+        }
+    }
+}
+
+void printArray(int* array, int N)
+{
+    for (int i = 0; i < N; ++i) {
+        cout << array[i] << ' ';
+    }
+    cout << endl;
+}
