@@ -204,3 +204,10 @@ int* copyArray(int* arr, int size)
     }
     return copy;
 }
+
+void spiral_in_center(int** a, int n)
+{
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            a[i][j] = (n - 2 * i) * (n - 2 * i - 1) + (i - j) * ((i <= j) * (4 * (i + j - n) + 2) * (2 * (i + j <= n - 1) - 1) + 1 + 4 * (i + j <= n - 1) * (n - i - j - 1)) + 1;
+}
