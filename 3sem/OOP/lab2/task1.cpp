@@ -6,17 +6,18 @@ using namespace std;
 void printArray2D(int** arr, int N);
 void printArray(int* arr, int N);
 int* copyArray(int* array, int size);
+int** copyArray2d(int** arr, int size);
 int** mallocArray2D(int N);
 void randArray2D(int** arr, int N);
 void randArray(int* arr, int N);
-void spiral_ext(int* array, int** arr, int N);
+void spiral_ext(int** arr2d, int* arr, int N);
 void rightDiagonal(int** arr2d, int* arr, int N);
 void leftDiagonal(int** arr2d, int* arr, int N);
 
 int main(void)
 {
     srand(time(0));
-    int size = rand() % 5;
+    int size = 3;
     int** array2d = mallocArray2D(size);
     randArray2D(array2d, size);
 
@@ -31,16 +32,19 @@ int main(void)
     printArray(array, size * size);
 
     leftDiagonal(array2d, array, size);
-    cout << endl;
-    cout << "leftDiagonal:" << endl;
+    cout << endl
+         << "leftDiagonal:" << endl;
     printArray(array, size * size);
 
-    // spiral_ext(array, array2d, size);
-    // cout << "---spiral---" << endl;
-    // printArray(array, size);
+    spiral_ext(array2d, array, size);
+    cout << endl;
+    cout << "---spiral---" << endl;
+    printArray(array, size * size);
 
     if (array2d)
         free(array2d);
+    if (array)
+        free(array);
     return 0;
 }
 
@@ -134,12 +138,63 @@ void printArray(int* array, int N)
     cout << endl;
 }
 
-// void spiral_ext(int* array, int** arr, int beg, int end)
-// {
-//     int cnter_2d_str;
-//     for (int i = beg; i < end; i++)
-//         array[i] = arr[];
-// }
+void spiral_ext(int** arr2d, int* arr, int N)
+{
+    int** copy = copyArray2d(arr2d, N);
+    int ci = 0, cj = 0;
+
+    for (int step = 0; step < sqrt(N); ++step) {
+        for (int j = step; j < N - step; ++j) {
+            copy[step][j] = arr2d[ci][cj++];
+            if (cj == N) {
+                cj = 0, ++ci;
+            }
+        }
+        for (int i = step + 1; i < N - step; ++i) {
+            copy[i][N - step - 1] = arr2d[ci][cj++];
+            if (cj == N) {
+                cj = 0, ++ci;
+            }
+        }
+        for (int j = N - step - 2; j >= step; --j) {
+            copy[N - step - 1][j] = arr2d[ci][cj++];
+            if (cj == N) {
+                cj = 0, ++ci;
+            }
+        }
+        for (int i = N - step - 2; i > step; --i) {
+            copy[i][step] = arr2d[ci][cj++];
+            if (cj == N) {
+                cj = 0, ++ci;
+            }
+        }
+    }
+
+    int k = 0;
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            arr[k++] = copy[i][j];
+        }
+    }
+
+    // cout << endl;
+    // printArray2D(copy, N);
+
+    free(copy);
+}
+
+int** copyArray2d(int** arr, int size)
+{
+    int** copy = mallocArray2D(size);
+
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            copy[i][j] = arr[i][j];
+        }
+    }
+
+    return copy;
+}
 
 int* copyArray(int* arr, int size)
 {
