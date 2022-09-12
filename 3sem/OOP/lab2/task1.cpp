@@ -1,33 +1,43 @@
+#include <cmath>
 #include <iostream>
 
 using namespace std;
 
 void printArray2D(int** arr, int N);
+void printArray(int* arr, int N);
+int* copyArray(int* array, int size);
 int** mallocArray2D(int N);
 void randArray2D(int** arr, int N);
+void randArray(int* arr, int N);
+void spiral_ext(int* array, int** arr, int N);
 void rightDiagonal(int** arr2d, int* arr, int N);
 void leftDiagonal(int** arr2d, int* arr, int N);
-void printArray(int* array, int N);
 
 int main(void)
 {
     srand(time(0));
-
     int size = rand() % 5;
     int** array2d = mallocArray2D(size);
     randArray2D(array2d, size);
-    cout << "Array2d:" << endl;
+
+    cout << "---array---" << endl;
     printArray2D(array2d, size);
 
     int* array = (int*)malloc(sizeof(int) * size * size);
+
     rightDiagonal(array2d, array, size);
     cout << endl;
     cout << "rightDiagonal:" << endl;
     printArray(array, size * size);
+
     leftDiagonal(array2d, array, size);
     cout << endl;
     cout << "leftDiagonal:" << endl;
     printArray(array, size * size);
+
+    // spiral_ext(array, array2d, size);
+    // cout << "---spiral---" << endl;
+    // printArray(array, size);
 
     if (array2d)
         free(array2d);
@@ -51,6 +61,15 @@ void randArray2D(int** arr, int N)
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
             arr[i][j] = rand() % 10;
+        }
+    }
+}
+
+void randArray(int* arr, int N)
+{
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            arr[i * N + j] = rand() % 10;
         }
     }
 }
@@ -113,4 +132,20 @@ void printArray(int* array, int N)
         cout << array[i] << ' ';
     }
     cout << endl;
+}
+
+// void spiral_ext(int* array, int** arr, int beg, int end)
+// {
+//     int cnter_2d_str;
+//     for (int i = beg; i < end; i++)
+//         array[i] = arr[];
+// }
+
+int* copyArray(int* arr, int size)
+{
+    int* copy = (int*)malloc(sizeof(int) * size);
+    for (int i = 0; i < size; ++i) {
+        copy[i] = arr[i];
+    }
+    return copy;
 }
