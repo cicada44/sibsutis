@@ -11,6 +11,7 @@ int** mallocArray2D(int N);
 void randArray2D(int** arr, int N);
 void randArray(int* arr, int N);
 void spiral_ext(int** arr2d, int* arr, int N);
+void spiral_to_center(int* arr, int** matrix, int size);
 void rightDiagonal(int** arr2d, int* arr, int N);
 void leftDiagonal(int** arr2d, int* arr, int N);
 
@@ -38,7 +39,12 @@ int main(void)
 
     spiral_ext(array2d, array, size);
     cout << endl;
-    cout << "---spiral---" << endl;
+    cout << "---spiral_1---" << endl;
+    printArray(array, size * size);
+
+    spiral_to_center(array, array2d, size);
+    cout << endl;
+    cout << "---spiral_2---" << endl;
     printArray(array, size * size);
 
     if (array2d)
@@ -140,47 +146,24 @@ void printArray(int* array, int N)
 
 void spiral_ext(int** arr2d, int* arr, int N)
 {
-    int** copy = copyArray2d(arr2d, N);
-    int ci = 0, cj = 0;
-
+    int k = 0;
     for (int step = 0; step < sqrt(N); ++step) {
         for (int j = step; j < N - step; ++j) {
-            copy[step][j] = arr2d[ci][cj++];
-            if (cj == N) {
-                cj = 0, ++ci;
-            }
+            arr[k++] = arr2d[step][j];
         }
         for (int i = step + 1; i < N - step; ++i) {
-            copy[i][N - step - 1] = arr2d[ci][cj++];
-            if (cj == N) {
-                cj = 0, ++ci;
-            }
+            arr[k++] = arr2d[i][N - step - 1];
+
         }
         for (int j = N - step - 2; j >= step; --j) {
-            copy[N - step - 1][j] = arr2d[ci][cj++];
-            if (cj == N) {
-                cj = 0, ++ci;
-            }
+           arr[k++] = arr2d[N - step - 1][j];
+
         }
         for (int i = N - step - 2; i > step; --i) {
-            copy[i][step] = arr2d[ci][cj++];
-            if (cj == N) {
-                cj = 0, ++ci;
-            }
+            arr[k++] = arr2d[i][step];
+
         }
     }
-
-    int k = 0;
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-            arr[k++] = copy[i][j];
-        }
-    }
-
-    // cout << endl;
-    // printArray2D(copy, N);
-
-    free(copy);
 }
 
 int** copyArray2d(int** arr, int size)
@@ -210,4 +193,11 @@ void spiral_in_center(int** a, int n)
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             a[i][j] = (n - 2 * i) * (n - 2 * i - 1) + (i - j) * ((i <= j) * (4 * (i + j - n) + 2) * (2 * (i + j <= n - 1) - 1) + 1 + 4 * (i + j <= n - 1) * (n - i - j - 1)) + 1;
+}
+
+void spiral_to_center(int* arr, int** matrix, int size) {
+    spiral_ext(matrix, arr, size);
+    int temp[size * size];
+    for(int i = 0; i < size * size; i++)temp[i] = arr[i];
+    for(int k = size * size - 1, i = 0; k > -1; k--)arr[i++] = temp[k];
 }
