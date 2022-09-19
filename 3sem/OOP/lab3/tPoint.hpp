@@ -15,12 +15,12 @@ public:
   int get_y() { return this->y; }
   void set_real(int r) { this->real = r; }
   void set_color(unsigned c) { this->color = c; }
-  int set_x(int vec) { this->x = vec; }
-  int set_y(int vec) { this->y = vec; }
+  void set_x(int vec) { this->x = vec; }
+  void set_y(int vec) { this->y = vec; }
   void set_dot() {
     this->y = 0;
     this->x = 1;
-    this->real = rand() % 8;
+    this->real = rand() % 10;
     this->color = rand() % 7;
   }
 
