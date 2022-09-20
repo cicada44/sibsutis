@@ -15,7 +15,7 @@ int main() {
   while (1) {
     clrcsl();
     out_array(field.get_arr());
-    field.move_once();
+    field.move_once_x();
     usleep(100000);
   }
 
