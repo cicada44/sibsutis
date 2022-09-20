@@ -18,7 +18,7 @@ void leftDiagonal(int** arr2d, int* arr, int N);
 int main(void)
 {
     srand(time(0));
-    int size = 3;
+    int size = rand() % 10;
     int** array2d = mallocArray2D(size);
     randArray2D(array2d, size);
 
@@ -186,13 +186,6 @@ int* copyArray(int* arr, int size)
         copy[i] = arr[i];
     }
     return copy;
-}
-
-void spiral_in_center(int** a, int n)
-{
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            a[i][j] = (n - 2 * i) * (n - 2 * i - 1) + (i - j) * ((i <= j) * (4 * (i + j - n) + 2) * (2 * (i + j <= n - 1) - 1) + 1 + 4 * (i + j <= n - 1) * (n - i - j - 1)) + 1;
 }
 
 void spiral_to_center(int* arr, int** matrix, int size) {
