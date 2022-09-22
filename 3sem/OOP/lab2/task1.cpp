@@ -70,7 +70,7 @@ void randArray2D(int** arr, int N)
 {
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
-            arr[i][j] = rand() % 10;
+            arr[i][j] = abs(i - j) == 2 ? -1 : rand() % 10;
         }
     }
 }
