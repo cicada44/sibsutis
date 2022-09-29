@@ -11,7 +11,7 @@
 
 class Line : public tPoint {
 protected:
-  int x2, y2;
+  float x2, y2;
 
 private:
 public:
@@ -22,43 +22,28 @@ public:
   int get_x2() { return this->x2; }
   int get_y2() { return this->y2; }
 
-  void move_once() {
-    if (vec_x == 0 || vec_y == 0)
-      return;
-    if (x == 0 || x2 == 0) {
-      vec_x = 1;
-    }
-    if (y == 0 || y2 == 0) {
-      vec_y = 1;
-    }
-    if (x == X_B || x2 == X_B) {
-      vec_x = -1;
-    }
-    if (y == Y_B || y2 == Y_B) {
-      vec_y = -1;
-    }
-    if (vec_x == 1) {
-      x++;
-      x2++;
-    }
-    if (vec_y == 1) {
-      y++;
-      y2++;
-    }
-    if (vec_x == -1) {
-      x--;
-      x2--;
-    }
-    if (vec_y == -1) {
-      y--;
-      y2--;
-    }
+  void move_once_line() {
+    this->move_once(x, y, vec_x, vec_y);
+    this->move_once(x2, y2, vec_x, vec_y);
+  }
+
+  void move_urself_once() {
+    int x_c = (x + x2) / 2;
+    int y_c = (y + y2) / 2;
+    float dx = x;
+    float dy = y;
+    float dx2 = x2;
+    float dy2 = y2;
+    x = x_c + (dx - x_c) * cos(M_PI / 180) - (dy - y_c) * sin(M_PI / 180);
+    y = y_c + (dx - x_c) * sin(M_PI / 180) + (dy - y_c) * cos(M_PI / 180);
+    x2 = x_c + (dx2 - x_c) * cos(M_PI / 180) - (dy2 - y_c) * sin(M_PI / 180);
+    y2 = y_c + (dx2 - x_c) * sin(M_PI / 180) + (dy2 - y_c) * cos(M_PI / 180);
   }
 };
 
 class Triangle : public Line {
 protected:
-  int x3, y3;
+  float x3, y3;
 
 public:
   Triangle() = default;
@@ -68,47 +53,33 @@ public:
   int get_x3() { return this->x3; }
   int get_y3() { return this->y3; }
 
-  void move_once() {
-    if (vec_x == 0 || vec_y == 0)
-      return;
-    if (x == 0 || x2 == 0 || x3 == 0) {
-      vec_x = 1;
-    }
-    if (y == 0 || y2 == 0 || y3 == 0) {
-      vec_y = 1;
-    }
-    if (x == X_B || x2 == X_B || x3 == X_B) {
-      vec_x = -1;
-    }
-    if (y == Y_B || y2 == Y_B || y3 == Y_B) {
-      vec_y = -1;
-    }
-    if (vec_x == 1) {
-      x++;
-      x2++;
-      x3++;
-    }
-    if (vec_y == 1) {
-      y++;
-      y2++;
-      y3++;
-    }
-    if (vec_x == -1) {
-      x--;
-      x2--;
-      x3--;
-    }
-    if (vec_y == -1) {
-      y--;
-      y2--;
-      y3--;
-    }
+  void move_once_trian() {
+    this->move_once(x, y, vec_x, vec_y);
+    this->move_once(x2, y2, vec_x, vec_y);
+    this->move_once(x3, y3, vec_x, vec_y);
+  }
+
+  void move_urself_once() {
+    int x_c = (x + x2 + x3) / 3;
+    int y_c = (y + y2 + y3) / 3;
+    float dx = x;
+    float dy = y;
+    float dx2 = x2;
+    float dy2 = y2;
+    float dx3 = x3;
+    float dy3 = y3;
+    x = x_c + (dx - x_c) * cos(M_PI / 180) - (dy - y_c) * sin(M_PI / 180);
+    y = y_c + (dx - x_c) * sin(M_PI / 180) + (dy - y_c) * cos(M_PI / 180);
+    x2 = x_c + (dx2 - x_c) * cos(M_PI / 180) - (dy2 - y_c) * sin(M_PI / 180);
+    y2 = y_c + (dx2 - x_c) * sin(M_PI / 180) + (dy2 - y_c) * cos(M_PI / 180);
+    x3 = x_c + (dx3 - x_c) * cos(M_PI / 180) - (dy3 - y_c) * sin(M_PI / 180);
+    y3 = y_c + (dx3 - x_c) * sin(M_PI / 180) + (dy3 - y_c) * cos(M_PI / 180);
   }
 };
 
 class Rectangle : public Triangle {
 protected:
-  int x4, y4;
+  float x4, y4;
 
 private:
 public:
@@ -119,37 +90,32 @@ public:
   void set_x4(int x4) { this->x4 = x4; }
   void set_y4(int y4) { this->y4 = y4; }
 
-  void move_once() {
-    if (vec_x == 0 || vec_y == 0)
-      return;
-    if (x == 0 || x4 == 0) {
-      vec_x = 1;
-    }
-    if (y == 0 || y4 == 0) {
-      vec_y = 1;
-    }
-    if (x == X_B || x4 == X_B) {
-      vec_x = -1;
-    }
-    if (y == Y_B || y4 == Y_B) {
-      vec_y = -1;
-    }
-    if (vec_x == 1) {
-      x++;
-      x4++;
-    }
-    if (vec_y == 1) {
-      y++;
-      y4++;
-    }
-    if (vec_x == -1) {
-      x--;
-      x4--;
-    }
-    if (vec_y == -1) {
-      y--;
-      y4--;
-    }
+  void move_once_rect() {
+    this->move_once(x, y, vec_x, vec_y);
+    this->move_once(x2, y2, vec_x, vec_y);
+    this->move_once(x3, y3, vec_x, vec_y);
+    this->move_once(x4, y4, vec_x, vec_y);
+  }
+
+  void move_urself_once() {
+    int x_c = (x + x3) / 2;
+    int y_c = (y + y3) / 2;
+    float dx = x;
+    float dy = y;
+    float dx2 = x2;
+    float dy2 = y2;
+    float dx3 = x3;
+    float dy3 = y3;
+    float dx4 = x4;
+    float dy4 = y4;
+    x = x_c + (dx - x_c) * cos(M_PI / 180) - (dy - y_c) * sin(M_PI / 180);
+    y = y_c + (dx - x_c) * sin(M_PI / 180) + (dy - y_c) * cos(M_PI / 180);
+    x2 = x_c + (dx2 - x_c) * cos(M_PI / 180) - (dy2 - y_c) * sin(M_PI / 180);
+    y2 = y_c + (dx2 - x_c) * sin(M_PI / 180) + (dy2 - y_c) * cos(M_PI / 180);
+    x3 = x_c + (dx3 - x_c) * cos(M_PI / 180) - (dy3 - y_c) * sin(M_PI / 180);
+    y3 = y_c + (dx3 - x_c) * sin(M_PI / 180) + (dy3 - y_c) * cos(M_PI / 180);
+    x4 = x_c + (dx4 - x_c) * cos(M_PI / 180) - (dy4 - y_c) * sin(M_PI / 180);
+    y4 = y_c + (dx4 - x_c) * sin(M_PI / 180) + (dy4 - y_c) * cos(M_PI / 180);
   }
 };
 
@@ -169,7 +135,7 @@ public:
 
   void seted_rad() { this->rad = sqrt(pow((x2 - x), 2) + pow((y2 - y), 2)); }
 
-  void move_once() {
+  void move_once_circle() {
     if (vec_x == 0 || vec_y == 0)
       return;
     if (x == 0 || x2 == 0 || x - rad == 0 || x2 - rad == 0) {
@@ -251,11 +217,17 @@ public:
       x2--;
     }
   }
+
+  void move_urself_once() {
+    int t = x_rad;
+    x_rad = y_rad;
+    y_rad = t;
+  }
 };
 
 class Diamond : public Rectangle {
 protected:
-  int x3, y3;
+  float x3, y3;
 
 public:
   void set_x3(int x3) { this->x3 = x3; }
@@ -263,45 +235,32 @@ public:
   int get_x3() { return this->x3; }
   int get_y3() { return this->y3; }
 
-  void move_once() {
-    if (vec_x == 0 || vec_y == 0)
-      return;
-    if (x == 0 || x2 == 0 || x3 == 0 || x4 == 0) {
-      vec_x = 1;
-    }
-    if (y == 0 || y2 == 0 || y3 == 0 || y4 == 0) {
-      vec_y = 1;
-    }
-    if (x == X_B || x2 == X_B || x3 == X_B || x4 == X_B) {
-      vec_x = -1;
-    }
-    if (y == Y_B || y2 == Y_B || y3 == Y_B || y4 == Y_B) {
-      vec_y = -1;
-    }
-    if (vec_x == 1) {
-      x++;
-      x2++;
-      x3++;
-      x4++;
-    }
-    if (vec_y == 1) {
-      y++;
-      y2++;
-      y3++;
-      y4++;
-    }
-    if (vec_x == -1) {
-      x--;
-      x2--;
-      x3--;
-      x4--;
-    }
-    if (vec_y == -1) {
-      y--;
-      y2--;
-      y3--;
-      y4--;
-    }
+  void move_once_diam() {
+    this->move_once(x, y, vec_x, vec_y);
+    this->move_once(x2, y2, vec_x, vec_y);
+    this->move_once(x3, y3, vec_x, vec_y);
+    this->move_once(x4, y4, vec_x, vec_y);
+  }
+
+  void move_urself_once() {
+    int x_c = (x + x3) / 2;
+    int y_c = (y + y3) / 2;
+    float dx = x;
+    float dy = y;
+    float dx2 = x2;
+    float dy2 = y2;
+    float dx3 = x3;
+    float dy3 = y3;
+    float dx4 = x4;
+    float dy4 = y4;
+    x = x_c + (dx - x_c) * cos(M_PI / 180) - (dy - y_c) * sin(M_PI / 180);
+    y = y_c + (dx - x_c) * sin(M_PI / 180) + (dy - y_c) * cos(M_PI / 180);
+    x2 = x_c + (dx2 - x_c) * cos(M_PI / 180) - (dy2 - y_c) * sin(M_PI / 180);
+    y2 = y_c + (dx2 - x_c) * sin(M_PI / 180) + (dy2 - y_c) * cos(M_PI / 180);
+    x3 = x_c + (dx3 - x_c) * cos(M_PI / 180) - (dy3 - y_c) * sin(M_PI / 180);
+    y3 = y_c + (dx3 - x_c) * sin(M_PI / 180) + (dy3 - y_c) * cos(M_PI / 180);
+    x4 = x_c + (dx4 - x_c) * cos(M_PI / 180) - (dy4 - y_c) * sin(M_PI / 180);
+    y4 = y_c + (dx4 - x_c) * sin(M_PI / 180) + (dy4 - y_c) * cos(M_PI / 180);
   }
 };
 

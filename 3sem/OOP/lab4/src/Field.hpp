@@ -42,7 +42,10 @@ void Field::draw_line(Line &l) {
 
 void Field::draw_rectangle(Rectangle &rect) {
   setcolor(rect.get_color());
-  rectangle(rect.get_x(), rect.get_y(), rect.get_x4(), rect.get_y4());
+  line(rect.get_x(), rect.get_y(), rect.get_x2(), rect.get_y2());
+  line(rect.get_x2(), rect.get_y2(), rect.get_x3(), rect.get_y3());
+  line(rect.get_x3(), rect.get_y3(), rect.get_x4(), rect.get_y4());
+  line(rect.get_x4(), rect.get_y4(), rect.get_x(), rect.get_y());
 }
 
 void Field::draw_circle(Circle &c) {
@@ -83,7 +86,7 @@ void Field::draw_ellipse(Ellipse &ellip) {
 }
 
 void Field::draw_diamond(Diamond &diam) {
-  diam.set_color(diam.get_color());
+  setcolor(diam.get_color());
   Line l1, l2, l3, l4;
   l1.set_x(diam.get_x());
   l1.set_y(diam.get_y());
