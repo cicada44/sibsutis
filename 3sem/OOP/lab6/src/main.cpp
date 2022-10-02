@@ -277,19 +277,41 @@ void move_all_illustration_urself(Field &f, Line &line, Rectangle &rect,
 // }
 
 int main() {
-  tPoint arr_points[10];
-  Line arr_lines[10];
-  Circle arr_cirs[10];
-  Triangle arr_trians[10];
-  Rectangle arr_recs[10];
-  Diamond arr_diams[10];
-  Ellipse arr_ells[10];
-
   Field f;
   f.init();
 
   float cent_x = getmaxx() / 2;
   float cent_y = getmaxy() / 2;
+
+  tPoint *arr_shapes[7];
+  arr_shapes[0] = new Line(cent_x, cent_y, cent_x + 70, cent_y + 70, 1, 1);
+  arr_shapes[1] = new Triangle(cent_x, cent_y, cent_x + 70, cent_y, cent_x,
+                               cent_y + 70, 1, 1);
+  arr_shapes[2] =
+      new Rectangle(cent_x, cent_y, cent_x + 100, cent_y, cent_x + 100,
+                    cent_y + 70, cent_x, cent_y + 70, 1, 1);
+  arr_shapes[3] = new Circle(cent_x, cent_y, cent_x + 50, cent_y, 1, 1);
+  arr_shapes[4] = new Diamond(200, 200, 250, 300, 300, 200, 250, 100, 1, 1);
+  arr_shapes[5] = new Ellipse(100, 300, 0, 360, 100, 50, 1, 1);
+
+  cout << "LINE"
+       << "  x - " << arr_shapes[0]->get_x() << "  y - "
+       << arr_shapes[0]->get_y() << "\n";
+  cout << "TRIANGLE"
+       << "  x - " << arr_shapes[1]->get_x() << "  y - "
+       << arr_shapes[1]->get_y() << "\n";
+  cout << "RECTANGLE"
+       << "  x - " << arr_shapes[2]->get_x() << "  y - "
+       << arr_shapes[2]->get_y() << "\n";
+  cout << "CIRCLE"
+       << "  x - " << arr_shapes[3]->get_x() << "  y - "
+       << arr_shapes[3]->get_y() << "\n";
+  cout << "ELLIPSE"
+       << "  x - " << arr_shapes[4]->get_x() << "  y - "
+       << arr_shapes[4]->get_y() << "\n";
+  cout << "DIAMOND"
+       << "  x - " << arr_shapes[5]->get_x() << "  y - "
+       << arr_shapes[5]->get_y() << "\n";
 
   Line line1(cent_x, cent_y, cent_x + 70, cent_y + 70, 1, 1);
 
@@ -327,9 +349,10 @@ int main() {
   // draw_ell_urself_lt(f, ellip1);
   // draw_diam_urself_lt(f, diam1);
 
-  move_all_illustration(f, line1, rect1, trian1, circle1, ellip1, diam1);
+  // move_all_illustration(f, line1, rect1, trian1, circle1, ellip1, diam1);
 
-  move_all_illustration_urself(f, line1, rect1, trian1, circle1, ellip1, diam1);
+  // move_all_illustration_urself(f, line1, rect1, trian1, circle1, ellip1,
+  // diam1);
 
   // move_all_illustration_cp(f, line1, rect1, trian1, circle1, ellip1, diam1);
 

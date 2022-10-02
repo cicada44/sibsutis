@@ -16,6 +16,15 @@ protected:
 private:
 public:
   Line() = default;
+  Line(int pvec_x, int pvec_y, float px = 319, float py = 319, float px2 = 239,
+       float py2 = 239, int pclr = 3)
+      : x2(px2), y2(py2) {
+    x = px;
+    y = py;
+    vec_x = pvec_x;
+    vec_y = pvec_y;
+    color = pclr;
+  }
   Line(float px, float py, float px2, float py2, float pvec_x = 0,
        float pvec_y = 0, int pclr = 3)
       : x2(px2), y2(py2) {
@@ -83,6 +92,19 @@ protected:
 
 public:
   Triangle() = default;
+  Triangle(int pvec_x, int pvec_y, float px = 319, float py = 239,
+           float px2 = 419, float py2 = 239, float px3 = 319, float py3 = 419,
+           int pclr = 3) {
+    x = px;
+    y = py;
+    x2 = px2;
+    y2 = py2;
+    x3 = px3;
+    y3 = py3;
+    vec_x = pvec_x;
+    vec_y = pvec_y;
+    color = pclr;
+  }
   Triangle(float px, float py, float px2, float py2, float px3, float py3,
            float pvec_x = 0, float pvec_y = 0, int pclr = 3) {
     x = px;
@@ -162,6 +184,21 @@ protected:
 private:
 public:
   Rectangle() = default;
+  Rectangle(int pvec_x, int pvec_y, float px = 319, float py = 239,
+            float px2 = 419, float py2 = 239, float px3 = 419, float py3 = 419,
+            float px4 = 319, float py4 = 419, int pclr = 3) {
+    x = px;
+    y = py;
+    x2 = px2;
+    y2 = py2;
+    x3 = px3;
+    y3 = py3;
+    x4 = px4;
+    y4 = py4;
+    vec_x = pvec_x;
+    vec_y = pvec_y;
+    color = pclr;
+  }
   Rectangle(float px, float py, float px2, float py2, float px3, float py3,
             float px4, float py4, float pvec_x = 0, float pvec_y = 0,
             int pclr = 3) {
@@ -252,6 +289,17 @@ protected:
 
 public:
   Circle() = default;
+  Circle(int prad, float px = 319, float py = 239, float px2 = 419,
+         float py2 = 239, int pvec_x = 0, int pvec_y = 0, int clr = 3) {
+    x = px;
+    y = py;
+    x2 = px2;
+    y2 = py2;
+    vec_x = pvec_x;
+    vec_y = pvec_y;
+    color = clr;
+    rad = prad;
+  }
   Circle(float px, float py, float px2, float py2, int pvec_x = 0,
          int pvec_y = 0, int clr = 3) {
     x = px;
