@@ -41,6 +41,13 @@ public:
     move_cent_once(x, y, x_c, y_c);
     move_cent_once(x2, y2, x_c, y_c);
   }
+
+  void move_once_line_cp() {
+    float x_c = (x + x2) / 2;
+    float y_c = (y + y2) / 2;
+    this->move_once_cp(x, y, x_c, y_c, vec_x, vec_y);
+    this->move_once_cp(x2, y2, x_c, y_c, vec_x, vec_y);
+  }
 };
 
 class Triangle : public Line {
@@ -78,6 +85,14 @@ public:
     move_cent_once(x, y, x_c, y_c);
     move_cent_once(x2, y2, x_c, y_c);
     move_cent_once(x3, y3, x_c, y_c);
+  }
+
+  void move_once_trian_cp() {
+    float x_c = (x + x2 + x3) / 3;
+    float y_c = (y + y2 + y3) / 3;
+    move_once_cp(x, y, x_c, y_c, vec_x, vec_y);
+    move_once_cp(x2, y2, x_c, y_c, vec_x, vec_y);
+    move_once_cp(x3, y3, x_c, y_c, vec_x, vec_y);
   }
 };
 
@@ -122,6 +137,15 @@ public:
     move_cent_once(x2, y2, x_c, y_c);
     move_cent_once(x3, y3, x_c, y_c);
     move_cent_once(x4, y4, x_c, y_c);
+  }
+
+  void move_once_rectangle_cp() {
+    float x_c = (x + x3) / 2;
+    float y_c = (y + y3) / 2;
+    move_once_cp(x, y, x_c, y_c, vec_x, vec_y);
+    move_once_cp(x2, y2, x_c, y_c, vec_x, vec_y);
+    move_once_cp(x3, y3, x_c, y_c, vec_x, vec_y);
+    move_once_cp(x4, y4, x_c, y_c, vec_x, vec_y);
   }
 };
 
@@ -184,6 +208,8 @@ public:
       y2--;
     }
   }
+
+  void move_once_circle_cp() { move_once_cp(x, y, x, y, vec_x, vec_y); }
 };
 
 class Ellipse : public Circle {
@@ -246,6 +272,8 @@ public:
     }
   }
 
+  void move_once_ell_cp() { move_once_cp(x, y, x, y, vec_x, vec_y); }
+
   void move_urself_once() {
     float t = x_rad;
     x_rad = y_rad;
@@ -293,6 +321,15 @@ public:
     move_cent_once(x2, y2, x_c, y_c);
     move_cent_once(x3, y3, x_c, y_c);
     move_cent_once(x4, y4, x_c, y_c);
+  }
+
+  void move_once_diamond_cp() {
+    float x_c = (x + x3) / 2;
+    float y_c = (y + y3) / 2;
+    move_once_cp(x, y, x_c, y_c, vec_x, vec_y);
+    move_once_cp(x2, y2, x_c, y_c, vec_x, vec_y);
+    move_once_cp(x3, y3, x_c, y_c, vec_x, vec_y);
+    move_once_cp(x4, y4, x_c, y_c, vec_x, vec_y);
   }
 };
 

@@ -174,6 +174,14 @@ void move_all_illustration(Field &f, Line &line, Rectangle &rect,
 // }
 
 int main() {
+  tPoint arr_points[10];
+  Line arr_lines[10];
+  Triangle arr_trians[10];
+  Rectangle arr_rects[10];
+  Circle arr_circs[10];
+  Ellipse arr_ells[10];
+  Diamond arr_diams[10];
+
   Field f;
   f.init();
 

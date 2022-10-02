@@ -47,6 +47,28 @@ public:
       py--;
   }
 
+  void move_once_cp(float &px, float &py, float &pcx, float &pcy, int &pvec_x,
+                    int &pvec_y) {
+    if (vec_x == 0 || vec_y == 0)
+      return;
+    if (pcx < 0)
+      pvec_x = 1;
+    if (pcy < 0)
+      pvec_y = 1;
+    if (pcx > X_B)
+      pvec_x = -1;
+    if (pcy > Y_B)
+      pvec_y = -1;
+    if (pvec_x == 1)
+      px++;
+    if (pvec_y == 1)
+      py++;
+    if (pvec_x == -1)
+      px--;
+    if (pvec_y == -1)
+      py--;
+  }
+
   void move_cent_once(float &x, float &y, float &x_c, float &y_c) {
     float dx = x;
     float dy = y;

@@ -64,10 +64,16 @@ public:
   }
 
   void move_urself_once() {
-    float x_c = (x + x2) / 2;
-    float y_c = (y + y2) / 2;
-    move_cent_once(x, y, x_c, y_c);
-    move_cent_once(x2, y2, x_c, y_c);
+    int x_c = (x + x2) / 2;
+    int y_c = (y + y2) / 2;
+    float dx = x;
+    float dy = y;
+    float dx2 = x2;
+    float dy2 = y2;
+    x = x_c + (dx - x_c) * cos(M_PI / 180) - (dy - y_c) * sin(M_PI / 180);
+    y = y_c + (dx - x_c) * sin(M_PI / 180) + (dy - y_c) * cos(M_PI / 180);
+    x2 = x_c + (dx2 - x_c) * cos(M_PI / 180) - (dy2 - y_c) * sin(M_PI / 180);
+    y2 = y_c + (dx2 - x_c) * sin(M_PI / 180) + (dy2 - y_c) * cos(M_PI / 180);
   }
 };
 
@@ -132,11 +138,20 @@ public:
   }
 
   void move_urself_once() {
-    float x_c = (x + x2 + x3) / 3;
-    float y_c = (y + y2 + y3) / 3;
-    move_cent_once(x, y, x_c, y_c);
-    move_cent_once(x2, y2, x_c, y_c);
-    move_cent_once(x3, y3, x_c, y_c);
+    int x_c = (x + x2 + x3) / 3;
+    int y_c = (y + y2 + y3) / 3;
+    float dx = x;
+    float dy = y;
+    float dx2 = x2;
+    float dy2 = y2;
+    float dx3 = x3;
+    float dy3 = y3;
+    x = x_c + (dx - x_c) * cos(M_PI / 180) - (dy - y_c) * sin(M_PI / 180);
+    y = y_c + (dx - x_c) * sin(M_PI / 180) + (dy - y_c) * cos(M_PI / 180);
+    x2 = x_c + (dx2 - x_c) * cos(M_PI / 180) - (dy2 - y_c) * sin(M_PI / 180);
+    y2 = y_c + (dx2 - x_c) * sin(M_PI / 180) + (dy2 - y_c) * cos(M_PI / 180);
+    x3 = x_c + (dx3 - x_c) * cos(M_PI / 180) - (dy3 - y_c) * sin(M_PI / 180);
+    y3 = y_c + (dx3 - x_c) * sin(M_PI / 180) + (dy3 - y_c) * cos(M_PI / 180);
   }
 };
 
@@ -209,12 +224,24 @@ public:
   }
 
   void move_urself_once() {
-    float x_c = (x + x3) / 2;
-    float y_c = (y + y3) / 2;
-    move_cent_once(x, y, x_c, y_c);
-    move_cent_once(x2, y2, x_c, y_c);
-    move_cent_once(x3, y3, x_c, y_c);
-    move_cent_once(x4, y4, x_c, y_c);
+    int x_c = (x + x3) / 2;
+    int y_c = (y + y3) / 2;
+    float dx = x;
+    float dy = y;
+    float dx2 = x2;
+    float dy2 = y2;
+    float dx3 = x3;
+    float dy3 = y3;
+    float dx4 = x4;
+    float dy4 = y4;
+    x = x_c + (dx - x_c) * cos(M_PI / 180) - (dy - y_c) * sin(M_PI / 180);
+    y = y_c + (dx - x_c) * sin(M_PI / 180) + (dy - y_c) * cos(M_PI / 180);
+    x2 = x_c + (dx2 - x_c) * cos(M_PI / 180) - (dy2 - y_c) * sin(M_PI / 180);
+    y2 = y_c + (dx2 - x_c) * sin(M_PI / 180) + (dy2 - y_c) * cos(M_PI / 180);
+    x3 = x_c + (dx3 - x_c) * cos(M_PI / 180) - (dy3 - y_c) * sin(M_PI / 180);
+    y3 = y_c + (dx3 - x_c) * sin(M_PI / 180) + (dy3 - y_c) * cos(M_PI / 180);
+    x4 = x_c + (dx4 - x_c) * cos(M_PI / 180) - (dy4 - y_c) * sin(M_PI / 180);
+    y4 = y_c + (dx4 - x_c) * sin(M_PI / 180) + (dy4 - y_c) * cos(M_PI / 180);
   }
 };
 
@@ -417,12 +444,24 @@ public:
   }
 
   void move_urself_once() {
-    float x_c = (x + x3) / 2;
-    float y_c = (y + y3) / 2;
-    move_cent_once(x, y, x_c, y_c);
-    move_cent_once(x2, y2, x_c, y_c);
-    move_cent_once(x3, y3, x_c, y_c);
-    move_cent_once(x4, y4, x_c, y_c);
+    int x_c = (x + x3) / 2;
+    int y_c = (y + y3) / 2;
+    float dx = x;
+    float dy = y;
+    float dx2 = x2;
+    float dy2 = y2;
+    float dx3 = x3;
+    float dy3 = y3;
+    float dx4 = x4;
+    float dy4 = y4;
+    x = x_c + (dx - x_c) * cos(M_PI / 180) - (dy - y_c) * sin(M_PI / 180);
+    y = y_c + (dx - x_c) * sin(M_PI / 180) + (dy - y_c) * cos(M_PI / 180);
+    x2 = x_c + (dx2 - x_c) * cos(M_PI / 180) - (dy2 - y_c) * sin(M_PI / 180);
+    y2 = y_c + (dx2 - x_c) * sin(M_PI / 180) + (dy2 - y_c) * cos(M_PI / 180);
+    x3 = x_c + (dx3 - x_c) * cos(M_PI / 180) - (dy3 - y_c) * sin(M_PI / 180);
+    y3 = y_c + (dx3 - x_c) * sin(M_PI / 180) + (dy3 - y_c) * cos(M_PI / 180);
+    x4 = x_c + (dx4 - x_c) * cos(M_PI / 180) - (dy4 - y_c) * sin(M_PI / 180);
+    y4 = y_c + (dx4 - x_c) * sin(M_PI / 180) + (dy4 - y_c) * cos(M_PI / 180);
   }
 };
 
