@@ -28,6 +28,7 @@ void list::push_front(int key)
         newnode->next = this->first;
         this->first = newnode;
     }
+    this->size += 1;
 }
 
 void list::push_back(int key)
@@ -39,6 +40,7 @@ void list::push_back(int key)
         this->last->next = newnode;
         this->last = this->last->next;
     }
+    this->size += 1;
 }
 
 int list::pop_back()
@@ -54,6 +56,7 @@ int list::pop_back()
     head->next = nullptr;
     delete this->last;
     this->last = head;
+    this->size -= 1;
 
     return k;
 }
@@ -67,7 +70,7 @@ int list::pop_front()
     Node* head = first->next;
     delete this->first;
     this->first = head;
-
+    this->size -= 1;
     return k;
 }
 
@@ -83,6 +86,7 @@ void list::free_list()
         delete head;
         head = next;
     }
+    this->size = 0;
 }
 
 Node* list::find_node(int key)
@@ -121,7 +125,27 @@ void list::merge(list m)
 {
     Node* head = m.getfirst();
     while (head) {
-        push_back(head->key);
+        this->push_back(head->key);
+        head = head->next;
+    }
+}
+
+void list::unique()
+{
+    for (Node* i = this->first; i; i = i->next) {
+        for (Node* j = i->next; j; j = j->next) {
+            if (i->key == j->key)
+                this->remove(i->key);
+        }
+    }
+}
+
+void list::copyall(const list& l)
+{
+    this->first = this->last = nullptr;
+    Node* head = l.first;
+    while (head) {
+        this->push_back(head->key);
         head = head->next;
     }
 }
