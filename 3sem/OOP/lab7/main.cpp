@@ -21,5 +21,17 @@ int main(void)
 
     l.unique();
     l.print();
+
+    // !
+
+    stack s(5, 1);
+
+    // s.push(1);
+    // s.push(2);
+    // s.push(3);
+    while (!s.empty()) {
+        std::cout << s.pop() << std::endl;
+    }
+
     return 0;
 }
