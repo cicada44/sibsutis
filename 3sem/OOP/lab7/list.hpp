@@ -32,6 +32,8 @@ public:
     {
     }
     ~list() { free_list(); }
+    Node* getfirst() { return this->first; }
+    Node* getlast() { return this->last; }
     bool is_empty() { return (!first) ? true : false; }
     void print();
     Node* new_node(int key);
@@ -42,6 +44,9 @@ public:
     void free_list();
     Node* find_node(int key);
     void remove(int key);
+    Node* front() { return this->first; };
+    Node* back() { return this->last; };
+    void merge(list m);
 };
 
 #endif // __LIST__

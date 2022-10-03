@@ -116,3 +116,12 @@ void list::remove(int key)
         delete head;
     }
 }
+
+void list::merge(list m)
+{
+    Node* head = m.getfirst();
+    while (head) {
+        push_back(head->key);
+        head = head->next;
+    }
+}

@@ -8,7 +8,10 @@ int main(void)
     l.push_back(2);
     l.push_back(3);
     l.push_front(4);
-    l.remove(3);
+    list k;
+    k.push_front(15);
+    k.push_back(11);
+    l.merge(k);
     l.print();
     return 0;
 }
