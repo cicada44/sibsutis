@@ -24,7 +24,7 @@ int main(void)
 
     // !
 
-    stack s(5, 1);
+    queue s(5, 1);
 
     // s.push(1);
     // s.push(2);

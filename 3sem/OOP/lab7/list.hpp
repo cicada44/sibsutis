@@ -145,4 +145,63 @@ public:
     void free_stack() { this->free_list(); }
 };
 
-#endif // __STACK__
+#endif // __QUEUE__
+
+#ifdef __QUEUE__
+#error Stack was enabled earlier
+#else
+
+#ifndef __LIST__
+#error List dont included
+#endif
+
+#define __QUEUE__
+
+class queue : protected list {
+private:
+    Node* _back;
+
+public:
+    queue()
+        : _back(nullptr)
+    {
+        setsize(0);
+        setfirst(nullptr);
+        setlast(nullptr);
+    }
+    queue(std::initializer_list<int> s)
+    {
+        this->setfirst(nullptr);
+        this->setlast(nullptr);
+        this->setsize(0);
+        for (auto tmp : s) {
+            this->push(tmp);
+        }
+    }
+    queue(unsigned long count, int key)
+    {
+        this->setfirst(nullptr);
+        this->setlast(nullptr);
+        this->setsize(0);
+        for (decltype(count) i = 0; i < count; ++i)
+            this->push(key);
+    }
+    ~queue() { free_queue(); }
+    void push(int key)
+    {
+        this->push_back(key);
+        this->_back = this->getlast();
+    }
+    int pop()
+    {
+        int k = this->pop_front();
+        _back = this->getlast();
+        return k;
+    }
+    bool empty() { return this->is_empty(); }
+    unsigned long size() { return this->getsize(); }
+    Node* back() { return this->_back; }
+    void free_queue() { this->free_list(); }
+};
+
+#endif // __QUEUE__
