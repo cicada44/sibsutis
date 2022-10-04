@@ -1,5 +1,7 @@
 #include "list.hpp"
 
+unsigned long list::count = 0;
+
 int main(void)
 {
     list l = { 1, 2, 3, 4, 5, 1 };
@@ -13,11 +15,11 @@ int main(void)
     // l.push_front(4);
     // l.print();
 
-    // list m;
-    // m.push_back(31);
-    // m.push_front(14);
+    list m;
+    m.push_back(31);
+    m.push_front(14);
 
-    // l = l + m;
+    l = l + m;
 
     l.unique();
     l.print();
@@ -29,9 +31,12 @@ int main(void)
     // s.push(1);
     // s.push(2);
     // s.push(3);
-    while (!s.empty()) {
-        std::cout << s.pop() << std::endl;
-    }
+    
+    // while (!s.empty()) {
+    //     std::cout << s.pop() << std::endl;
+    // }
+
+    std::cout << list::getcount() << std::endl;
 
     return 0;
 }

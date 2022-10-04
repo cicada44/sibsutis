@@ -24,6 +24,7 @@ private:
     Node* last;
     unsigned long size;
     void copyall(const list& l);
+    static unsigned long count;
 
 public:
     list()
@@ -31,6 +32,7 @@ public:
         , last(nullptr)
         , size(0)
     {
+        list::setcount(list::getcount() + 1);
     }
     list(std::initializer_list<int> s)
     {
@@ -39,6 +41,7 @@ public:
         for (auto tmp : s) {
             this->push_back(tmp);
         }
+        list::setcount(list::getcount() + 1);
     }
     list(unsigned long count, int key)
     {
@@ -46,16 +49,22 @@ public:
         this->size = 0;
         for (decltype(count) i = 0; i < count; ++i)
             this->push_back(key);
+        list::setcount(list::getcount() + 1);
     }
-    ~list() { free_list(); }
+    ~list() { 
+        free_list(); 
+        list::setcount(list::getcount() - 1);
+    }
     list(const list& l) { this->copyall(l); }
 
     Node* getfirst() { return this->first; }
     Node* getlast() { return this->last; }
     unsigned long getsize() { return this->size; }
+    static unsigned long getcount() { return list::count; }
     void setsize(unsigned long n) { this->size = n; }
     void setfirst(Node* f) { this->first = f; }
     void setlast(Node* l) { this->last = l; }
+    void setcount(unsigned long n) { list::count += 1; }
     bool is_empty() { return (!first) ? true : false; }
     void print();
     Node* new_node(int key);

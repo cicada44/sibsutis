@@ -14,7 +14,12 @@ void list::print()
 
 Node* list::new_node(int key)
 {
-    Node* temp = new Node(key);
+    Node* temp = nullptr;
+    try {
+        temp = new Node(key);
+    } catch (std::bad_alloc& ba) {
+        std::cerr << ba.what() << std::endl;
+    }
 
     return temp;
 }
