@@ -51,8 +51,9 @@ public:
             this->push_back(key);
         list::setcount(list::getcount() + 1);
     }
-    ~list() { 
-        free_list(); 
+    ~list()
+    {
+        free_list();
         list::setcount(list::getcount() - 1);
     }
     list(const list& l) { this->copyall(l); }
@@ -77,6 +78,7 @@ public:
     void remove(int key);
     Node* front() { return this->first; };
     Node* back() { return this->last; };
+    // friend list mergeKLists(std::vector<list>& lists);
     void merge(list m);
     void unique();
 
@@ -92,6 +94,8 @@ public:
         return tmp;
     }
 };
+
+list mergeKLists(std::vector<list>& lists);
 
 #endif // __LIST__
 

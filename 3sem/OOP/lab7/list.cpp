@@ -154,3 +154,24 @@ void list::copyall(const list& l)
         head = head->next;
     }
 }
+
+list mergeKLists(std::vector<list>& lists)
+{
+    list newlist;
+    while (1) {
+        int min = INT_MAX;
+        size_t idx;
+        for (size_t i = 0; i < lists.size(); ++i) {
+            Node* nd = lists[i].front();
+            if (nd && nd->key < min) {
+                min = nd->key;
+                idx = i;
+            }
+        }
+        if (min == INT_MAX)
+            break;
+        newlist.push_back(min);
+        lists[idx].pop_front();
+    }
+    return newlist;
+}
