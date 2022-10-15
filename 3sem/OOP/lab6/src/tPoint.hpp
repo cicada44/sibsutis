@@ -6,6 +6,8 @@
 #include <iostream>
 
 #define R_DOT 1
+#define X_B 635
+#define Y_B 475
 
 class tPoint {
 public:
@@ -17,16 +19,45 @@ public:
   }
   int get_color() { return this->color; }
   void set_color(int clr) { this->color = clr; }
-  int get_x() { return this->x; }
+  float get_x() { return this->x; }
   void set_x(int x) { this->x = x; }
-  int get_y() { return this->y; }
+  float get_y() { return this->y; }
   void set_y(int y) { this->y = y; }
   int get_real() { return this->real; }
   void set_real(int real) { this->real = real; }
-  int get_vec_x() { return this->vec_x; }
+  float get_vec_x() { return this->vec_x; }
   void set_vec_x(int vec_x) { this->vec_x = vec_x; }
-  int get_vec_y() { return this->vec_y; }
+  float get_vec_y() { return this->vec_y; }
   void set_vec_y(int vec_y) { this->vec_y = vec_y; }
+
+  virtual void move_once() {
+    if (vec_x == 0 || vec_y == 0)
+      return;
+    if (x == 0) {
+      vec_x = 1;
+    }
+    if (y == 0) {
+      vec_y = 1;
+    }
+    if (x == X_B) {
+      vec_x = -1;
+    }
+    if (y == Y_B) {
+      vec_y = -1;
+    }
+    if (vec_x == 1) {
+      x++;
+    }
+    if (vec_y == 1) {
+      y++;
+    }
+    if (vec_x == -1) {
+      x--;
+    }
+    if (vec_y == -1) {
+      y--;
+    }
+  }
 
   void move_cent_once(float &x, float &y, float &x_c, float &y_c) {
     float dx = x;
@@ -40,7 +71,7 @@ protected:
   int color;
   float x;
   float y;
-  int vec_x, vec_y;
+  float vec_x, vec_y;
 
 private:
 };

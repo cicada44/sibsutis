@@ -39,7 +39,7 @@ public:
   float get_x2() { return this->x2; }
   float get_y2() { return this->y2; }
 
-  void move_once() {
+  virtual void move_once() {
     if (vec_x == 0 || vec_y == 0)
       return;
     if (x == 0 || x2 == 0) {
@@ -122,7 +122,7 @@ public:
   float get_x3() { return this->x3; }
   float get_y3() { return this->y3; }
 
-  void move_once() {
+  virtual void move_once() {
     if (vec_x == 0 || vec_y == 0)
       return;
     if (x == 0 || x2 == 0 || x3 == 0) {
@@ -219,7 +219,7 @@ public:
   void set_x4(int x4) { this->x4 = x4; }
   void set_y4(int y4) { this->y4 = y4; }
 
-  void move_once() {
+  virtual void move_once() {
     if (vec_x == 0 || vec_y == 0)
       return;
     if (x == 0 || x4 == 0) {
@@ -320,7 +320,7 @@ public:
 
   void seted_rad() { this->rad = sqrt(pow((x2 - x), 2) + pow((y2 - y), 2)); }
 
-  void move_once() {
+  virtual void move_once() {
     if (vec_x == 0 || vec_y == 0)
       return;
     if (x == 0 || x2 == 0 || x - rad == 0 || x2 - rad == 0) {

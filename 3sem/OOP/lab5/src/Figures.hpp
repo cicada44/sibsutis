@@ -300,6 +300,8 @@ public:
       y--;
     }
   }
+
+  void move_once_ac() { move_cent_once(x, y, x2, y2); }
 };
 
 class Ellipse : public Circle {

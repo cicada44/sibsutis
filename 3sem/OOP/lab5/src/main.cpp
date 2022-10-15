@@ -125,6 +125,15 @@ void draw_circ_lt(Field &f, Circle &circ) {
   }
 }
 
+void draw_circ_def(Field &f, Circle &circ) {
+  for (int x = 0; x < 4000; x++) {
+    delay(DELAY_UMSHORT);
+    cleardevice();
+    circ.move_once_ac();
+    f.draw_circle(circ);
+  }
+}
+
 // void draw_circ_lt_cp(Field &f, Circle &circ) {
 //   for (int x = 0; x < 4000; x++) {
 //     delay(DELAY_UMSHORT);
@@ -277,33 +286,67 @@ void move_all_illustration_urself(Field &f, Line &line, Rectangle &rect,
 // }
 
 int main() {
-  tPoint arr_points[10];
-  Line arr_lines[10];
-  Circle arr_cirs[10];
-  Triangle arr_trians[10];
-  Rectangle arr_recs[10];
-  Diamond arr_diams[10];
-  Ellipse arr_ells[10];
-
   Field f;
   f.init();
 
-  float cent_x = getmaxx() / 2;
-  float cent_y = getmaxy() / 2;
+  tPoint arr_points[3];
+  Line arr_lines[3];
+  Circle arr_cirs[3];
+  Triangle arr_trians[3];
+  Rectangle arr_recs[3];
+  Diamond arr_diams[3];
+  Ellipse arr_ells[3];
 
-  Line line1(cent_x, cent_y, cent_x + 70, cent_y + 70, 1, 1);
+  for (int x = 0; x != 3; x++) {
+    arr_points[x].set_x(x * 20 + 5);
+    arr_points[x].set_y(20);
+    arr_points[x].set_color(2);
+  }
 
-  Triangle trian1(cent_x, cent_y, cent_x + 70, cent_y, cent_x, cent_y + 70, 1,
-                  1);
+  for (int x = 0; x != 3; x++)
+    f.draw_dot(arr_points[x]);
 
-  Rectangle rect1(cent_x, cent_y, cent_x + 100, cent_y, cent_x + 100,
-                  cent_y + 70, cent_x, cent_y + 70, 1, 1);
+  for (int x = 0; x != 3; x++) {
+    arr_lines[x].set_x(x * 20 + 20);
+    arr_lines[x].set_x2(x * 20 + 20);
+    arr_lines[x].set_y(40);
+    arr_lines[x].set_y2(60);
+    arr_lines[x].set_color(2);
+  }
 
-  Circle circle1(cent_x, cent_y, cent_x + 50, cent_y, 1, 1);
+  for (int x = 0; x != 3; x++)
+    f.draw_line(arr_lines[x]);
 
-  Ellipse ellip1(100, 300, 0, 360, 100, 50, 1, 1);
+  for (int x = 0; x != 3; x++) {
+    arr_trians[x].set_x(x * 20 + 50);
+    arr_trians[x].set_y(80);
+    arr_trians[x].set_x2(x * 20 + 80);
+    arr_trians[x].set_y2(80);
+    arr_trians[x].set_x3(x * 20 + 50);
+    arr_trians[x].set_y3(120);
+    arr_trians[x].set_color(2);
+  }
 
-  Diamond diam1(200, 200, 250, 300, 300, 200, 250, 100, 1, 1);
+  for (int x = 0; x != 3; x++)
+    f.draw_triangle(arr_trians[x]);
+
+  // float cent_x = getmaxx() / 2;
+  // float cent_y = getmaxy() / 2;
+
+  // Line line1(cent_x, cent_y, cent_x + 70, cent_y + 70, 1, 1);
+
+  // Triangle trian1(cent_x, cent_y, cent_x + 70, cent_y, cent_x, cent_y + 70,
+  // 1,
+  //                 1);
+
+  // Rectangle rect1(cent_x, cent_y, cent_x + 100, cent_y, cent_x + 100,
+  //                 cent_y + 70, cent_x, cent_y + 70, 1, 1);
+
+  // Circle circle1(cent_x, cent_y, cent_x + 50, cent_y, 1, 1);
+
+  // Ellipse ellip1(100, 300, 0, 360, 100, 50, 1, 1);
+
+  // Diamond diam1(200, 200, 250, 300, 300, 200, 250, 100, 1, 1);
 
   // f.draw_dot(point);
   // f.draw_circle(circle1);
@@ -327,13 +370,18 @@ int main() {
   // draw_ell_urself_lt(f, ellip1);
   // draw_diam_urself_lt(f, diam1);
 
-  move_all_illustration(f, line1, rect1, trian1, circle1, ellip1, diam1);
+  // move_all_illustration(f, line1, rect1, trian1, circle1, ellip1, diam1);
 
-  move_all_illustration_urself(f, line1, rect1, trian1, circle1, ellip1, diam1);
+  // move_all_illustration_urself(f, line1, rect1, trian1, circle1, ellip1,
+  // diam1);
 
   // move_all_illustration_cp(f, line1, rect1, trian1, circle1, ellip1, diam1);
 
   // delay(DELAY_LONG);
+
+  // draw_circ_def(f, circle1);
+
+  delay(DELAY_SHORT);
   closegraph();
   return 0;
 }

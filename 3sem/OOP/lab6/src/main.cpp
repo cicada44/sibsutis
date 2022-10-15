@@ -116,7 +116,7 @@ void draw_rect_urself_lt(Field &f, Rectangle &rect) {
 
 /* CIRCLE */
 
-void draw_circ_lt(Field &f, Circle &circ) {
+void draw_circ_lt(Field &f, Circle circ) {
   for (int x = 0; x < 4000; x++) {
     delay(DELAY_UMSHORT);
     cleardevice();
@@ -313,50 +313,12 @@ int main() {
        << "  x - " << arr_shapes[5]->get_x() << "  y - "
        << arr_shapes[5]->get_y() << "\n";
 
-  Line line1(cent_x, cent_y, cent_x + 70, cent_y + 70, 1, 1);
+  for (int x = 0; x < 1000; x++) {
+    circle(arr_shapes[3][0].get_x(), arr_shapes[3][0].get_y(), 100);
+    arr_shapes[3][0].move_once();
+    delay(DELAY_USHORT);
+  }
 
-  Triangle trian1(cent_x, cent_y, cent_x + 70, cent_y, cent_x, cent_y + 70, 1,
-                  1);
-
-  Rectangle rect1(cent_x, cent_y, cent_x + 100, cent_y, cent_x + 100,
-                  cent_y + 70, cent_x, cent_y + 70, 1, 1);
-
-  Circle circle1(cent_x, cent_y, cent_x + 50, cent_y, 1, 1);
-
-  Ellipse ellip1(100, 300, 0, 360, 100, 50, 1, 1);
-
-  Diamond diam1(200, 200, 250, 300, 300, 200, 250, 100, 1, 1);
-
-  // f.draw_dot(point);
-  // f.draw_circle(circle1);
-  // f.draw_line(line1);
-  // f.draw_rectangle(rect1);
-  // f.draw_triangle(trian1);
-  // f.draw_ellipse(ellip1);
-  // f.draw_diamond(diam1);
-
-  // draw_dot_lt(f, point);
-  // draw_line_lt(f, line1);
-  // draw_trian_lt(f, trian1);
-  // draw_rect_lt(f, rect1);
-  // draw_circ_lt(f, circle1);
-  // draw_diam_lt(f, diam1);
-  // draw_ell_lt(f, ellip1);
-
-  // draw_line_urself_lt(f, line1);
-  // draw_trian_urself_lt(f, trian1);
-  // draw_rect_urself_lt(f, rect1);
-  // draw_ell_urself_lt(f, ellip1);
-  // draw_diam_urself_lt(f, diam1);
-
-  // move_all_illustration(f, line1, rect1, trian1, circle1, ellip1, diam1);
-
-  // move_all_illustration_urself(f, line1, rect1, trian1, circle1, ellip1,
-  // diam1);
-
-  // move_all_illustration_cp(f, line1, rect1, trian1, circle1, ellip1, diam1);
-
-  // delay(DELAY_LONG);
   closegraph();
   return 0;
 }

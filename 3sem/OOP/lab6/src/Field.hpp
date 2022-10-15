@@ -15,9 +15,9 @@ public:
 
   void init();
   void draw_dot(tPoint &tp);
-  void draw_line(Line &l);
+  void draw_line(Line l);
   void draw_rectangle(Rectangle &rect);
-  void draw_circle(Circle &c);
+  void draw_circle(Circle c);
   void draw_triangle(Triangle &trian);
   void draw_ellipse(Ellipse &ellipse);
   void draw_diamond(Diamond &diam);
@@ -35,7 +35,7 @@ void Field::draw_dot(tPoint &tp) {
   circle(tp.get_x(), tp.get_y(), R_DOT);
 }
 
-void Field::draw_line(Line &l) {
+void Field::draw_line(Line l) {
   setcolor(l.get_color());
   line(l.get_x(), l.get_y(), l.get_x2(), l.get_y2());
 }
@@ -48,7 +48,7 @@ void Field::draw_rectangle(Rectangle &rect) {
   line(rect.get_x4(), rect.get_y4(), rect.get_x(), rect.get_y());
 }
 
-void Field::draw_circle(Circle &c) {
+void Field::draw_circle(Circle c) {
   setcolor(c.get_color());
   circle(c.get_x(), c.get_y(), c.get_rad());
 }
