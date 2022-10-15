@@ -5,89 +5,53 @@
 
 struct avltree *avltree_delete(struct avltree *tree, int key)
 {
-    // STEP 1: PERFORM STANDARD BST DELETE
-
     if (tree == NULL)
         return tree;
-
-    // If the key to be deleted is smaller than the
-    // tree's key, then it lies in left subtree
     if (key < tree->key)
         tree->left = avltree_delete(tree->left, key);
-
-    // If the key to be deleted is greater than the
-    // tree's key, then it lies in right subtree
     else if (key > tree->key)
         tree->right = avltree_delete(tree->right, key);
-
-    // if key is same as tree's key, then This is
-    // the node to be deleted
     else
     {
-        // node with only one child or no child
         if ((tree->left == NULL) || (tree->right == NULL))
         {
             struct avltree *temp = tree->left ? tree->left : tree->right;
 
-            // No child case
             if (temp == NULL)
             {
                 temp = tree;
                 tree = NULL;
             }
-            else               // One child case
-                *tree = *temp; // Copy the contents of
-                               // the non-empty child
+            else
+                *tree = *temp;
             free(temp);
         }
         else
         {
-            // node with two children: Get the inorder
-            // successor (smallest in the right subtree)
             struct avltree *temp = avltree_min(tree->right);
-
-            // Copy the inorder successor's data to this node
             tree->key = temp->key;
-
-            // Delete the inorder successor
             tree->right = avltree_delete(tree->right, temp->key);
         }
     }
-
-    // If the tree had only one node then return
     if (tree == NULL)
         return tree;
 
-    // STEP 2: UPDATE HEIGHT OF THE CURRENT NODE
     tree->height = 1 + imax2(avltree_height(tree->left),
                              avltree_height(tree->right));
 
-    // STEP 3: GET THE BALANCE FACTOR OF THIS NODE (to
-    // check whether this node became unbalanced)
     int balance = avltree_balance(tree);
 
-    // If this node becomes unbalanced, then there are 4 cases
-
-    // Left Left Case
     if (balance > 1 && avltree_balance(tree->left) >= 0)
         return avltree_right_rotate(tree);
 
-    // Left Right Case
     if (balance > 1 && avltree_balance(tree->left) < 0)
-    {
         return avltree_leftright_rotate(tree);
-    }
 
-    // Right Right Case
     if (balance < -1 && avltree_balance(tree->right) <= 0)
         return avltree_left_rotate(tree);
 
-    // Right Left Case
     if (balance < -1 && avltree_balance(tree->right) > 0)
-    {
         return avltree_rightleft_rotate(tree);
-    }
-
     return tree;
 }
 
@@ -100,40 +64,24 @@ struct avltree *avltree_add(struct avltree *tree, int key, char *value)
 
     if (key < tree->key)
     {
-        /* Insert into left subtree */
         tree->left = avltree_add(tree->left, key, value);
         if (avltree_height(tree->left) - avltree_height(tree->right) == 2)
         {
-            /* Subtree is unbalanced */
             if (key < tree->left->key)
-            {
-                /* Left left case */
                 tree = avltree_right_rotate(tree);
-            }
             else
-            {
-                /* Left right case */
                 tree = avltree_leftright_rotate(tree);
-            }
         }
     }
     else if (key > tree->key)
     {
-        /* Insert into right subtree */
         tree->right = avltree_add(tree->right, key, value);
         if (avltree_height(tree->right) - avltree_height(tree->left) == 2)
         {
-            /* Subtree is unbalanced */
             if (key > tree->right->key)
-            {
-                /* Right right case */
                 tree = avltree_left_rotate(tree);
-            }
             else
-            {
-                /* Right left case */
                 tree = avltree_rightleft_rotate(tree);
-            }
         }
     }
     tree->height = imax2(avltree_height(tree->left),

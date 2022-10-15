@@ -1,4 +1,5 @@
 SRC = src
+FLAGS = -Wall -Wwrite-strings -Wextra
 DOT = tPoint.hpp
 FIELD = Field.hpp
 MAIN = main.cpp
@@ -16,7 +17,7 @@ dots_clean:
 clean:
 	rm $(BUILD)/*
 figures:
-	$(PP) $(SRC)/$(MAIN) $(F_GRAPH) -o $(BUILD)/figures
+	$(PP) $(FLAGS) $(SRC)/$(MAIN) $(F_GRAPH) -o $(BUILD)/figures
 figures_run:
 	$(BUILD)/figures
 figures_clean:
