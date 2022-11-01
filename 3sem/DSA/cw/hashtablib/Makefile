@@ -6,7 +6,7 @@ BUILD=build
 
 hashtab:
 	$(GPP) $(FLAGS) main.cpp $(HASHTABFUNCS) -o $(BUILD)/ht_exp
-ex_hashtab:
+hashtab_ex:
 	$(BUILD)/ht_exp
 clear:
 	rm $(BUILD)/*

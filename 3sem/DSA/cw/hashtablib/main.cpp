@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#define SIZE_HT 100
+#define SIZE_HT 20001
 
 using std::cin;
 using std::cout;
@@ -13,12 +13,12 @@ using std::string;
 using std::vector;
 
 int main(int argc, char **argv) {
+  int collisions = 0;
+
   if (argc != 2) {
     cout << "problems with count of arguments\n";
     exit(-1);
   }
-
-  string default_value = "def";
 
   Hashtab ht_default(SIZE_HT);
 
@@ -29,11 +29,13 @@ int main(int argc, char **argv) {
     exit(-1);
   }
 
-  cout << "count of lines - " << dict.size() << "\n";
+  /* hashtab working... */
+
+  int n = 0;
 
   for (auto &c : dict) {
-    ht_default.add(c, default_value);
-    // cout << "line - " << c << "\n";
+    ht_default.add_dhash(c, n, collisions);
+    n++;
   }
 
   print_hashtab(ht_default);
