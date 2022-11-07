@@ -2,37 +2,43 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+#define LEN 40
+
 using std::cin;
 using std::cout;
 
+int Fighter::get_x() { return body.getPosition().x; }
+
+int Fighter::get_y() { return body.getPosition().y; }
+
 Fighter::Fighter(sf::Color clr) {
-  left_leg.setSize(sf::Vector2f(130, 5));
+  left_leg.setSize(sf::Vector2f(LEN, 5));
   left_leg.setFillColor(clr);
-  left_leg.setPosition(sf::Vector2f(200, 400));
+  left_leg.setPosition(sf::Vector2f(200, 600));
   left_leg.rotate(60);
 
-  right_leg.setSize(sf::Vector2f(130, 5));
+  right_leg.setSize(sf::Vector2f(LEN, 5));
   right_leg.setFillColor(clr);
-  right_leg.setPosition(sf::Vector2f(200, 400));
+  right_leg.setPosition(sf::Vector2f(200, 600));
   right_leg.rotate(120);
 
-  body.setSize(sf::Vector2f(130, 5));
+  body.setSize(sf::Vector2f(LEN, 5));
   body.setFillColor(clr);
-  body.setPosition(sf::Vector2f(200, 270));
+  body.setPosition(sf::Vector2f(200, 600 - LEN));
   body.rotate(90);
 
-  left_hand.setSize(sf::Vector2f(130, 5));
+  left_hand.setSize(sf::Vector2f(LEN, 5));
   left_hand.setFillColor(clr);
-  left_hand.setPosition(sf::Vector2f(200, 290));
+  left_hand.setPosition(sf::Vector2f(200, 600 - LEN));
   left_hand.rotate(60);
 
-  right_hand.setSize(sf::Vector2f(130, 5));
+  right_hand.setSize(sf::Vector2f(LEN, 5));
   right_hand.setFillColor(clr);
-  right_hand.setPosition(sf::Vector2f(200, 290));
+  right_hand.setPosition(sf::Vector2f(200, 600 - LEN));
   right_hand.rotate(120);
 
   head.setRadius(20);
-  head.setPosition(178, 235);
+  head.setPosition(178, 600 - LEN - LEN);
   head.setFillColor(clr);
 }
 
@@ -70,3 +76,7 @@ void Fighter::move_y(int speed) {
   body.setPosition(body.getPosition().x, body.getPosition().y + speed);
   head.setPosition(head.getPosition().x, head.getPosition().y + speed);
 }
+
+void Fighter::shoot() { right_hand.setRotation(30); }
+
+void Fighter::reset() { right_hand.setRotation(120); }

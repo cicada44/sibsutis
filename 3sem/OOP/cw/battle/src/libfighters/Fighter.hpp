@@ -12,9 +12,14 @@ public:
   Fighter() = default;
   Fighter(sf::Color);
 
+  int get_x();
+  int get_y();
+
   void draw(sf::RenderWindow &);
   void move_x(int speed);
   void move_y(int speed);
+  void shoot();
+  void reset();
 
 private:
   sf::RectangleShape left_leg;
