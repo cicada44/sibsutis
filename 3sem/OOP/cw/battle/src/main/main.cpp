@@ -56,6 +56,7 @@ int main() {
           window.clear(sf::Color::White);
           window.draw(floor);
           f1.draw(window);
+          f2.draw(window);
           window.display();
           f1.reset();
           sf::sleep(sf::milliseconds(LONG_DELAY));
@@ -73,6 +74,7 @@ int main() {
           window.clear(sf::Color::White);
           window.draw(floor);
           f2.draw(window);
+          f1.draw(window);
           window.display();
           f2.reset();
           sf::sleep(sf::milliseconds(LONG_DELAY));
