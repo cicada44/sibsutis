@@ -1,5 +1,6 @@
 #include "Hashtab.hpp"
 #include "ext_funcs_hashtab.hpp"
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -43,6 +44,7 @@ void Hashtab::add_dhash(const string &key, const int &value, int &col) {
       break;
     }
   }
+  std::cout << "key - " << key << "\thcode - " << hcode << "\n";
 }
 
 void Hashtab::add_kidding(const string &key, const int &value, int &col) {

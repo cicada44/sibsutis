@@ -38,7 +38,9 @@ int main(int argc, char **argv) {
     n++;
   }
 
-  print_hashtab(ht_default);
+  // print_hashtab(ht_default);
+
+  cout << "n - " << n << "\n";
 
   return 0;
 }
