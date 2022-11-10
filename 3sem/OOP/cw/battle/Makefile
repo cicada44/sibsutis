@@ -11,7 +11,7 @@ FIGHTER_DIR=$(SRC_DIR)/libfighters
 MAIN_DIR=$(SRC_DIR)/main
 WINDOW_DIR=$(SRC_DIR)/libwindow
 
-COMPILE_SRC=$(MAIN_DIR)/main.cpp $(FIGHTER_DIR)/Fighter.cpp
+COMPILE_SRC=$(MAIN_DIR)/main.cpp $(FIGHTER_DIR)/Fighter.cpp $(FIGHTER_DIR)/Hp.cpp
 
 all:
 	$(PP) $(PP_FLAGS) $(COMPILE_SRC) $(SFML_FLAGS) -o $(BUILD_DIR)/battle

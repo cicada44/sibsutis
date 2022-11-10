@@ -1,15 +1,17 @@
 #include "Fighter.hpp"
+#include "../libfighters/Hp.hpp"
 #include <SFML/Graphics.hpp>
+#include <cmath>
 #include <iostream>
 
 #define LEN 40
+#define LONG_DELAY 100
 
 using std::cin;
 using std::cout;
 
-int Fighter::get_x() { return body.getPosition().x; }
-
-int Fighter::get_y() { return body.getPosition().y; }
+int Fighter::get_x() { return static_cast<int>(body.getPosition().x); }
+int Fighter::get_y() { return static_cast<int>(body.getPosition().y); }
 
 Fighter::Fighter(sf::Color clr) {
   left_leg.setSize(sf::Vector2f(LEN, 5));
@@ -40,9 +42,52 @@ Fighter::Fighter(sf::Color clr) {
   head.setRadius(20);
   head.setPosition(178, 600 - LEN - LEN);
   head.setFillColor(clr);
+
+  this->clr = clr;
 }
 
+Fighter::Fighter(int x, int y, sf::Color c) {
+  body.setSize(sf::Vector2f(LEN, 5));
+  body.setFillColor(c);
+  body.setPosition(sf::Vector2f(x, y - LEN));
+  body.rotate(90);
+
+  left_leg.setSize(sf::Vector2f(LEN, 5));
+  left_leg.setFillColor(c);
+  left_leg.setPosition(sf::Vector2f(x, y));
+  left_leg.rotate(60);
+
+  right_leg.setSize(sf::Vector2f(LEN, 5));
+  right_leg.setFillColor(c);
+  right_leg.setPosition(sf::Vector2f(x, y));
+  right_leg.rotate(120);
+
+  left_hand.setSize(sf::Vector2f(LEN, 5));
+  left_hand.setFillColor(c);
+  left_hand.setPosition(sf::Vector2f(x, y - LEN));
+  left_hand.rotate(60);
+
+  right_hand.setSize(sf::Vector2f(LEN, 5));
+  right_hand.setFillColor(c);
+  right_hand.setPosition(sf::Vector2f(x, y - LEN));
+  right_hand.rotate(120);
+
+  head.setRadius(20);
+  head.setPosition(x - 22, y - LEN - LEN);
+  head.setFillColor(clr);
+
+  this->clr = c;
+}
+
+void Fighter::set_color(sf::Color c) { clr = c; }
+
 void Fighter::draw(sf::RenderWindow &window) {
+  left_hand.setFillColor(clr);
+  left_leg.setFillColor(clr);
+  right_hand.setFillColor(clr);
+  right_leg.setFillColor(clr);
+  body.setFillColor(clr);
+  head.setFillColor(clr);
   window.draw(left_leg);
   window.draw(right_leg);
   window.draw(body);
@@ -77,6 +122,35 @@ void Fighter::move_y(int speed) {
   head.setPosition(head.getPosition().x, head.getPosition().y + speed);
 }
 
-void Fighter::shoot() { right_hand.setRotation(30); }
+void Fighter::shoot(sf::RenderWindow &window, Fighter &f2,
+                    sf::RectangleShape &floor) {
+  window.clear(sf::Color::White);
+  right_hand.setRotation(30);
+
+  window.draw(floor);
+
+  this->draw(window);
+  f2.draw(window);
+  window.display();
+
+  if (abs(get_x() - f2.get_x()) < 40) {
+    cout << "diff - " << abs(get_x() - f2.get_x()) << "\n";
+
+    // sf::Color tclr = clr;
+
+    f2.set_color(sf::Color::Red);
+
+    f2.draw(window);
+
+    sf::sleep(sf::milliseconds(1000));
+    this->reset();
+
+    // f2.set_color(tclr);
+    return;
+  }
+
+  this->reset();
+  sf::sleep(sf::milliseconds(LONG_DELAY));
+}
 
 void Fighter::reset() { right_hand.setRotation(120); }

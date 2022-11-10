@@ -6,11 +6,11 @@
 // default fighter
 
 class Fighter {
-  //   friend void Window::draw_fighter(Fighter &f);
 
 public:
   Fighter() = default;
   Fighter(sf::Color);
+  Fighter(int x, int y, sf::Color c);
 
   int get_x();
   int get_y();
@@ -18,7 +18,8 @@ public:
   void draw(sf::RenderWindow &);
   void move_x(int speed);
   void move_y(int speed);
-  void shoot();
+  void shoot(sf::RenderWindow &window, Fighter &f2, sf::RectangleShape &floor);
+  void set_color(sf::Color clr);
   void reset();
 
 private:
@@ -28,6 +29,7 @@ private:
   sf::RectangleShape right_hand;
   sf::RectangleShape body;
   sf::CircleShape head;
+  sf::Color clr;
 };
 
 #endif // __FIGHTER_H__

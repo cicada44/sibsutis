@@ -1,4 +1,5 @@
 #include "../libfighters/Fighter.hpp"
+#include "../libfighters/Hp.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <unistd.h>
@@ -12,8 +13,11 @@ using std::cin;
 using std::cout;
 
 int main() {
-  Fighter f1(sf::Color::Black);
-  Fighter f2(sf::Color::Cyan);
+  // Fighter f1(sf::Color::Black);
+  // Fighter f2(sf::Color::Cyan);
+
+  Fighter f1(800, 600, sf::Color::Blue);
+  Fighter f2(200, 600, sf::Color::Blue);
 
   /* floor */
   sf::Color floor_clr;
@@ -24,6 +28,11 @@ int main() {
   floor.setSize(sf::Vector2f(1200, 190));
   floor.setPosition(sf::Vector2f(0, 485));
   floor.setFillColor(floor_clr);
+
+  /* hp of fighters */
+  Hp hp_left, hp_right;
+  hp_left.create(0);
+  hp_right.create(1);
 
   /* background texture */
   sf::Texture texture;
@@ -44,22 +53,15 @@ int main() {
         window.close();
       else if (event.type == sf::Event::KeyPressed) {
         if (event.key.code == sf::Keyboard::A && 0 < f1.get_x())
-          f1.move_x(-10);
+          f1.move_x(-20);
         if (event.key.code == sf::Keyboard::D && f1.get_x() < 1200)
-          f1.move_x(10);
+          f1.move_x(20);
         if (event.key.code == sf::Keyboard::W && 485 < f1.get_y() + 30)
-          f1.move_y(-10);
+          f1.move_y(-20);
         if (event.key.code == sf::Keyboard::S && f1.get_y() + 30 < 675)
-          f1.move_y(10);
+          f1.move_y(20);
         if (event.key.code == sf::Keyboard::E) {
-          f1.shoot();
-          window.clear(sf::Color::White);
-          window.draw(floor);
-          f1.draw(window);
-          f2.draw(window);
-          window.display();
-          f1.reset();
-          sf::sleep(sf::milliseconds(LONG_DELAY));
+          f1.shoot(window, f2, floor);
         }
         if (event.key.code == sf::Keyboard::Left && 0 < f2.get_x())
           f2.move_x(-10);
@@ -70,14 +72,7 @@ int main() {
         if (event.key.code == sf::Keyboard::Down && f2.get_y() + 30 < 675)
           f2.move_y(10);
         if (event.key.code == sf::Keyboard::RControl) {
-          f2.shoot();
-          window.clear(sf::Color::White);
-          window.draw(floor);
-          f2.draw(window);
-          f1.draw(window);
-          window.display();
-          f2.reset();
-          sf::sleep(sf::milliseconds(LONG_DELAY));
+          f2.shoot(window, f1, floor);
         }
       }
     }
@@ -85,8 +80,10 @@ int main() {
     /* clear window */
     window.clear(sf::Color::White);
 
-    /* draw floor */
+    /* draw floor & hp*/
     window.draw(floor);
+    window.draw(hp_left.get_hp_scale());
+    window.draw(hp_right.get_hp_scale());
 
     f1.draw(window);
     f2.draw(window);
