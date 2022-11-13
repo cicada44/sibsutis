@@ -12,7 +12,12 @@
 using std::cin;
 using std::cout;
 
+void gameover_display(sf::RenderWindow &window);
+
 int main() {
+
+  sf::Font font_fot_go;
+  font_fot_go.loadFromFile("../images/go.ttf");
   // Fighter f1(sf::Color::Black);
   // Fighter f2(sf::Color::Cyan);
 
@@ -61,7 +66,7 @@ int main() {
         if (event.key.code == sf::Keyboard::S && f1.get_y() + 30 < 675)
           f1.move_y(20);
         if (event.key.code == sf::Keyboard::E) {
-          f1.shoot(window, f2, floor);
+          f1.shoot(window, f2, floor, hp_right);
         }
         if (event.key.code == sf::Keyboard::Left && 0 < f2.get_x())
           f2.move_x(-10);
@@ -72,9 +77,14 @@ int main() {
         if (event.key.code == sf::Keyboard::Down && f2.get_y() + 30 < 675)
           f2.move_y(10);
         if (event.key.code == sf::Keyboard::RControl) {
-          f2.shoot(window, f1, floor);
+          f2.shoot(window, f1, floor, hp_left);
         }
       }
+    }
+
+    // cout << "hpleft - " << hp_left.get_hp() << '\n';
+    if (static_cast<int>(hp_right.get_hp()) == 0) {
+      gameover_display(window);
     }
 
     /* clear window */
@@ -92,4 +102,20 @@ int main() {
   }
 
   return 0;
+}
+
+void gameover_display(sf::RenderWindow &window) {
+  // cout << "hpleft - " << hp_left.get_hp() << '\n';
+  sf::Font font;
+  if (!font.loadFromFile("../../images/arial.ttf")) {
+    cout << "can't load font" << '\n';
+  }
+  sf::Text text("Score = 0", font);
+  text.setCharacterSize(100);
+  text.setFillColor(sf::Color::White);
+  text.setCharacterSize(40);
+  text.setFillColor(sf::Color::Green);
+  window.draw(text);
+  window.display();
+  sf::sleep(sf::milliseconds(10000));
 }

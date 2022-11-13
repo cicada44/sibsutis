@@ -1,6 +1,7 @@
 #ifndef __FIGHTER_H__
 #define __FIGHTER_H__
 
+#include "../../src/libfighters/Hp.hpp"
 #include <SFML/Graphics.hpp>
 
 // default fighter
@@ -8,8 +9,6 @@
 class Fighter {
 
 public:
-  sf::Color clr;
-
   Fighter() = default;
   Fighter(sf::Color);
   Fighter(int x, int y, sf::Color c);
@@ -20,8 +19,9 @@ public:
   void draw(sf::RenderWindow &);
   void move_x(int speed);
   void move_y(int speed);
-  void shoot(sf::RenderWindow &window, Fighter &f2, sf::RectangleShape &floor);
-  void set_color(sf::Color &clr);
+  void shoot(sf::RenderWindow &window, Fighter &f2, sf::RectangleShape &floor,
+             Hp &hp_sc2);
+  void set_color(sf::Color clr);
   void reset();
 
 private:
@@ -31,7 +31,8 @@ private:
   sf::RectangleShape right_hand;
   sf::RectangleShape body;
   sf::CircleShape head;
-  // sf::Color clr;
+  sf::Color clr;
+  Hp hp;
 };
 
 #endif // __FIGHTER_H__

@@ -6,6 +6,7 @@
 
 #define LEN 40
 #define LONG_DELAY 140
+#define DMG_STANDART 50
 
 using std::cin;
 using std::cout;
@@ -79,7 +80,7 @@ Fighter::Fighter(int x, int y, sf::Color c) {
   this->clr = c;
 }
 
-void Fighter::set_color(sf::Color &c) { clr = c; }
+void Fighter::set_color(sf::Color c) { clr = c; }
 
 void Fighter::draw(sf::RenderWindow &window) {
   left_hand.setFillColor(clr);
@@ -123,33 +124,35 @@ void Fighter::move_y(int speed) {
 }
 
 void Fighter::shoot(sf::RenderWindow &window, Fighter &f2,
-                    sf::RectangleShape &floor) {
+                    sf::RectangleShape &floor, Hp &hp_sc2) {
   window.clear(sf::Color::White);
-  window.draw(floor);
+  draw_all_scales(window, hp, hp_sc2, floor);
 
   right_hand.setRotation(30);
-  this->draw(window);
 
+  this->draw(window);
   f2.draw(window);
 
   if (abs(get_x() - f2.get_x()) < 40) {
-    f2.clr = sf::Color::Red;
+    hp_sc2.decr_hp(DMG_STANDART);
+
+    sf::Color tclr = sf::Color::Blue;
+    f2.set_color(sf::Color::Red);
     f2.draw(window);
     window.display();
 
     sf::sleep(sf::milliseconds(100));
-
-    f2.clr = sf::Color::Blue;
+    f2.set_color(tclr);
 
     this->reset();
     this->draw(window);
     f2.draw(window);
+    draw_all_scales(window, hp, hp_sc2, floor);
 
     window.display();
 
     return;
   }
-
   this->reset();
   window.display();
   sf::sleep(sf::milliseconds(LONG_DELAY));
