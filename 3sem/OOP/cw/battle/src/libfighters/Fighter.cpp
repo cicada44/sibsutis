@@ -5,7 +5,7 @@
 #include <iostream>
 
 #define LEN 40
-#define LONG_DELAY 100
+#define LONG_DELAY 140
 
 using std::cin;
 using std::cout;
@@ -79,7 +79,7 @@ Fighter::Fighter(int x, int y, sf::Color c) {
   this->clr = c;
 }
 
-void Fighter::set_color(sf::Color c) { clr = c; }
+void Fighter::set_color(sf::Color &c) { clr = c; }
 
 void Fighter::draw(sf::RenderWindow &window) {
   left_hand.setFillColor(clr);
@@ -125,31 +125,33 @@ void Fighter::move_y(int speed) {
 void Fighter::shoot(sf::RenderWindow &window, Fighter &f2,
                     sf::RectangleShape &floor) {
   window.clear(sf::Color::White);
-  right_hand.setRotation(30);
-
   window.draw(floor);
 
+  right_hand.setRotation(30);
   this->draw(window);
+
   f2.draw(window);
-  window.display();
 
   if (abs(get_x() - f2.get_x()) < 40) {
-    cout << "diff - " << abs(get_x() - f2.get_x()) << "\n";
+    f2.clr = sf::Color::Red;
+    f2.draw(window);
+    window.display();
 
-    // sf::Color tclr = clr;
+    sf::sleep(sf::milliseconds(100));
 
-    f2.set_color(sf::Color::Red);
+    f2.clr = sf::Color::Blue;
 
+    this->reset();
+    this->draw(window);
     f2.draw(window);
 
-    sf::sleep(sf::milliseconds(1000));
-    this->reset();
+    window.display();
 
-    // f2.set_color(tclr);
     return;
   }
 
   this->reset();
+  window.display();
   sf::sleep(sf::milliseconds(LONG_DELAY));
 }
 

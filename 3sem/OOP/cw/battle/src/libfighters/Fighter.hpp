@@ -8,6 +8,8 @@
 class Fighter {
 
 public:
+  sf::Color clr;
+
   Fighter() = default;
   Fighter(sf::Color);
   Fighter(int x, int y, sf::Color c);
@@ -19,7 +21,7 @@ public:
   void move_x(int speed);
   void move_y(int speed);
   void shoot(sf::RenderWindow &window, Fighter &f2, sf::RectangleShape &floor);
-  void set_color(sf::Color clr);
+  void set_color(sf::Color &clr);
   void reset();
 
 private:
@@ -29,7 +31,7 @@ private:
   sf::RectangleShape right_hand;
   sf::RectangleShape body;
   sf::CircleShape head;
-  sf::Color clr;
+  // sf::Color clr;
 };
 
 #endif // __FIGHTER_H__
