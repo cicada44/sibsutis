@@ -15,11 +15,11 @@ using std::cout;
 void gameover_display(sf::RenderWindow &window);
 
 int main() {
+  // sf::FileInputStream stream;
+  // stream.open("..//images/go.ttf");
 
-  sf::Font font_fot_go;
-  font_fot_go.loadFromFile("../images/go.ttf");
-  // Fighter f1(sf::Color::Black);
-  // Fighter f2(sf::Color::Cyan);
+  // sf::Font font;
+  // font.loadFromFile("images/go2.TTF");
 
   Fighter f1(800, 600, sf::Color::Blue);
   Fighter f2(200, 600, sf::Color::Blue);
@@ -105,14 +105,12 @@ int main() {
 }
 
 void gameover_display(sf::RenderWindow &window) {
+  window.clear(sf::Color::Red);
   // cout << "hpleft - " << hp_left.get_hp() << '\n';
   sf::Font font;
-  if (!font.loadFromFile("../../images/arial.ttf")) {
-    cout << "can't load font" << '\n';
-  }
+  font.loadFromFile("go2.TTF");
   sf::Text text("Score = 0", font);
   text.setCharacterSize(100);
-  text.setFillColor(sf::Color::White);
   text.setCharacterSize(40);
   text.setFillColor(sf::Color::Green);
   window.draw(text);
