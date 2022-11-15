@@ -133,10 +133,6 @@ void Fighter::shoot(sf::RenderWindow &window, Fighter &f2,
   this->draw(window);
   f2.draw(window);
 
-  // window.display();
-
-  // sf::sleep(sf::milliseconds(100));
-
   if (abs(get_x() - f2.get_x()) < 40) {
     hp_sc2.decr_hp(DMG_STANDART);
 
@@ -157,7 +153,6 @@ void Fighter::shoot(sf::RenderWindow &window, Fighter &f2,
 
     return;
   }
-
   this->reset();
   window.display();
   sf::sleep(sf::milliseconds(LONG_DELAY));
