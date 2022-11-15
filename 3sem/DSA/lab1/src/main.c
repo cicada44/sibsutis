@@ -34,6 +34,7 @@ void delete ()
 
 int main()
 {
+
     char *std_value = "1";
 
     struct avltree *tree = avltree_create(0, std_value);

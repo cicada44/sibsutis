@@ -11,5 +11,13 @@ run: $(BUILD)/./avltree
 	$(BUILD)/./avltree
 leaks: $(BUILD)/./avltree
 	valgrind $(BUILD)/./avltree
-clean: $(BUILD)/./avltree
+clean:
 	rm $(BUILD)/*
+height:
+	$(CC) $(FLAGS) $(SRC)/exp.c $(AVL) -o $(BUILD)/height
+run_height:
+	$(BUILD)/height
+run_exp:
+	exp/./script
+	mv plot.svg $(BUILD)/
+	firefox $(BUILD)/plot.svg
