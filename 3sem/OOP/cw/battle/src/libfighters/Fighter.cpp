@@ -11,8 +11,14 @@
 using std::cin;
 using std::cout;
 
+Hp &Fighter::get_hp_obj() { return hp; }
+
+sf::RectangleShape &Fighter::get_hp_scale() { return hp.get_hp_scale(); }
+
 int Fighter::get_x() { return static_cast<int>(body.getPosition().x); }
 int Fighter::get_y() { return static_cast<int>(body.getPosition().y); }
+
+size_t Fighter::get_hp() { return hp.get_hp(); }
 
 Fighter::Fighter(sf::Color clr) {
   left_leg.setSize(sf::Vector2f(LEN, 5));
@@ -47,7 +53,7 @@ Fighter::Fighter(sf::Color clr) {
   this->clr = clr;
 }
 
-Fighter::Fighter(int x, int y, sf::Color c) {
+Fighter::Fighter(int x, int y, sf::Color c, int side) : clr(c) {
   body.setSize(sf::Vector2f(LEN, 5));
   body.setFillColor(c);
   body.setPosition(sf::Vector2f(x, y - LEN));
@@ -77,7 +83,11 @@ Fighter::Fighter(int x, int y, sf::Color c) {
   head.setPosition(x - 22, y - LEN - LEN);
   head.setFillColor(clr);
 
-  this->clr = c;
+  if (!side) {
+    hp.create(0);
+  } else {
+    hp.create(1);
+  }
 }
 
 void Fighter::set_color(sf::Color c) { clr = c; }
@@ -124,9 +134,10 @@ void Fighter::move_y(int speed) {
 }
 
 void Fighter::shoot(sf::RenderWindow &window, Fighter &f2,
-                    sf::RectangleShape &floor, Hp &hp_sc2) {
+                    sf::RectangleShape &floor) {
   window.clear(sf::Color::White);
-  draw_all_scales(window, hp, hp_sc2, floor);
+
+  draw_all_scales(window, this->hp, f2.get_hp_obj(), floor);
 
   right_hand.setRotation(30);
 
@@ -134,7 +145,7 @@ void Fighter::shoot(sf::RenderWindow &window, Fighter &f2,
   f2.draw(window);
 
   if (abs(get_x() - f2.get_x()) < 40) {
-    hp_sc2.decr_hp(DMG_STANDART);
+    f2.get_hp_obj().decr_hp(DMG_STANDART);
 
     sf::Color tclr = sf::Color::Blue;
     f2.set_color(sf::Color::Red);
@@ -147,14 +158,20 @@ void Fighter::shoot(sf::RenderWindow &window, Fighter &f2,
     this->reset();
     this->draw(window);
     f2.draw(window);
-    draw_all_scales(window, hp, hp_sc2, floor);
+    draw_all_scales(window, hp, f2.get_hp_obj(), floor);
 
     window.display();
 
     return;
   }
-  this->reset();
+
   window.display();
+
+  sf::sleep(sf::milliseconds(1000));
+  this->reset();
+
+  window.display();
+
   sf::sleep(sf::milliseconds(LONG_DELAY));
 }
 

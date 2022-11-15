@@ -11,7 +11,7 @@ class Fighter {
 public:
   Fighter() = default;
   Fighter(sf::Color);
-  Fighter(int x, int y, sf::Color c);
+  Fighter(int x, int y, sf::Color c, int side);
 
   int get_x();
   int get_y();
@@ -19,9 +19,11 @@ public:
   void draw(sf::RenderWindow &);
   void move_x(int speed);
   void move_y(int speed);
-  void shoot(sf::RenderWindow &window, Fighter &f2, sf::RectangleShape &floor,
-             Hp &hp_sc2);
+  void shoot(sf::RenderWindow &window, Fighter &f2, sf::RectangleShape &floor);
+  sf::RectangleShape &get_hp_scale();
   void set_color(sf::Color clr);
+  Hp &get_hp_obj();
+  size_t get_hp();
   void reset();
 
 private:

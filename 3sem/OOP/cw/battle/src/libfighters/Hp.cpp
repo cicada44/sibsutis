@@ -30,5 +30,5 @@ void draw_all_scales(sf::RenderWindow &window, Hp &hp_sc1, Hp &hp_sc2,
   window.draw(hp_sc1.get_hp_scale());
   window.draw(hp_sc2.get_hp_scale());
   window.draw(floor);
-  window.display();
+  // window.display();
 }
