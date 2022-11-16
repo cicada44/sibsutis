@@ -20,7 +20,7 @@ function showSlides() {
   console.log(imgb.src, slides_cnter);
   ++slides_cnter;
   if (slides_cnter == 5) slides_cnter = 0;
-  setTimeout(showSlides, 1000);
+  setTimeout(showSlides, 2500);
 }
 
 showSlides();

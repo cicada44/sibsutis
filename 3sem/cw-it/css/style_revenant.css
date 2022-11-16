@@ -59,5 +59,58 @@ html {
     margin-left: 2%;
     margin-top: 2%;
     width: 800px;
-    height: 400;
+    height: 400px;
+}
+
+.desc_of_revenant_right {
+    margin-left: 2%;
+    margin-top: 2%;
+    line-height: 1.5em;
+    float: left;
+    height: 20px;
+    width: 900px;
+    font-size: 30px;
+    color: #a6bac5;
+}
+
+.video_revenant {
+    float: left;
+    margin-top: 1%;
+    margin-left: 2%;
+    height: 500px;
+    width: 900px;
+}
+
+.actors {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #cfdae0;
+    font-size: 40px;
+    margin-top: 2%;
+    margin-right: 6%;
+    float: right;
+    height: 80px;
+    width: 500px;
+}
+
+.actors_desc_1 {
+    margin-bottom: 5%;
+    margin-left: 2%;
+    float: left;
+    height: 200px;
+    flex-wrap: wrap;
+}
+
+.actors_desc_2 {
+    margin-bottom: 5%;
+    margin-right: 3%;
+    float: right;
+    height: 200px;
+    flex-wrap: wrap;
+}
+
+.act {
+    height: 60px;
+    font-size: 30px;
+    margin: 2px;
+    color: #a6bac5;
 }
