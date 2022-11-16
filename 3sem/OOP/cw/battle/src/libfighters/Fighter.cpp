@@ -167,7 +167,7 @@ void Fighter::shoot(sf::RenderWindow &window, Fighter &f2,
 
   window.display();
 
-  sf::sleep(sf::milliseconds(1000));
+  sf::sleep(sf::milliseconds(100));
   this->reset();
 
   window.display();
