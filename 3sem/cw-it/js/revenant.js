@@ -23,4 +23,6 @@ function showSlides() {
   setTimeout(showSlides, 2500);
 }
 
+document.getElementById('music').style.display = 'none'
+
 showSlides();

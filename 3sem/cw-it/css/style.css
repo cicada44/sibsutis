@@ -3,6 +3,12 @@ html {
     height: 100%;
 }
 
+.clock {
+    float: right;
+    color: #b9c9c8;
+    font-size: 30px;
+}
+
 .main_body {
     background-image: url("../icons/bgs/bg4.jpg");
     background-color: rgb(99, 87, 87);
