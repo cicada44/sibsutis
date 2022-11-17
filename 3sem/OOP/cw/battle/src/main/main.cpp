@@ -15,8 +15,10 @@ using std::cout;
 void gameover_display(sf::RenderWindow &window, int t);
 
 int main() {
-  Fighter f1(800, 600, sf::Color::Blue, 0);
-  Fighter f2(200, 600, sf::Color::Blue, 1);
+  Fighter f1(800, 600, sf::Color::Black, 1);
+  // Fighter f2(200, 600, sf::Color::Blue, 1);
+  Fighter_hp f2(200, 600, sf::Color::Black, 0);
+  // Fighter_ghost f2 = new Fighter(200, 600, sf::Color::Black, 1);
 
   /* floor */
   sf::Color floor_clr;
@@ -46,24 +48,24 @@ int main() {
         window.close();
       else if (event.type == sf::Event::KeyPressed) {
         if (event.key.code == sf::Keyboard::A && 0 < f1.get_x())
-          f1.move_x(-20);
+          f1.move_x(-1);
         if (event.key.code == sf::Keyboard::D && f1.get_x() < 1200)
-          f1.move_x(20);
+          f1.move_x(1);
         if (event.key.code == sf::Keyboard::W && 485 < f1.get_y() + 30)
-          f1.move_y(-20);
+          f1.move_y(-1);
         if (event.key.code == sf::Keyboard::S && f1.get_y() + 30 < 675)
-          f1.move_y(20);
+          f1.move_y(1);
         if (event.key.code == sf::Keyboard::E) {
           f1.shoot(window, f2, floor);
         }
         if (event.key.code == sf::Keyboard::Left && 0 < f2.get_x())
-          f2.move_x(-10);
+          f2.move_x(-1);
         if (event.key.code == sf::Keyboard::Right && f2.get_x() < 1200)
-          f2.move_x(10);
+          f2.move_x(1);
         if (event.key.code == sf::Keyboard::Up && 485 < f2.get_y() + 30)
-          f2.move_y(-10);
+          f2.move_y(-1);
         if (event.key.code == sf::Keyboard::Down && f2.get_y() + 30 < 675)
-          f2.move_y(10);
+          f2.move_y(1);
         if (event.key.code == sf::Keyboard::RControl) {
           f2.shoot(window, f1, floor);
         }
@@ -75,6 +77,7 @@ int main() {
       gameover_display(window, 0);
     }
     if (static_cast<int>(f2.get_hp()) == 0) {
+
       gameover_display(window, 1);
     }
 
@@ -97,7 +100,6 @@ int main() {
 
 void gameover_display(sf::RenderWindow &window, int t) {
   window.clear(sf::Color::Red);
-  // cout << "hpleft - " << hp_left.get_hp() << '\n';
   sf::Font font;
   font.loadFromFile("go2.TTF");
   sf::Text text;
