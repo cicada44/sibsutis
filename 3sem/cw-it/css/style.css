@@ -99,13 +99,38 @@ html {
     animation: glitch 725ms infinite;
 }
 
+.icons_main_win_1:hover {
+    transform: scale(1.25);
+}
+
+.icons_main_win_2:hover {
+    transform: scale(1.25);
+}
+
+.icons_main_win_3:hover {
+    transform: scale(1.25);
+}
+
 .top_films_table {
     text-align: center;
     font-size: 100px;
     color: #702528;
 }
 
-.icons_main_win {
+.icons_main_win_1 {
+    transition: transform 1s;
+    margin-left: 100px;
+    height: 500px;
+}
+
+.icons_main_win_2 {
+    transition: transform 1s;
+    margin-left: 100px;
+    height: 500px;
+}
+
+.icons_main_win_3 {
+    transition: transform 1s;
     margin-left: 100px;
     height: 500px;
 }
