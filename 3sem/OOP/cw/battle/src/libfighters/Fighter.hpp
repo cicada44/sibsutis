@@ -62,7 +62,7 @@ protected:
 
 private:
   const int speed = 10;
-  const int damage = 60;
+  const int damage = 75;
   const int hp_cnt = 150;
 };
 
