@@ -1,11 +1,13 @@
 #include "../Ext_funcs/ext_funcs.hpp"
 #include "../Hashtab/Hashtab.hpp"
+#include <chrono>
+#include <ctime>
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
 
-#define SIZE_HT 500000
+#define SIZE_HT 1000000000
 
 using std::cin;
 using std::cout;
@@ -28,28 +30,22 @@ int main(int argc, char **argv) {
     exit(-1);
   }
 
-  cout << "ADDED"
-       << "\n\n\n";
-
-  /* hashtab working... */
   int collisions = 0;
-  int n = 1;
+  int n = 0;
+
+  auto start = std::chrono::system_clock::now();
+
+  /* adding... */
   for (auto &c : dict) {
-    ht_default.add_dhash(c, n, collisions);
-    n++;
+    ht_default.insert(c, n, collisions);
+    ++n;
   }
 
-  cout << "ADDED"
-       << "\n\n\n";
+  auto end = std::chrono::system_clock::now();
 
-  print_hashtab(ht_default);
+  std::chrono::duration<double> time = end - start;
 
-  int t = ht_default.lookup("rab");
-
-  cout << "collisions - " << collisions << '\n';
-  // cout << "n - " << n << '\n';
-  cout << "lookuped - " << t << '\n';
-  cout << "SIZE - " << sizeof(ht_default);
+  cout << "time - " << time.count() << '\n';
 
   return 0;
 }

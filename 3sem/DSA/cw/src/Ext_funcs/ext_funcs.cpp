@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 
-#define SIZE_HT 500000
+#define SIZE_HT_HT 1000000000
 
 #define RESET "\033[0m"
 #define BLACK "\033[30m"   /* Black */
@@ -34,14 +34,16 @@ using std::vector;
 void print_hashtab(Hashtab &ht) {
   const array<pair<string, int>, SIZE_HT> &hashtab = ht.get_ht();
   for (long unsigned x = 0; x < SIZE_HT; x++) {
-    cout << MAGENTA << x << GREEN << " ---> ";
-    if (hashtab[x].first.empty() && hashtab[x].second == -1)
+    if (hashtab[x].first.empty() && hashtab[x].second == -1) {
+      // cout << MAGENTA << x << GREEN << " ---> ";
+      // cout << RED << "EMPTY" << '\n' << RESET;
       ;
-    // cout << RED << "EMPTY" << '\n' << RESET;
-    else
+    } else {
+      cout << MAGENTA << x << GREEN << " ---> ";
       cout << YELLOW << " key - " << hashtab[x].first << GREEN << " | " << CYAN
            << "value - " << hashtab[x].second << '\n'
            << RESET;
+    }
   }
 }
 

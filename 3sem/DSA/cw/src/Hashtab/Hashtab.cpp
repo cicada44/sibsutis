@@ -7,18 +7,16 @@
 #include <string>
 #include <vector>
 
-#define SIZE_HT 500000
+#define SIZE_HT 1000000000
 
 using std::array;
 using std::pair;
 using std::string;
 
-Hashtab::Hashtab(long unsigned size) : size_ht(size) {
-  std::cerr << "CONSTRUCTOR" << '\n';
-  for (long long i = 0; i != SIZE_HT; i++) {
-    std::cerr << i << '\n';
+Hashtab::Hashtab(int64_t cap) : capacity(cap) {
+  for (long long i = 0; i != SIZE_HT; i++)
     ht[i] = {"", -1};
-  }
+  _size = 0;
 }
 
 const array<pair<string, int>, SIZE_HT> &Hashtab::get_ht() { return ht; }
@@ -42,7 +40,7 @@ unsigned int Hashtab::ELFHash(const string &s) {
   return h % SIZE_HT;
 }
 
-void Hashtab::add_dhash(const string &key, const int &value, int &col) {
+void Hashtab::insert(const string &key, const int &value, int &col) {
   int flag = 0;
   int hcode = ELFHash(key);
   int probe = KRHash(key);
@@ -54,6 +52,7 @@ void Hashtab::add_dhash(const string &key, const int &value, int &col) {
       flag = 1;
     } else {
       ht[hcode] = {key, value};
+      ++_size;
       break;
     }
   }
@@ -69,3 +68,47 @@ int Hashtab::lookup(const string &key) {
   }
   return ht[hcode].second;
 }
+
+pair<string, int> &Hashtab::lookup_pair(const string &key) {
+  int hcode = ELFHash(key);
+  int probe = KRHash(key);
+  for (long unsigned i = 1; i < SIZE_HT; i++) {
+    if (ht[hcode].second != -1 && ht[hcode].first == key)
+      return ht[hcode];
+    hcode = (hcode + 1 * probe) % SIZE_HT;
+  }
+  return ht[hcode];
+}
+
+bool Hashtab::delete_node(const std::string &key) {
+  int hcode = ELFHash(key);
+  int probe = KRHash(key);
+  for (long unsigned i = 1; i < SIZE_HT; i++) {
+    if (ht[hcode].second != -1 && ht[hcode].first == key) {
+      ht[hcode].first = "";
+      ht[hcode].second = -1;
+      --_size;
+      return 1;
+    }
+    hcode = (hcode + 1 * probe) % SIZE_HT;
+  }
+  return 0;
+}
+
+int Hashtab::max() {
+  pair<string, int> pair_max;
+  for (auto x = ht.cbegin(); x != ht.cend(); ++x)
+    if (x->first > pair_max.first)
+      pair_max = *x;
+  return pair_max.second;
+}
+
+int Hashtab::min() {
+  pair<string, int> pair_min;
+  for (auto x = ht.cbegin(); x != ht.cend(); ++x)
+    if (x->first < pair_min.first)
+      pair_min = *x;
+  return pair_min.second;
+}
+
+int64_t Hashtab::size() { return _size; }
