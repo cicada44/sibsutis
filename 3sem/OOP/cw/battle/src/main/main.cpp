@@ -44,12 +44,13 @@ void quote() {
 }
 
 int main() {
-  fight_1();
-  fight_2();
-  fight_3();
+  game();
 
-  quote();
+  // fight_1();`
+  // fight_2();`
+  // fight_3();`
 
+  // quote();
   return 0;
 }
 
