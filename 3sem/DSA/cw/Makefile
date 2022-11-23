@@ -10,16 +10,24 @@ BUILD = build
 dbg:
 	$(GPP) $(FLAGS) -g -O0 $(ALL_SRC) -o $(BUILD)/dbg
 
-hashtab:
-	$(GPP) $(FLAGS) $(ALL_SRC) -o $(BUILD)/ht_exp
+# hashtab:
+# 	$(GPP) -DEXP_TIME $(FLAGS) $(ALL_SRC) -o $(BUILD)/ht_exp_time
 
 # dicts
-run_dict_1:
-	$(BUILD)/ht_exp $(DICTS_DIR)/dict1.txt
-run_dict_2:
-	$(BUILD)/ht_exp ../$(DICTS_DIR)/dict2.txt
-run_dict_3:
-	$(BUILD)/ht_exp ../$(DICTS_DIR)/dict3.txt
+time_exp:
+	$(GPP) -D_EXP_TIME $(FLAGS) $(ALL_SRC) -o $(BUILD)/ht_exp_time
+	$(BUILD)/ht_exp_time $(DICTS_DIR)/dict1.txt > Data/time.txt
+	Plot/exp_time.gp
+	mv time.svg Data/time.svg
+	firefox Data/time.svg
+
+coll_exp:
+	$(GPP) -D_EXP_COLL $(FLAGS) $(ALL_SRC) -o $(BUILD)/ht_exp_coll
+	$(BUILD)/ht_exp_coll $(DICTS_DIR)/dict1.txt > Data/coll.txt
+	Plot/exp_coll.gp
+	mv coll.svg Data/coll.svg
+	firefox Data/coll.svg
+
 exp_add:
 	$(BUILD)/ht_exp $(DICTS_DIR)/dict_exp.txt
 

@@ -10,8 +10,6 @@
 #include <string>
 #include <vector>
 
-#define SIZE_HT_HT 1000000000
-
 #define RESET "\033[0m"
 #define BLACK "\033[30m"   /* Black */
 #define RED "\033[31m"     /* Red */

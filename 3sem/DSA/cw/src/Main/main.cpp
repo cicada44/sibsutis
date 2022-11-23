@@ -4,15 +4,60 @@
 #include <ctime>
 #include <fstream>
 #include <iostream>
+#include <iterator>
 #include <string>
 #include <vector>
 
-#define SIZE_HT 1000000000
-
 using std::cin;
 using std::cout;
+using std::ostream_iterator;
 using std::string;
 using std::vector;
+
+void exp_time(Hashtab &ht_default, vector<string> &dict) {
+  int adding_count = 100000;
+  for (int i = 0; i < 10; i++) {
+    int collisions = 0;
+    auto start = std::chrono::system_clock::now();
+    for (int x = 0; x < adding_count; ++x) {
+      ht_default.insert(dict[x], x, collisions, 0);
+    }
+    auto end = std::chrono::system_clock::now();
+    std::chrono::duration<double> time = end - start;
+    cout << adding_count << '\t' << time.count();
+    ht_default.set_null();
+    start = std::chrono::system_clock::now();
+    for (int x = 0; x < adding_count; ++x) {
+      ht_default.insert(dict[x], x, collisions, 1);
+    }
+    end = std::chrono::system_clock::now();
+    time = end - start;
+    cout << '\t' << time.count();
+    ht_default.set_null();
+    start = std::chrono::system_clock::now();
+    for (int x = 0; x < adding_count; ++x) {
+      ht_default.insert(dict[x], x, collisions, 2);
+    }
+    end = std::chrono::system_clock::now();
+    time = end - start;
+    cout << '\t' << time.count() << '\n';
+    adding_count += 100000;
+    ht_default.set_null();
+  }
+}
+
+void exp_coll(Hashtab &ht_default, vector<string> &dict) {
+  int adding_count = 100000;
+  for (int i = 0; i < 10; i++) {
+    int collisions = 0;
+    for (int x = 0; x < adding_count; ++x) {
+      ht_default.insert(dict[x], x, collisions, 0);
+    }
+    cout << adding_count << '\t' << collisions << '\n';
+    adding_count += 100000;
+    ht_default.set_null();
+  }
+}
 
 int main(int argc, char **argv) {
 
@@ -22,7 +67,6 @@ int main(int argc, char **argv) {
   }
 
   Hashtab ht_default(SIZE_HT);
-
   vector<string> dict;
 
   if (read_dict(argv[1], dict)) {
@@ -30,22 +74,19 @@ int main(int argc, char **argv) {
     exit(-1);
   }
 
-  int collisions = 0;
-  int n = 0;
+#ifdef _EXP_TIME
 
-  auto start = std::chrono::system_clock::now();
+  exp_time(ht_default, dict);
 
-  /* adding... */
-  for (auto &c : dict) {
-    ht_default.insert(c, n, collisions);
-    ++n;
-  }
+#endif // EXP_TIME
 
-  auto end = std::chrono::system_clock::now();
+#ifdef _EXP_COLL
 
-  std::chrono::duration<double> time = end - start;
+  exp_coll(ht_default, dict);
 
-  cout << "time - " << time.count() << '\n';
+#endif // _EXP_COLL
+
+  ht_default.delete_ht();
 
   return 0;
 }
