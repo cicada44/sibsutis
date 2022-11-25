@@ -15,14 +15,9 @@ class Hashtab {
 public:
   Hashtab() = delete;
   Hashtab(int64_t cap);
-  unsigned int AddHash(char *s);
-  unsigned int Jen(const std::string &);
-  unsigned int FNVHash(const std::string &);
-  unsigned int DJB2(const std::string &s);
-  unsigned int KRHash(const std::string &);
-  unsigned int ELFHash(const std::string &);
   const std::array<std::pair<std::string, int>, SIZE_HT> &get_ht();
   void insert(const std::string &, const int &, int &, int);
+  void insert(const std::string &key, const int &value);
   void add_kidding(const std::string &key, const int &value, int &col);
   bool delete_node(const std::string &key);
   void delete_ht();
@@ -38,6 +33,13 @@ private:
   int64_t capacity;
   std::array<std::pair<std::string, int>, SIZE_HT> *ht =
       new std::array<std::pair<std::string, int>, SIZE_HT>;
+
+  unsigned int AddHash(char *s);
+  unsigned int Jen(const std::string &);
+  unsigned int FNVHash(const std::string &);
+  unsigned int DJB2(const std::string &s);
+  unsigned int KRHash(const std::string &);
+  unsigned int ELFHash(const std::string &);
 };
 
 #endif // __HASHTAB_H__

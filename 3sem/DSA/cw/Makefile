@@ -27,6 +27,14 @@ coll_exp:
 	Plot/exp_coll.gp
 	mv coll.svg Data/coll.svg
 	firefox Data/coll.svg
+exp:
+	make time_exp && make coll_exp
+
+test:
+	$(GPP) $(FLAGS) $(SRC)/Hashtab/Hashtab.cpp $(SRC)/Ext_funcs/ext_funcs.cpp src/Tests/test.cpp -o $(BUILD)/test
+
+run_test:
+	$(BUILD)/test
 
 exp_add:
 	$(BUILD)/ht_exp $(DICTS_DIR)/dict_exp.txt

@@ -53,7 +53,19 @@ void exp_coll(Hashtab &ht_default, vector<string> &dict) {
     for (int x = 0; x < adding_count; ++x) {
       ht_default.insert(dict[x], x, collisions, 0);
     }
-    cout << adding_count << '\t' << collisions << '\n';
+    ht_default.set_null();
+    cout << adding_count << '\t' << collisions;
+    collisions = 0;
+    for (int x = 0; x < adding_count; ++x) {
+      ht_default.insert(dict[x], x, collisions, 1);
+    }
+    ht_default.set_null();
+    cout << '\t' << collisions;
+    collisions = 0;
+    for (int x = 0; x < adding_count; ++x) {
+      ht_default.insert(dict[x], x, collisions, 2);
+    }
+    cout << '\t' << collisions << '\n';
     adding_count += 100000;
     ht_default.set_null();
   }

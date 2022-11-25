@@ -83,6 +83,22 @@ unsigned int Hashtab::ELFHash(const string &s) {
   return h % SIZE_HT;
 }
 
+void Hashtab::insert(const string &key, const int &value) {
+  int hcode = DJB2(key);
+  int probe = FNVHash(key);
+  for (long unsigned i = 1; i < SIZE_HT; i++) {
+    if ((*ht)[hcode].second != -1) {
+      if (key == (*ht)[hcode].first)
+        break;
+      hcode = (hcode + i * probe) % SIZE_HT;
+    } else {
+      (*ht)[hcode] = {key, value};
+      ++_size;
+      break;
+    }
+  }
+}
+
 void Hashtab::insert(const string &key, const int &value, int &col, int opt) {
   int flag = 0;
   int hcode;
@@ -102,8 +118,9 @@ void Hashtab::insert(const string &key, const int &value, int &col, int opt) {
   for (long unsigned i = 1; i < SIZE_HT; i++) {
     if ((*ht)[hcode].second != -1) {
       hcode = (hcode + i * probe) % SIZE_HT;
-      if (!flag)
+      if (!flag) {
         col++;
+      }
       flag = 1;
     } else {
       (*ht)[hcode] = {key, value};

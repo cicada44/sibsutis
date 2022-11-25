@@ -14,5 +14,6 @@ set xtics 100000
 set mxtics
 set format x "%6.0f"
 set format y "%.2f"
-plot "Data/coll.txt" using 1:2 title "1" with linespoints ls 1 , 
-"Data/coll.txt" using 1:3 title "2" with linespoints ls 2, 
+plot "Data/coll.txt" using 1:2 title "ELF KR" with linespoints ls 1 , \
+"Data/coll.txt" using 1:3 title "FNV & DJB2" with linespoints ls 2, \
+"Data/coll.txt" using 1:4 title "Add & Jen" with linespoints ls 3
