@@ -61,7 +61,7 @@ unsigned int Hashtab::FNVHash(const string &str) {
     hash ^= (str[i]);
   }
 
-  return hash;
+  return hash % SIZE_HT;
 }
 
 unsigned int Hashtab::KRHash(const string &s) {

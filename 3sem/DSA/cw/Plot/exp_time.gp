@@ -8,7 +8,7 @@ set style line 2 lc rgb "0x6495ED" lt 1 lw 4 pt 7 ps 1
 set border lw 2
 set grid
 set key top left
-set xlabel "Count"
+set xlabel "number of items"
 set ylabel "Time, с" rotate by 90
 set xtics 100000
 set mxtics
