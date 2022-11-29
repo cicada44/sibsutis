@@ -131,30 +131,30 @@ void Hashtab::insert(const string &key, const int &value, int &col, int opt) {
 }
 
 int Hashtab::lookup(const string &key) {
-  int hcode = ELFHash(key);
-  int probe = KRHash(key);
+  int hcode = DJB2(key);
+  int probe = FNVHash(key);
   for (long unsigned i = 1; i < SIZE_HT; i++) {
     if ((*ht)[hcode].second != -1 && (*ht)[hcode].first == key)
       return (*ht)[hcode].second;
-    hcode = (hcode + 1 * probe) % SIZE_HT;
+    hcode = (hcode + i * probe) % SIZE_HT;
   }
   return (*ht)[hcode].second;
 }
 
 pair<string, int> &Hashtab::lookup_pair(const string &key) {
-  int hcode = ELFHash(key);
-  int probe = KRHash(key);
+  int hcode = DJB2(key);
+  int probe = FNVHash(key);
   for (long unsigned i = 1; i < SIZE_HT; i++) {
     if ((*ht)[hcode].second != -1 && (*ht)[hcode].first == key)
       return (*ht)[hcode];
-    hcode = (hcode + 1 * probe) % SIZE_HT;
+    hcode = (hcode + i * probe) % SIZE_HT;
   }
   return (*ht)[hcode];
 }
 
 bool Hashtab::delete_node(const std::string &key) {
-  int hcode = ELFHash(key);
-  int probe = KRHash(key);
+  int hcode = DJB2(key);
+  int probe = FNVHash(key);
   for (long unsigned i = 1; i < SIZE_HT; i++) {
     if ((*ht)[hcode].second != -1 && (*ht)[hcode].first == key) {
       (*ht)[hcode].first = "";
@@ -162,7 +162,7 @@ bool Hashtab::delete_node(const std::string &key) {
       --_size;
       return 1;
     }
-    hcode = (hcode + 1 * probe) % SIZE_HT;
+    hcode = (hcode + i * probe) % SIZE_HT;
   }
   return 0;
 }

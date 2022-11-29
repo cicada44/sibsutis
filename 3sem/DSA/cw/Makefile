@@ -27,6 +27,14 @@ coll_exp:
 	Plot/exp_coll.gp
 	mv coll.svg Data/coll.svg
 	firefox Data/coll.svg
+
+lookup_exp:
+	$(GPP) -D_EXP_LOOKUP $(FLAGS) $(ALL_SRC) -o $(BUILD)/ht_exp_lookup
+	$(BUILD)/ht_exp_lookup $(DICTS_DIR)/dict1.txt > Data/lookup.txt
+	Plot/exp_lookup.gp
+	mv lookup.svg Data/lookup.svg
+	firefox Data/lookup.svg
+
 exp:
 	make time_exp && make coll_exp
 

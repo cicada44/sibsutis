@@ -151,6 +151,7 @@ void test_coll() {
 }
 
 int main() {
-  test_coll();
+  // test_coll();
+  visual();
   return 0;
 }

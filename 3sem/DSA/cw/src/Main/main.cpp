@@ -14,6 +14,25 @@ using std::ostream_iterator;
 using std::string;
 using std::vector;
 
+void exp_lookup(Hashtab &ht_default, vector<string> &dict) {
+  int adding_count = 100000;
+  for (int i = 0; i < 10; i++) {
+    for (int x = 0; x < adding_count; ++x) {
+      ht_default.insert(dict[x], x);
+    }
+    cout << "END OF ADDING" << '\n';
+    auto start = std::chrono::system_clock::now();
+    for (int x = 0; x < adding_count; ++x) {
+      ht_default.lookup(dict[x]);
+    }
+    auto end = std::chrono::system_clock::now();
+    std::chrono::duration<double> time = end - start;
+    cout << adding_count << '\t' << time.count();
+    ht_default.set_null();
+    adding_count += 100000;
+  }
+}
+
 void exp_time(Hashtab &ht_default, vector<string> &dict) {
   int adding_count = 100000;
   for (int i = 0; i < 10; i++) {
@@ -97,6 +116,14 @@ int main(int argc, char **argv) {
   exp_coll(ht_default, dict);
 
 #endif // _EXP_COLL
+
+#ifdef _EXP_LOOKUP
+
+  cout << "BEGIN" << '\n';
+
+  exp_lookup(ht_default, dict);
+
+#endif // _EXP_LOOKUP
 
   ht_default.delete_ht();
 

@@ -18,7 +18,6 @@ public:
   const std::array<std::pair<std::string, int>, SIZE_HT> &get_ht();
   void insert(const std::string &, const int &, int &, int);
   void insert(const std::string &key, const int &value);
-  void add_kidding(const std::string &key, const int &value, int &col);
   bool delete_node(const std::string &key);
   void delete_ht();
   void set_null();
