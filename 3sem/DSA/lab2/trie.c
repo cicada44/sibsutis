@@ -1,83 +1,110 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "trie.h"
 #include <string.h>
 
-#include "trie.h"
-
-#define N 26
-
-Trie *make_trienode(char data)
+struct trie *trie_create()
 {
-    Trie *node = (Trie *)calloc(1, sizeof(Trie));
-    for (int i = 0; i < N; i++)
-        node->children[i] = NULL;
-    node->is_leaf = 0;
-    node->data = data;
+    struct trie *node;
+    if ((node = malloc(sizeof(*node))) == NULL)
+        return NULL;
+    node->ch = '\0';
+    node->value = NULL;
+    node->sibling = NULL;
+    node->child = NULL;
     return node;
 }
 
-void free_trienode(Trie *node)
+char *trie_lookup(struct trie *root, char *key)
 {
-    for (int i = 0; i < N; i++)
+    struct trie *node, *list;
+    for (list = root; *key != '\0'; key++)
     {
-        if (node->children[i] != NULL)
-            free_trienode(node->children[i]);
+        for (node = list; node != NULL; node = node->sibling)
+        {
+            if (node->ch == *key)
+                break;
+        }
+        if (node != NULL)
+            list = node->child;
         else
-            continue;
+            return NULL;
     }
-    free(node);
+    return node->value; /* Node must be a leaf */
 }
 
-Trie *insert_trie(Trie *root, char *word)
+struct trie *trie_insert(struct trie *root, char *key, char *value)
 {
-    Trie *temp = root;
-
-    for (int i = 0; word[i] != '\0'; i++)
+    struct trie *node, *parent, *list;
+    parent = NULL;
+    list = root;
+    for (; *key != '\0'; key++)
     {
-        int idx = (int)word[i] - 'a';
-        if (temp->children[idx] == NULL)
-        {
-            temp->children[idx] = make_trienode(word[i]);
+        /* Lookup sibling node */
+        for (node = list; node != NULL; node = node->sibling)
+            if (node->ch == *key)
+                break;
+
+        if (node == NULL)
+        { /* Node not found. Add new node */
+            node = trie_create();
+            node->ch = *key;
+            node->sibling = list;
+            if (parent != NULL)
+                parent->child = node;
+            else
+                root = node;
+            list = NULL;
         }
-        temp = temp->children[idx];
+        else
+        { /* Node found. Move to next level */
+            list = node->child;
+        }
+        parent = node;
     }
-    temp->is_leaf = 1;
+    /* Update value in leaf */
+    if (node->value != NULL)
+        free(node->value);
+    node->value = strdup(value);
     return root;
 }
 
-int search_trie(Trie *root, char *word)
+struct trie *trie_delete(struct trie *root, char *key)
 {
-    Trie *temp = root;
-
-    for (int i = 0; word[i] != '\0'; i++)
-    {
-        int position = word[i] - 'a';
-        if (temp->children[position] == NULL)
-            return 0;
-        temp = temp->children[position];
-    }
-    if (temp != NULL && temp->is_leaf == 1)
-        return 1;
-    return 0;
+    int found;
+    return trie_delete_dfs(root, NULL, key, &found);
 }
 
-void print_trie(Trie *root)
+struct trie *trie_delete_dfs(struct trie *root, struct trie *parent,
+                             char *key, int *found)
 {
-    if (!root)
-        return;
-    Trie *temp = root;
-    printf("%c -> ", temp->data);
-    for (int i = 0; i < N; i++)
+    struct trie *node, *prev = NULL;
+    *found = (*key == '\0' && root == NULL) ? 1 : 0;
+    if (root == NULL || *key == '\0')
+        return root;
+    for (node = root; node != NULL; node = node->sibling)
     {
-        print_trie(temp->children[i]);
+        if (node->ch == *key)
+            break;
+        prev = node;
     }
-}
-
-void print_search(Trie *root, char *word)
-{
-    printf("Searching for %s: ", word);
-    if (search_trie(root, word) == 0)
-        printf("Not Found\n");
-    else
-        printf("Found!\n");
+    if (node == NULL)
+        return root;
+    trie_delete_dfs(node->child, node, key + 1, found);
+    if (*found > 0 && node->child == NULL)
+    {
+        /* Delete node */
+        if (prev != NULL)
+            prev->sibling = node->sibling;
+        else
+        {
+            if (parent != NULL)
+                parent->child = node->sibling;
+            else
+                root = node->sibling;
+        }
+        free(node->value);
+        free(node);
+    }
+    return root;
 }

@@ -1,25 +1,21 @@
 #ifndef __TRIE_H__
 #define __TRIE_H__
 
-// #include "AVLTree.h"
-#include <stdbool.h>
+#include <stdio.h>
 
-#define N 26
-
-typedef struct Trie Trie;
-
-struct Trie
+typedef struct trie
 {
-    char data;
-    Trie *children[N];
-    int is_leaf;
-};
+    char *value;
+    char ch;
+    struct trie *sibling; /* Sibling node */
+    struct trie *child;   /* First child node */
+} trie;
 
-Trie *make_trienode(char data);
-void free_trienode(Trie *node);
-Trie *insert_trie(Trie *root, char *word);
-int search_trie(Trie *root, char *word);
-void print_trie(Trie *root);
-void print_search(Trie *root, char *word);
+struct trie *trie_create();
+char *trie_lookup(struct trie *root, char *key);
+struct trie *trie_insert(struct trie *root, char *key, char *value);
+struct trie *trie_delete(struct trie *root, char *key);
+struct trie *trie_delete_dfs(struct trie *root, struct trie *parent, char *key,
+                             int *found);
 
 #endif // __TRIE_H__
