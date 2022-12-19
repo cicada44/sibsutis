@@ -3,19 +3,19 @@
 
 #include <stdio.h>
 
-typedef struct trie
-{
-    char *value;
-    char ch;
-    struct trie *sibling; /* Sibling node */
-    struct trie *child;   /* First child node */
+typedef struct trie {
+  char *value;
+  char ch;
+  struct trie *next;
+  struct trie *child;
 } trie;
 
-struct trie *trie_create();
-char *trie_lookup(struct trie *root, char *key);
-struct trie *trie_insert(struct trie *root, char *key, char *value);
-struct trie *trie_delete(struct trie *root, char *key);
-struct trie *trie_delete_dfs(struct trie *root, struct trie *parent, char *key,
-                             int *found);
+trie *trie_create();
+char *trie_lookup(trie *root, char *key);
+trie *trie_insert(trie *root, char *key, char *value);
+trie *trie_delete(trie *root, char *key);
+trie *trie_delete_dfs(trie *root, trie *parent, char *key, int *found);
+void print(trie *root);
+// void display(struct trie *root, char *str, int level);
 
 #endif // __TRIE_H__

@@ -3,86 +3,78 @@
 #include "trie.h"
 #include <string.h>
 
-struct trie *trie_create()
+trie *trie_create()
 {
-    struct trie *node;
+    trie *node;
     if ((node = malloc(sizeof(*node))) == NULL)
         return NULL;
     node->ch = '\0';
     node->value = NULL;
-    node->sibling = NULL;
+    node->next = NULL;
     node->child = NULL;
     return node;
 }
 
-char *trie_lookup(struct trie *root, char *key)
+char *trie_lookup(trie *root, char *key)
 {
-    struct trie *node, *list;
+    trie *node = NULL, *list = NULL;
     for (list = root; *key != '\0'; key++)
     {
-        for (node = list; node != NULL; node = node->sibling)
-        {
+        for (node = list; node != NULL; node = node->next)
             if (node->ch == *key)
                 break;
-        }
         if (node != NULL)
             list = node->child;
         else
             return NULL;
     }
-    return node->value; /* Node must be a leaf */
+    return node->value;
 }
 
-struct trie *trie_insert(struct trie *root, char *key, char *value)
+trie *trie_insert(trie *root, char *key, char *value)
 {
-    struct trie *node, *parent, *list;
+    trie *node, *parent, *list;
     parent = NULL;
     list = root;
     for (; *key != '\0'; key++)
     {
-        /* Lookup sibling node */
-        for (node = list; node != NULL; node = node->sibling)
+        for (node = list; node != NULL; node = node->next) // getchild
             if (node->ch == *key)
                 break;
-
-        if (node == NULL)
-        { /* Node not found. Add new node */
+        if (node == NULL) // setchild
+        {
             node = trie_create();
             node->ch = *key;
-            node->sibling = list;
+            node->next = list;
             if (parent != NULL)
                 parent->child = node;
             else
                 root = node;
-            list = NULL;
         }
         else
-        { /* Node found. Move to next level */
+        {
             list = node->child;
         }
         parent = node;
     }
-    /* Update value in leaf */
-    if (node->value != NULL)
-        free(node->value);
     node->value = strdup(value);
     return root;
 }
 
-struct trie *trie_delete(struct trie *root, char *key)
+trie *trie_delete(trie *root, char *key)
 {
     int found;
     return trie_delete_dfs(root, NULL, key, &found);
 }
 
-struct trie *trie_delete_dfs(struct trie *root, struct trie *parent,
-                             char *key, int *found)
+trie *trie_delete_dfs(trie *root, trie *parent,
+                      char *key, int *found)
 {
-    struct trie *node, *prev = NULL;
+    trie *node, *prev = NULL;
     *found = (*key == '\0' && root == NULL) ? 1 : 0;
     if (root == NULL || *key == '\0')
         return root;
-    for (node = root; node != NULL; node = node->sibling)
+    for (node = root; node != NULL; node = node->next)
     {
         if (node->ch == *key)
             break;
@@ -93,15 +85,14 @@ struct trie *trie_delete_dfs(struct trie *root, struct trie *parent,
     trie_delete_dfs(node->child, node, key + 1, found);
     if (*found > 0 && node->child == NULL)
     {
-        /* Delete node */
         if (prev != NULL)
-            prev->sibling = node->sibling;
+            prev->next = node->next;
         else
         {
             if (parent != NULL)
-                parent->child = node->sibling;
+                parent->child = node->next;
             else
-                root = node->sibling;
+                root = node->next;
         }
         free(node->value);
         free(node);
