@@ -1,0 +1,5 @@
+# ninja log v5
+0	10	1675217361868248421	src/complib/CMakeFiles/comp.dir/complib/comp.cpp.o	cd6a7b8ee91cbd2e
+11	65	1675217361920250875	src/complib/libcomp.a	8166ee49263f249f
+1	489	1675217362348271075	src/app/CMakeFiles/app.dir/app/main.cpp.o	73c1c2a340205575
+489	570	1675217362428274851	bin/app	644aaddfe0029ee4
