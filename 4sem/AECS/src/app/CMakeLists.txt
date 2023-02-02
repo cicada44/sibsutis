@@ -4,7 +4,7 @@ set(CMAKE_C_COMPILER gcc)
 
 add_executable(${target_name})
 
-# add_compile_definitions(-Wall -Wextra -Werror -pedantic)
+add_compile_options(-Wall -Wextra -Werror -pedantic)
 
 target_sources(
     ${target_name}
