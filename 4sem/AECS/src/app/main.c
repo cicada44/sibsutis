@@ -46,6 +46,8 @@ int main()
 
     sc_commandDecode(*value, command, operand);
 
+    output_memory();
+
     // printf("%x\n", 0xffff);
 
     return 0;

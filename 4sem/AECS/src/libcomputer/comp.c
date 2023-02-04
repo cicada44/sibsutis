@@ -134,6 +134,7 @@ int sc_memoryLoad(char *filename)
 int sc_regInit()
 {
     flags = 0;
+    return 0;
 }
 
 int sc_regSet(int reg, int value)
