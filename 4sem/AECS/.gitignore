@@ -52,7 +52,7 @@ Mkfile.old
 dkms.conf
 
 # vscode
-.vscode
+.vscode/
 
 # other
-test_files_memory
+test_files_memory/*
