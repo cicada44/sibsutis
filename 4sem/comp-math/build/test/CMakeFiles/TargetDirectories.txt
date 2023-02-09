@@ -1,0 +1,13 @@
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/CMakeFiles/edit_cache.dir
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/CMakeFiles/rebuild_cache.dir
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/src/CMakeFiles/edit_cache.dir
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/src/CMakeFiles/rebuild_cache.dir
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/src/complib/CMakeFiles/comp.dir
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/src/complib/CMakeFiles/edit_cache.dir
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/src/complib/CMakeFiles/rebuild_cache.dir
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/src/app/CMakeFiles/app.dir
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/src/app/CMakeFiles/edit_cache.dir
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/src/app/CMakeFiles/rebuild_cache.dir
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/test/CMakeFiles/test.dir
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/test/CMakeFiles/edit_cache.dir
+/home/cicada44/cicada-main/sibsutis/4sem/comp-math/build/test/test/CMakeFiles/rebuild_cache.dir

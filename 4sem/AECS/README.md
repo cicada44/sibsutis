@@ -1,2 +1,0 @@
-# SimpleComputer
-Simple computer

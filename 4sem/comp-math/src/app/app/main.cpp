@@ -15,6 +15,7 @@ int main() {
 
   matrix_solution(matr1);
 
+  // cout << "\n\nMATRIX\n\n";
   // for (const auto &i : matr1) {
   //   for (const auto &j : i) {
   //     cout << j << ' ';
