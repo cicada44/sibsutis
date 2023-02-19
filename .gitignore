@@ -1,0 +1,6 @@
+other/*
+
+# Document files
+*.docx
+*.pdf
+*.odt
