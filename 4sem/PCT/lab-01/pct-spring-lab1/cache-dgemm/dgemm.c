@@ -8,7 +8,7 @@
 #endif
 
 #ifndef N
-#define N 1024
+#define N 64
 #endif
 
 #define NREPS 3
@@ -154,39 +154,54 @@ int main()
 {
     double t1, t2, t3;
 
-#if 1
+#if 0
     matrix_init(a, b, c);
+
     t1 = wtime();
+
     for (int i = 0; i < NREPS; i++)
     {
         dgemm_def(a, b, c);
     }
+
     t1 = wtime() - t1;
+
     t1 /= NREPS;
+
     printf("# DGEMM def: N=%d, elapsed time (sec) %.6f\n", N, t1);
 #endif
 
-#if 1
+#if 0
     matrix_init(a, b, c);
+
     t2 = wtime();
+
     for (int i = 0; i < NREPS; i++)
     {
         dgemm_interchanged(a, b, c);
     }
+
     t2 = wtime() - t2;
+
     t2 /= NREPS;
+
     printf("# DGEMM interchange: N=%d, elapsed time (sec) %.6f\n", N, t2);
 #endif
 
 #if 1
     matrix_init(a, b, c);
+
     t3 = wtime();
+
     for (int i = 0; i < NREPS; i++)
     {
         dgemm_block(a, b, c);
     }
+
     t3 = wtime() - t3;
+
     t3 /= NREPS;
+
     printf("# DGEMM bloc: N=%d, BS=%ld, elapsed time (sec) %.6f\n", N, BS, t3);
 #endif
 
