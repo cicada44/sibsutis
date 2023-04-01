@@ -8,7 +8,7 @@
 #endif
 
 #ifndef N
-#define N 64
+#define N 4
 #endif
 
 #define NREPS 3
@@ -188,7 +188,7 @@ int main()
     printf("# DGEMM interchange: N=%d, elapsed time (sec) %.6f\n", N, t2);
 #endif
 
-#if 1
+#if 0
     matrix_init(a, b, c);
 
     t3 = wtime();

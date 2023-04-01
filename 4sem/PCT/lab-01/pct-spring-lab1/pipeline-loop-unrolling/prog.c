@@ -58,18 +58,20 @@ int vec_sum_v3(int *vec, int n)
     unsigned int i;
 
     // Temporary variables to resolve the data hazards.
-    int s = 0, t1 = 0, t2 = 0, t3 = 0;
+    int s = 0, t1 = 0, t2 = 0, t3 = 0, t4 = 0, t5 = 0;
 
     // ALUs're working parallel.
-    for (i = 0; i + 3 < n; i += 4)
+    for (i = 0; i + 6 < n; i += 6)
     {
         s = s + vec[i];
         t1 = t1 + vec[i + 1];
         t2 = t2 + vec[i + 2];
         t3 = t3 + vec[i + 3];
+        t4 = t4 + vec[i + 4];
+        t5 = t5 + vec[i + 5];
     }
 
-    t1 += t2 += t3;
+    t1 += t2 += t3 += t4 += t5;
 
     for (; i < n; i++)
     {
@@ -102,7 +104,7 @@ void run(int (*fn)(int *, int))
 
 int main()
 {
-    run(vec_sum);
+    // run(vec_sum);
     // run(vec_sum_v2);
-    // run(vec_sum_v3);
+    run(vec_sum_v3);
 }
