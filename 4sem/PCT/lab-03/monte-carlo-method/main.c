@@ -53,27 +53,28 @@ double MC_parallel(const int n, const int n_threads)
     double s = 0;
 #pragma omp parallel num_threads(n_threads)
     {
-        double s_loc = 0;
-        int in_loc = 0;
+        // double s_loc = 0;
+        // int in_loc = 0;
         unsigned int seed = omp_get_thread_num();
 
-#pragma omp for nowait
+#pragma omp for nowait reduction(+ \
+                                 : s, in)
         for (int i = 0; i < n; i++)
         {
             double x = getrand_r(&seed); /* x in [0, 1] */
             double y = getrand_r(&seed); /* y in [0, 1 - x] */
             if (y <= 1 - x)
             {
-                in_loc++;
-                s_loc += func(x, y);
+                in++;
+                s += func(x, y);
             }
         }
 
-#pragma omp atomic
-        s += s_loc;
+        // #pragma omp atomic
+        //         s += s_loc;
 
-#pragma omp atomic
-        in += in_loc;
+        // #pragma omp atomic
+        //         in += in_loc;
     }
 
     double v = M_PI * in / n;
@@ -100,14 +101,14 @@ void inspect()
 
 void benchmark()
 {
-    int n = 10000000;
+    int n = 100000000;
     double t_serial = MC_serial(n);
     for (int i = 2; i <= 6; ++i)
     {
         printf("%f\t%d\n", t_serial / MC_parallel(n, i), i);
     }
 
-    n = 100000000;
+    n = 10000000;
     t_serial = MC_serial(n);
     for (int i = 2; i <= 6; ++i)
     {
