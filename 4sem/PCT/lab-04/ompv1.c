@@ -26,7 +26,7 @@ void calculate_forces(struct particle *p, struct particle *f, float *m, int n)
                 .y = p[j].y - p[i].y,
                 .z = p[j].z - p[i].z};
 #pragma omp critical
-            {
+            { /* Datarace */
                 f[i].x += mag * dir.x / dist;
                 f[i].y += mag * dir.y / dist;
                 f[i].z += mag * dir.z / dist;
