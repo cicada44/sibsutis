@@ -41,6 +41,7 @@ void quicksort_tasks(int* v, int low, int high)
             quicksort_tasks(v, low, j);
         }
         quicksort_tasks(v, i, high);
+        
     }
 }
 

@@ -20,7 +20,7 @@ def draw(filenames, labels, title, filename):
     fig = plt.figure(figsize=(10*cm, 7*cm))
     ax = fig.add_subplot(111)
     ax.set_title(title)
-    ax.set(xlabel="Количество p потоков", ylabel="Ускорение S(p)")
+    ax.set(xlabel="Number of threads", ylabel="Speedup")
     ax.label_outer()
     
     ax.xaxis.set_tick_params(direction='in', which='both')
@@ -46,7 +46,7 @@ def draw(filenames, labels, title, filename):
     p_offset = -wdh * count_versions * 0.5
     while thrd_cur <= thrd_end:
         if first_iteration:
-            lbl = "Линейное ускорение"
+            lbl = "Linear speedup"
             first_iteration = False
         else:
             lbl = ""
