@@ -4,3 +4,6 @@ other/*
 *.docx
 *.pdf
 *.odt
+
+# Archives
+*.zip
