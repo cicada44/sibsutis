@@ -64,10 +64,18 @@ swap_info=$(free -h | grep "Swap")
 echo "Swap Info:"
 echo "$swap_info"
 
-section_header "Network Interfaces"
-num_interfaces=$(ifconfig -a | grep -o "^[a-zA-Z0-9]*" | wc -l)
-interface_info=$(ifconfig -a | grep -E "^[a-zA-Z0-9]+:")
+networkNames=$(ip address show | awk '/^[0-9]+:/ { print $2 }' | sed 's|:||')
 
-echo "Number of Network Interfaces: $num_interfaces"
-echo "Interface Info:"
-echo "$interface_info"
+section_header "Network Interfaces"
+echo "Number of ifaces: $(echo $networkNames | wc -w)"
+
+temp=$(mktemp)
+num=0
+for name in $networkNames; do
+    num=$(($num + 1))
+    mac=$(ip address show "$name" | grep 'link' | awk 'NR==1{print $2}')
+    ip=$(ip address show "$name" | grep 'inet' | awk 'NR==1{print $2}')    
+    echo "$num|$name|$mac|$ip" >> $temp
+done
+column -t -s '|' -N '#','Name','МАС','IP' $temp
+rm $temp
