@@ -1,49 +1,50 @@
+#include <iostream>
+#include <math.h>
 #include <mpi.h>
 
-#include <cmath>
-#include <iostream>
-
-double f(double x) { return (sin(x + 2)) / (0.4 + cos(x)); }
-
-double rectangle_integration(double a, double b, int n) {
-  double dx = (b - a) / n;
-  double integral = 0.0;
-  for (int i = 0; i < n; i++) {
-    double x = a + i * dx;
-    integral += f(x) * dx;
-  }
-  return integral;
+double func(double x)
+{
+    return sin(x + 2) / (0.4 + cos(x));
 }
 
-int main(int argc, char** argv) {
-  MPI_Init(&argc, &argv);
+int main(int argc, char** argv)
+{
+    int commsize, rank;
 
-  int rank, size;
+    MPI_Init(&argc, &argv);
 
-  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-  MPI_Comm_size(MPI_COMM_WORLD, &size);
+    MPI_Comm_size(MPI_COMM_WORLD, &commsize);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-  double a = -1.0;
-  double b = 1.0;
-  int n = 1000000;
+    double eps = 1E-6;
+    int n0 = 1000000;
+    int n = n0, k;
+    double sq[2] = {0.0, 0.0}, delta = 1;
+    double a = -1.0, b = 1.0;
 
-  // Deduciton
-  int local_n = n / size;
-  int local_part = local_n * (b - a) / n;
-  double local_a = a + rank * local_part;
-  double local_b = local_a + local_part;
+    double start_time;
+    start_time = MPI_Wtime();
 
-  // Local integration
-  double local_integral = rectangle_integration(local_a, local_b, local_n);
+    for (k = 0; delta > eps; n *= 2, k ^= 1) {
+        int points_per_proc = n / commsize;
+        int lb = rank * points_per_proc;
+        int ub = (rank == commsize - 1) ? (n - 1) : (lb + points_per_proc - 1);
+        double h = (b - a) / n;
+        double s = 0.0;
+        for (int i = lb; i <= ub; i++) {
+            s += func(a + h * (i + 0.5));
+        }
+        MPI_Allreduce(&s, &sq[k], 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
+        sq[k] *= h;
+        if (n > n0) delta = fabs(sq[k] - sq[k ^ 1]) / 3.0;
+    }
 
-  // Reducing
-  double integral;
-  MPI_Reduce(&local_integral, &integral, 1, MPI_DOUBLE, MPI_SUM, 0,
-             MPI_COMM_WORLD);
+    double elapsed_time = MPI_Wtime() - start_time;
+    double max_elapsed_time;
 
-  if (rank == 0) {
-    std::cout << "Integral: " << integral << std::endl;
-  }
+    MPI_Reduce(&elapsed_time, &max_elapsed_time, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
 
-  MPI_Finalize();
+    if (rank == 0) std::cout << elapsed_time << '\n';
+
+    MPI_Finalize();
 }
