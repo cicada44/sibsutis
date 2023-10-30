@@ -39,7 +39,6 @@ void sgemv(float* a, float* b, float* c, int m, int n)
             c[lb + i] += a[i * n + j] * b[j];
     }
 
-    // Gather data from all processes using Allgatherv
     int* displs = new int[commsize];
     int* rcounts = new int[commsize];
     for (int i = 0; i < commsize; i++) {
@@ -54,6 +53,7 @@ void sgemv(float* a, float* b, float* c, int m, int n)
     free(displs);
     free(rcounts);
 }
+
 int main(int argc, char** argv)
 {
     int commsize, rank;
@@ -66,7 +66,7 @@ int main(int argc, char** argv)
 
     int lb, ub, m = 280, n = 280;
 
-    get_chunk(0, m - 1, commsize, rank, &lb, &ub); // Декомпозиция матрицы на горизонтальные полосы
+    get_chunk(0, m - 1, commsize, rank, &lb, &ub);
 
     int nrows = ub - lb + 1;
     float* a = new float[nrows * n];
@@ -82,7 +82,7 @@ int main(int argc, char** argv)
         b[j] = j + 1;
     sgemv(a, b, c, m, n);
 
-    t = MPI_Wtime() - t; // Продолжение main()
+    t = MPI_Wtime() - t;
 
     if (rank == 0) std::cout << t << '\n';
 

@@ -30,6 +30,9 @@ def draw(filenames, labels):
     ax.xaxis.set_major_locator(ticker.MultipleLocator(8))
     ax.yaxis.set_major_locator(ticker.MultipleLocator(8))
 
+    labelsa = ['8(2x4)', '8(2x4)', '16(2x8)', '24(3x8)']
+    ax.set_xticklabels(labelsa)
+
     count_versions = 0
     lbls = []
     for (fname, datalabel) in zip(filenames, labels):
@@ -42,7 +45,7 @@ def draw(filenames, labels):
     thrd_cur = min(dataX[0])
     thrd_step = dataX[0][1] - dataX[0][0] if len(dataX[0]) > 1 else 0
     thrd_end = max(dataX[0])
-    wdh = 3.4 / (count_versions + 1)
+    wdh = 4.2 / (count_versions + 1)
 
     first_iteration = True
     p_offset = -wdh * count_versions * 0.5
@@ -56,13 +59,16 @@ def draw(filenames, labels):
                label=lbl, color="blue", width=wdh)
         thrd_cur += thrd_step
 
-    # p_offset += wdh * 0.5
     p_offset += wdh
+    
     for i in range(0, len(dataX)):
         ax.bar(dataX[i] + p_offset, dataY[i], label=lbls[i], width=wdh)
         p_offset += wdh
+        for j in range(len(dataX[i])):
+            ax.annotate(str(dataY[i][j]), xy=(dataX[i][j] + p_offset - 0.5, dataY[i][j]), ha='right', va='bottom', fontsize=8)
 
     plt.tight_layout()
+    
     ax.legend()
     fig.savefig('chart.png', dpi=300)
 

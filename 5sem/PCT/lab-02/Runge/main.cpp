@@ -17,7 +17,7 @@ int main(int argc, char** argv)
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
     double eps = 1E-6;
-    int n0 = 1000000;
+    int n0 = 10000000;
     int n = n0, k;
     double sq[2] = {0.0, 0.0}, delta = 1;
     double a = -1.0, b = 1.0;
