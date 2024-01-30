@@ -1,0 +1,8 @@
+{
+    "editor.formatOnSave": true,
+    "files.associations": {
+        "netdb.h": "c",
+        "types.h": "c",
+        "socket.h": "c"
+    }
+}
