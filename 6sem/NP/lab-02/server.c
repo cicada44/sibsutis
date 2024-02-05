@@ -19,8 +19,8 @@ void handle_client(int client_sock) {
 }
 
 int main() {
-    int sock, client_sock;
-    struct sockaddr_in servAddr, cliAddr;
+    int sock;
+    struct sockaddr_in cliAddr;
     int new_sock;
     socklen_t cliAddrSize = sizeof(cliAddr);
 
@@ -29,23 +29,29 @@ int main() {
         exit(1);
     }
 
-    memset((char *)&servAddr, 0, sizeof(servAddr));
+    struct sockaddr_in servAddr;
     servAddr.sin_family = AF_INET;
-    servAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    servAddr.sin_addr.s_addr = INADDR_ANY;
     servAddr.sin_port = 0;
+    memset((char *)&servAddr, 0, sizeof(servAddr));
 
-    if (bind(sock, (struct sockaddr *)&servAddr, sizeof(servAddr)) < 0) {
+    if (bind(sock, (struct sockaddr*)&servAddr, sizeof(servAddr)) < 0) {
         perror("Server bind failed");
         exit(1);
     }
+
+    socklen_t lenght = sizeof(servAddr);
+    getsockname(sock, (struct sockaddr*)&servAddr, &lenght);
 
     if (listen(sock, 5) < 0) {
         perror("Server listen failed");
         exit(1);
     }
 
-    while ((new_sock = accept(sock, (struct sockaddr *)&cliAddr, &cliAddrSize)) > 0) {
-        printf("New client arrived!\n");
+    printf("Server port: %d\n", ntohs(servAddr.sin_port));
+
+    while ((new_sock = accept(sock, (struct sockaddr*)&cliAddr, &cliAddrSize)) != -1) {
+        printf("\n\nNew client arrived!\n\n");
         pid_t pid = fork();
         if (pid < 0) {
             perror("Fork failed");
@@ -65,5 +71,4 @@ int main() {
     }
 
     close(sock);
-    return 0;
 }
