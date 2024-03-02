@@ -16,4 +16,15 @@
 (* this is wrong comment
  * but... *)
 
+(*(***)*)
+
+(*
+ * Multiline comment
+ (*
+ *  *  Nested
+ *  *)
+ *)
+
+(*
+
 if

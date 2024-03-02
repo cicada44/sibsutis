@@ -68,7 +68,7 @@ int main(int argc, char* argv[])
     clientAddr.sin_port = 0;
 
     if (bind(sock, (const struct sockaddr*)(&clientAddr), sizeof(clientAddr))) {
-        perror("Клиент не получил порт.");
+        perror("Client can't recieve port.");
         exit(1);
     }
 
@@ -105,8 +105,8 @@ int main(int argc, char* argv[])
         unsigned int length = sizeof(servAddr);
         int msgLength = recvfrom(
                 sock, buf, BUFLEN, 0, (struct sockaddr*)(&servAddr), &length);
-        printf("SERVER: LEN of message - %d\n", msgLength);
-        printf("SERVER: Message: %s\n\n", buf);
+        printf("CLIENT: LEN of message - %d\n", msgLength);
+        printf("CLIENT: Message: %s\n\n", buf);
     }
 
     printf("CLIENT: Sending's 'done\n");

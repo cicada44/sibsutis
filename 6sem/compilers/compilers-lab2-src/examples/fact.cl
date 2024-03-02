@@ -1,4 +1,6 @@
--- this is comment
+(*
+ * (* Program that calculates factorial of number *)
+*)
 
 class Main inherits IO {
     main(): Object {{
@@ -16,6 +18,7 @@ class Main inherits IO {
     factorial(num: Int): Int {
         if num = 0 then 1 else num * factorial(num - 1) fi
     };
+    let _variable : Int <- 20;
 };
 
 class Main1 inherits IO {

@@ -3,26 +3,25 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/socket.h>
-#include <sys/types.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <sys/wait.h>
+#include <pthread.h>
 
 #define BUFLEN 81
 
-void handle_client(int client_sock) {
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+
+void *handle_client(void *arg) {
+    int client_sock = *((int *)arg);
     char buf[BUFLEN];
     int msgLength;
     while ((msgLength = recv(client_sock, buf, BUFLEN, 0)) > 0) {
+        pthread_mutex_lock(&mutex);
         printf("SERVER: Message: %s\n", buf);
+        pthread_mutex_unlock(&mutex);
         send(client_sock, "Message received", 16, 0);
     }
-    close(client_sock);
-}
-
-void zombie_killer(int signo)
-{
-    while (waitpid(-1, NULL, WNOHANG) > 0);
+    return NULL;
 }
 
 int main() {
@@ -35,8 +34,6 @@ int main() {
         perror("Server socket creation failed");
         exit(1);
     }
-
-    signal(SIGCHLD, zombie_killer);
 
     struct sockaddr_in servAddr;
     servAddr.sin_family = AF_INET;
@@ -61,16 +58,12 @@ int main() {
 
     while ((new_sock = accept(sock, (struct sockaddr*)&cliAddr, &cliAddrSize)) != -1) {
         printf("\n\nNew client arrived!\n\n");
-        pid_t pid = fork();
-        if (pid < 0) {
-            perror("Fork failed");
-            exit(1);
-        } else if (pid == 0) {
-            close(sock);
-            handle_client(new_sock);
-            exit(0);
-        } else {
+        pthread_t thread;
+        int sock_arg[] = {new_sock};
+        if (pthread_create(&thread, NULL, handle_client, sock_arg) != 0) {
+            perror("Thread creation failed");
             close(new_sock);
+            exit(1);
         }
     }
 
@@ -79,5 +72,5 @@ int main() {
         exit(1);
     }
 
-    close(sock);
+    // close(sock);
 }

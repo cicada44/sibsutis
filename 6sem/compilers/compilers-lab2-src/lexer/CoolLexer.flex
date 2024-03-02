@@ -29,7 +29,7 @@ real              ({i}\.{i}?|{i}?\.{i}){exponent}?
 string            \'([^'\n]|\'\')*\'
 bad_string        \'([^'\n]|\'\')*
 
-%x COMMENT
+%start COMMENT
 %start STRING
 
 %option warn nodefault batch noyywrap c++
@@ -38,26 +38,27 @@ bad_string        \'([^'\n]|\'\')*
 
 %%
 
---.*                { }
-"*)"                { Error("Wrong comment close-bracket"); BEGIN(INITIAL); return ERROR; }
-"(*"                { BEGIN(COMMENT); comment_depth = 0; }
+<INITIAL>--.*\n     { ++lineno; }
+<INITIAL>"*)"       { Error("Wrong comment close-bracket"); BEGIN(INITIAL); return ERROR; }
+<INITIAL>"(*"       { BEGIN(COMMENT); comment_depth = 0; }
 <COMMENT>"(*"       { ++comment_depth; }
-<COMMENT><<EOF>>    { Error("EOF in comment"); BEGIN(INITIAL); return ERROR; }
+<COMMENT><<EOF>>    { Error("Unterminated comment"); BEGIN(INITIAL); return ERROR; }
 <COMMENT>\n         { ++lineno; }
-<COMMENT>.          { }
+<COMMENT>[^\n*(]*   { }
+<COMMENT>[*()]      { }
 <COMMENT>"*)"       {
                       if (comment_depth == 0) BEGIN(INITIAL);
                       --comment_depth;
                     }
 
-<INITIAL>"\""             { BEGIN(STRING); yymore(); }
-<STRING>\n                { Error("Unexpected nl in string"); BEGIN(INITIAL); curline++; return ERROR; }
-<STRING><<EOF>>           { Error("EOF in string"); BEGIN(INITIAL); return ERROR; }
-<STRING>"\0"              { BEGIN(INITIAL); Error("Unexpected null-term in string"); yymore(); return ERROR; }
-<STRING>[^\\\"\n]*        { yymore(); }
-<STRING>\\[^\n]           { yymore(); }
-<STRING>\\\n              { curline++; yymore(); }
-<STRING>"\""              { BEGIN(INITIAL); Escape(); return TOKEN_STRING; }
+<INITIAL>"\""       { BEGIN(STRING); yymore(); }
+<STRING>\n          { Error("Unexpected nl in string"); BEGIN(INITIAL); curline++; return ERROR; }
+<STRING><<EOF>>     { Error("EOF in string"); BEGIN(INITIAL); return ERROR; }
+<STRING>"\\0"       { BEGIN(INITIAL); Error("Unexpected null-term in string"); yymore(); return ERROR; }
+<STRING>[^\\\"\n]*  { yymore(); }
+<STRING>\\[^\n]     { yymore(); }
+<STRING>\\\n        { curline++; yymore(); }
+<STRING>"\""        { BEGIN(INITIAL); Escape(); return TOKEN_STRING; }
 
 (?i:class)           return TOKEN_CLASS;
 t(?i:rue)            return TOKEN_TRUE;
@@ -116,7 +117,7 @@ _{alpha_num}*        return TOKEN_IDENTIFIER_OTHER;
 void CoolLexer::Error(const char* msg) const
 {
     std::cerr << "Lexer error (line " << lineno + 1 << "): " << msg << ": lexeme '" << YYText() << "'\n";
-    // std::exit(YY_EXIT_FAILURE);
+    std::exit(YY_EXIT_FAILURE);
 }
 
 void CoolLexer::Escape() const {

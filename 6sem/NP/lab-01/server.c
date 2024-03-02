@@ -1,3 +1,4 @@
+#include <arpa/inet.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <sys/types.h>
@@ -39,10 +40,10 @@ int main()
     }
 
     length = sizeof(servAddr);
-    if (getsockname(sockMain, (struct sockaddr*)(&servAddr), &length)) {
-        perror("Call getsockname failed.");
-        exit(1);
-    }
+    // if (getsockname(sockMain, (struct sockaddr*)(&servAddr), &length)) {
+    //     perror("Call getsockname failed.");
+    //     exit(1);
+    // }
 
     printf("SERVER: port number - %d\n", ntohs(servAddr.sin_port));
     while (1) {
@@ -75,8 +76,11 @@ int main()
                 firstMsgBuf[i] = buf[i];
             }
         }
-        printf("SERVER: IP client address: %d\n",
-               inet_ntoa(clientAddr.sin_addr));
+        char* addr = malloc(sizeof(char) * BUFLEN);
+        for (int i = 0; i != BUFLEN; ++i)
+            addr[i] = 0;
+        addr = inet_ntoa(clientAddr.sin_addr);
+        printf("SERVER: IP client address: %s\n", addr);
         printf("SERVER: PORT client: %d\n", ntohs(clientAddr.sin_port));
         printf("SERVER: LEN of message - %d\n", msgLength);
         printf("SERVER: Message: %s\n\n", buf);

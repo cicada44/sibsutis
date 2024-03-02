@@ -50,11 +50,11 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    for (i = 1; i <= 3; i++) {
+    for (i = 1; i <= 5; i++) {
         char buf[BUFLEN];
         for (int i = 0; i != BUFLEN; ++i)
             buf[i] = 0;
-        sprintf(buf, "Message %s\0", argv[3]);
+        sprintf(buf, "Message %s", argv[3]);
         send_message(sock, buf);
         sleep(i);
         memset(buf, 0, BUFLEN);
