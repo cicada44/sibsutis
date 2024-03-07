@@ -1,0 +1,7 @@
+1. Read "2.1 Reverse Polish Notation Calculator" in Bison manual
+
+2. Study grammar rules, semantic actions and rpcalc source code, create test cases
+
+3. Create infix notation calculator (Section 2.2)
+
+
