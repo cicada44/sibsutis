@@ -3,7 +3,12 @@
 #include "cool-tree.handcode.h"
 #include "cool-tree.h"
 
+#include <unordered_map>
+#include <string>
+
 int node_lineno = 1;
+
+std::unordered_multimap<std::string, std::string> classToParent;
 
 Program program_class::copy_Program()
 {
@@ -23,16 +28,17 @@ Class_ class__class::copy_Class_()
 
 void class__class::dump(std::ostream &  stream, int n)
 {
-    stream << pad(n) << "class_\n";
-    dump_Symbol(stream, n + 2, name);
-    dump_Symbol(stream, n + 2, parent);
-    features->dump(stream, n + 2);
-    dump_Symbol(stream, n + 2, filename);
+   classToParent.insert({std::string(name->get_string()), std::string(parent->get_string())});
+   stream << pad(n) << "class_\n";
+   dump_Symbol(stream, n + 2, name);
+   dump_Symbol(stream, n + 2, parent);
+   features->dump(stream, n + 2);
+   dump_Symbol(stream, n + 2, filename);
 }
 
 Feature method_class::copy_Feature()
 {
-    return new method_class(copy_Symbol(name), formals->copy_list(), copy_Symbol(return_type), expr->copy_Expression());
+   return new method_class(copy_Symbol(name), formals->copy_list(), copy_Symbol(return_type), expr->copy_Expression());
 }
 
 void method_class::dump(std::ostream &  stream, int n)
