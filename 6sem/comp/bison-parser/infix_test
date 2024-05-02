@@ -1,0 +1,45 @@
+#!/bin/sh
+
+PROG="bin/infixcalc"
+TESTFILE="./input"
+
+run() {
+    ${PROG} < ${TESTFILE} >res 2>res-err
+    if [ "$?" -eq "$1" ]; then
+        TEST=`cat $TESTFILE`
+        echo $2 > res-exp
+        if diff res res-exp >/dev/null 2>&1; then
+            echo "${TEST} -- \033[92;1mpassed\033[0m"
+        else
+            echo "${TEST} -- \033[31;1mFAILED\033[0m"
+        fi
+    else
+        echo "${TEST} -- failed (exit status)"
+    fi
+    rm res res-err res-exp $TESTFILE
+}
+
+cat >input <<EOF
+1 + 2 * 3
+EOF
+run 0 7
+
+cat >input <<EOF
+1.1 + 2.2 * 3.3
+EOF
+run 0 8.36
+
+cat >input <<EOF
+1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9
+EOF
+run 0 362880
+
+cat >input <<EOF
+- (3 + 7 - 3 + 4 * 5)
+EOF
+run 0 -27
+
+cat >input <<EOF
+3 ^ 4
+EOF
+run 0 81
