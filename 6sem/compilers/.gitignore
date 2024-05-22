@@ -1,0 +1,9 @@
+.idea
+~*
+lexer
+*.txt
+.DS_Store
+*.dylib
+*.txt
+bin
+obj

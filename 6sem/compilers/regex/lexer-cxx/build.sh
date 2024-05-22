@@ -1,0 +1,1 @@
+g++ -o lexer lexer.cpp
