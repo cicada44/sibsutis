@@ -25,7 +25,7 @@ namespace analyzer {
 int err_count = 0;
 
 void semantics_error(std::string error_msg) {
-    std::cerr << "# semantic error: " << error_msg << '\n';
+    std::cerr << "\033[1;31m- semantic error: " << error_msg << "\033[0m" << '\n';
     err_count++;
 }
 
@@ -79,10 +79,10 @@ bool detect_cycle(std::unordered_map<std::string, std::string> hierarchy) {
     return false;  // No loop detected
 }
 
-bool CheckSignatures(method_class *m1, method_class *m2) {
+bool signatures_verification(method_class *m1, method_class *m2) {
     // Get return types
-    GetType m1_type_visitor;
-    GetType m2_type_visitor;
+    TypeVisitor m1_type_visitor;
+    TypeVisitor m2_type_visitor;
     m1->accept(m1_type_visitor);
     m2->accept(m2_type_visitor);
     // Check methods return types
@@ -91,8 +91,8 @@ bool CheckSignatures(method_class *m1, method_class *m2) {
     }
 
     // Get formals
-    GetFormals m1_formals_visitor;
-    GetFormals m2_formals_visitor;
+    FormalsVisitor m1_formals_visitor;
+    FormalsVisitor m2_formals_visitor;
     m1->accept(m1_formals_visitor);
     m2->accept(m2_formals_visitor);
     Formals m1_formals = m1_formals_visitor.formals;
@@ -109,8 +109,8 @@ bool CheckSignatures(method_class *m1, method_class *m2) {
         formal_class *m2_formal = dynamic_cast<formal_class *>(m2_formals->nth(i));
 
         // Get formal names
-        GetName m1_formal_generalVisitor;
-        GetName m2_formal_generalVisitor;
+        NameVisitor m1_formal_generalVisitor;
+        NameVisitor m2_formal_generalVisitor;
         m1_formal->accept(m1_formal_generalVisitor);
         m2_formal->accept(m2_formal_generalVisitor);
         std::string name1 = m1_formal_generalVisitor.name;
@@ -121,8 +121,8 @@ bool CheckSignatures(method_class *m1, method_class *m2) {
         }
 
         // Get formal types
-        GetType m1_formal_type_visitor;
-        GetType m2_formal_type_visitor;
+        TypeVisitor m1_formal_type_visitor;
+        TypeVisitor m2_formal_type_visitor;
         m1_formal->accept(m1_formal_type_visitor);
         m2_formal->accept(m2_formal_type_visitor);
         std::string type1 = m1_formal_type_visitor.type;
@@ -136,14 +136,12 @@ bool CheckSignatures(method_class *m1, method_class *m2) {
     return true;
 }
 
-class__class *FindClass(std::string name, Classes classes) {
+class__class *get_class(std::string name, Classes classes) {
     for (int i = classes->first(); classes->more(i); i = classes->next(i)) {
-        GetName generalVisitor;
+        NameVisitor generalVisitor;
         class__class *cur_class = dynamic_cast<class__class *>(classes->nth(i));
         cur_class->accept(generalVisitor);
-        if (name == generalVisitor.name) {
-            return cur_class;
-        }
+        if (name == generalVisitor.name) return cur_class;
     }
     return nullptr;
 }
@@ -160,16 +158,13 @@ void dump_symtables(IdTable idtable, StrTable strtable, IntTable inttable) {
 
 void check_builtin_types_init(std::string type, Expression expr) {
     std::string expr_type = expr->get_expr_type();
-    if (expr_type == "no_expr_class") {
-        return;
-    }
-    if (type == "Int" && expr_type != "int_const_class") {
-        semantics_error("initialization of Int with non-integer value");
-    } else if (type == "Bool" && expr_type != "bool_const_class") {
-        semantics_error("initialization of Bool with non-boolean value");
-    } else if (type == "String" && expr_type != "string_const_class") {
-        semantics_error("initialization of String with non-string value");
-    }
+    if (expr_type == "no_expr_class") return;
+    if (type == "Int" && expr_type != "int_const_class")
+        semantics_error("Initialization of Int with non-integer value");
+    else if (type == "Bool" && expr_type != "bool_const_class")
+        semantics_error("Initialization of Bool with non-boolean value");
+    else if (type == "String" && expr_type != "string_const_class")
+        semantics_error("Initialization of String with non-string value");
 }
 
 };  // namespace analyzer
@@ -198,25 +193,11 @@ int main(int argc, char **argv) {
         Symbol Int = idtable.add_string("Int");
         Symbol String = idtable.add_string("String");
         Symbol SELF_TYPE = idtable.add_string("SELF_TYPE");
-        /*Class_ Object_class = class_(
-          Object,
-          nil_Classes(),
-          append_Features(
-            append_Features(
-              single_Features(method(cool_abort, nil_Formals(), Object,
-        no_expr())), single_Features(method(type_name, nil_Formals(), Str,
-        no_expr()))
-            ),
-            single_Features(method(copy, nil_Formals(), SELF_TYPE, no_expr()))
-          ),
-          filename
-        );*/
-        // analyzer::dump_symtables(idtable, stringtable, inttable);
 
         std::unordered_set<std::string> non_inherited_types{"Bool", "Int", "String", "SELF_TYPE"};
         std::unordered_set<std::string> classes_names{"Object", "Bool", "Int", "String", "SELF_TYPE"};
         std::unordered_map<std::string, std::string> classes_hierarchy;
-        GetName generalVisitor;
+        NameVisitor generalVisitor;
 
         // Loop through classes
         for (int i = parse_results->first(); parse_results->more(i); i = parse_results->next(i)) {
@@ -224,27 +205,27 @@ int main(int argc, char **argv) {
             parse_results->nth(i)->accept(generalVisitor);
             std::string class_name = generalVisitor.name;
 
-            // Check unique class name
+            /* ---------------------- Check unique class name checking ---------------------------------* */
             auto result = classes_names.insert(class_name);
             if (!result.second) analyzer::semantics_error("class '" + class_name + "' already exists!");
 
-            // Add class to inheritance hierarchy
-            GetParent parentVisitor;
+            /* --------------------- Add class to inheritance hierarchy --------------------------------* */
+            ParentVisitor parentVisitor;
             parse_results->nth(i)->accept(parentVisitor);
             std::string parent_name = parentVisitor.name;
             classes_hierarchy[class_name] = parent_name;
 
-            // Check that parent class isn't builtin (except 'Object')
+            /* ----------- Check that parent class isn't builtin (except 'Object') ---------------------* */
             if (non_inherited_types.find(parent_name) != non_inherited_types.end())
                 analyzer::semantics_error("class '" + class_name + "': shouldn't use '" + parent_name + "' as parent");
 
-            // Get class features
-            GetFeatures featuresVisitor;
+            /* ---------------------------- Get class features -----------------------------------------* */
+            FeaturesVisitor featuresVisitor;
             parse_results->nth(i)->accept(featuresVisitor);
             Features features = featuresVisitor.features;
             std::unordered_set<std::string> features_names;
 
-            // Loop through features
+            /* ---------------------------- Loop through features --------------------------------------* */
             for (int j = features->first(); features->more(j); j = features->next(j)) {
                 // Current feature
                 Feature feature = features->nth(j);
@@ -258,39 +239,36 @@ int main(int argc, char **argv) {
 
                 // Check unique feature name
                 result = features_names.insert(feature_name);
-                if (!result.second)
-                    analyzer::semantics_error("Feature '" + feature_name + "' in '" + class_name + "' already exists");
+                if (!result.second) analyzer::semantics_error("Feature '" + feature_name + "' in '" + class_name + "' already exists");
 
                 // Get feature type: methods - return_type, attrs - type_decl
-                GetType type_visitor;
+                TypeVisitor type_visitor;
                 feature->accept(type_visitor);
 
                 // Type existence check
                 std::string type = type_visitor.type;
-                if (classes_names.find(type) == classes_names.end())
-                    analyzer::semantics_error("Unknown type '" + type + "' in " + feature_name);
+                if (classes_names.find(type) == classes_names.end()) analyzer::semantics_error("Unknown type '" + type + "' in " + feature_name);
 
                 // SELF_TYPE check
                 if (type == "SELF_TYPE") analyzer::semantics_error("SELF_TYPE can't be used as a type inside class");
 
                 if (feature->get_feature_type() == "method_class") {
                     // Methods formals
-                    GetFormals formals_visitor;
+                    FormalsVisitor formals_visitor;
                     feature->accept(formals_visitor);
                     Formals formals = formals_visitor.formals;
 
                     // Check method overrides - must have same signature
                     if (std::string(parent_name) != "Object") {
                         // Get parent class features
-                        GetFeatures parent_featuresVisitor;
-                        class__class *parent = analyzer::FindClass(parent_name, parse_results);
+                        FeaturesVisitor parent_featuresVisitor;
+                        class__class *parent = analyzer::get_class(parent_name, parse_results);
                         if (parent) {
                             parent->accept(parent_featuresVisitor);
                             Features parent_features = parent_featuresVisitor.features;
 
                             // Loop through parent features
-                            for (int a = parent_features->first(); parent_features->more(a);
-                                 a = parent_features->next(a)) {
+                            for (int a = parent_features->first(); parent_features->more(a); a = parent_features->next(a)) {
                                 Feature parent_feature = parent_features->nth(a);
 
                                 // Get feature name
@@ -301,17 +279,15 @@ int main(int argc, char **argv) {
                                 if (parent_feature_name == feature_name) {
                                     // Check if feature is same type
                                     if (parent_feature->get_feature_type() != feature->get_feature_type()) {
-                                        analyzer::semantics_error("wrong override of feature '" + feature_name +
-                                                                  "' from class '" + parent_name + "' in class '" +
+                                        analyzer::semantics_error("wrong override of feature '" + feature_name + "' from class '" + parent_name + "' in class '" +
                                                                   class_name + "'");
                                     }
 
                                     // Check method signatures
                                     method_class *cur_method = dynamic_cast<method_class *>(feature);
                                     method_class *parent_method = dynamic_cast<method_class *>(parent_feature);
-                                    if (!analyzer::CheckSignatures(cur_method, parent_method)) {
-                                        analyzer::semantics_error("'" + feature_name + "' method from class '" +
-                                                                  parent_name +
+                                    if (!analyzer::signatures_verification(cur_method, parent_method)) {
+                                        analyzer::semantics_error("'" + feature_name + "' method from class '" + parent_name +
                                                                   "' doesn't match override version "
                                                                   "of it in class '" +
                                                                   class_name + "'");
@@ -319,8 +295,7 @@ int main(int argc, char **argv) {
                                 }
                             }
                         } else {
-                            analyzer::semantics_error("parent class '" + std::string(parent_name) + "' of class '" +
-                                                      class_name + "' doesn't exist");
+                            analyzer::semantics_error("parent class '" + std::string(parent_name) + "' of class '" + class_name + "' doesn't exist");
                         }
                     }
 
@@ -334,35 +309,28 @@ int main(int argc, char **argv) {
                         std::string formal_name = generalVisitor.name;
 
                         // 'self' name check
-                        if (formal_name == "self") {
-                            analyzer::semantics_error("can't use 'self' as formal name");
-                        }
+                        if (formal_name == "self") analyzer::semantics_error("Can't use 'self' as formal name");
 
                         // Unique name check
                         result = formals_names.insert(formal_name);
-                        if (!result.second) {
-                            analyzer::semantics_error("formal '" + std::string(formal_name) + "' in '" + feature_name +
-                                                      "' already exists!");
-                        }
+                        if (!result.second) analyzer::semantics_error("Formal '" + std::string(formal_name) + "' in '" + feature_name + "' already exists!");
 
                         // Get formal type
                         formals->nth(k)->accept(type_visitor);
                         type = type_visitor.type;
 
                         // Check formal type
-                        if (classes_names.find(type) == classes_names.end()) {
-                            analyzer::semantics_error("unknown type '" + type + "' in " + formal_name);
-                        }
+                        if (classes_names.find(type) == classes_names.end()) analyzer::semantics_error("Unknown type '" + type + "' in " + formal_name);
 
                         // Get method expression
-                        GetExpression expr_visitor;
+                        ExpressionVisitor expr_visitor;
                         features->nth(j)->accept(expr_visitor);
                         Expression expr = expr_visitor.expr;
 
                         // block_class check
                         if (expr->get_expr_type() == "block_class") {
                             // Get expressions from block
-                            GetExpressions exprs_visitor;
+                            ExpressionsVisitor exprs_visitor;
                             expr->accept(exprs_visitor);
                             Expressions exprs = exprs_visitor.exprs;
 
@@ -386,8 +354,7 @@ int main(int argc, char **argv) {
                                     // Check unique of nested formal
                                     result = formals_names.insert(formal_name);
                                     if (!result.second) {
-                                        analyzer::semantics_error("formal '" + std::string(formal_name) + "' in '" +
-                                                                  feature_name + "' from '" + class_name +
+                                        analyzer::semantics_error("formal '" + std::string(formal_name) + "' in '" + feature_name + "' from '" + class_name +
                                                                   "' already exists!");
                                     }
 
@@ -401,28 +368,25 @@ int main(int argc, char **argv) {
                             }
                         }
                     }
-                } else {  // attr_class
-                    // Check init expression
+                } else {
+                    // Check init expression attr_class
                     attr_class *attr = dynamic_cast<attr_class *>(feature);
                     attr->accept(type_visitor);
-                    GetExpression getExpr;
+                    ExpressionVisitor getExpr;
                     attr->accept(getExpr);
                     analyzer::check_builtin_types_init(type_visitor.type, getExpr.expr);
                 }
             }
 
             // Check existence of method main in class Main
-            if (class_name == "Main" && features_names.find("main") == features_names.end())
-                analyzer::semantics_error("Method 'main' in 'Main' class does not exist");
+            if (class_name == "Main" && features_names.find("main") == features_names.end()) analyzer::semantics_error("Method 'main' in 'Main' class does not exist");
 
             // Dump all features
-            // analyzer::sequence_out("Features (methods + attributes) of '" +
-            // class_name + '\'', features_names);
+            // analyzer::sequence_out("\033[1;33mFeatures (methods + attributes) of '" + class_name + '\'' + "\033[0m", features_names);
         }
 
         // Check existence of class Main
-        if (classes_names.find("Main") == classes_names.end())
-            analyzer::semantics_error("Start point - class 'Main' doesn't exist");
+        if (classes_names.find("Main") == classes_names.end()) analyzer::semantics_error("Start point - class 'Main' doesn't exist");
 
         // Dump all classes
         // analyzer::sequence_out("Classes (types)", classes_names);
@@ -432,11 +396,14 @@ int main(int argc, char **argv) {
             analyzer::semantics_error("loop detected in classes inheritance hierarchy");
             // std::cerr << "\\ program classes' hierarchy (child : parent)\n";
             // for (auto p : classes_hierarchy) {
-            //     std::cerr << '\t' << p.first << " : " << p.second << "\n";
+            //     std::cerr << "\033[1;33m" << '\t' << p.first << " : " << p.second << "\033[0m"
+            //               << "\n";
             // }
         }
         std::fclose(token_file);
     }
-    std::cerr << "# Detected " << analyzer::err_count << " semantic errors\n";
+
+    std::cerr << "\n[I] Detected " << analyzer::err_count << " semantic errors\n";
+
     return analyzer::err_count;
 }
