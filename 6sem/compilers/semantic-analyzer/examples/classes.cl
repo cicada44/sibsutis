@@ -1,6 +1,6 @@
-class Integer {};
+class Int {};
 
-class Boolean {};
+class Bool {};
 
 class Main {};
 
