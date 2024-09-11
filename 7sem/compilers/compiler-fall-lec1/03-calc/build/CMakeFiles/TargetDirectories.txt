@@ -1,0 +1,8 @@
+/mnt/c/cicada-main/sibsutis/7sem/compilers/compiler-fall-lec1/03-calc/build/CMakeFiles/intrinsics_gen.dir
+/mnt/c/cicada-main/sibsutis/7sem/compilers/compiler-fall-lec1/03-calc/build/CMakeFiles/omp_gen.dir
+/mnt/c/cicada-main/sibsutis/7sem/compilers/compiler-fall-lec1/03-calc/build/CMakeFiles/acc_gen.dir
+/mnt/c/cicada-main/sibsutis/7sem/compilers/compiler-fall-lec1/03-calc/build/CMakeFiles/edit_cache.dir
+/mnt/c/cicada-main/sibsutis/7sem/compilers/compiler-fall-lec1/03-calc/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/cicada-main/sibsutis/7sem/compilers/compiler-fall-lec1/03-calc/build/src/CMakeFiles/calc.dir
+/mnt/c/cicada-main/sibsutis/7sem/compilers/compiler-fall-lec1/03-calc/build/src/CMakeFiles/edit_cache.dir
+/mnt/c/cicada-main/sibsutis/7sem/compilers/compiler-fall-lec1/03-calc/build/src/CMakeFiles/rebuild_cache.dir
