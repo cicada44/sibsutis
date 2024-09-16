@@ -55,7 +55,7 @@ public:
 class DeclUsageVisitor : public ASTVisitor {
   llvm::StringSet<> DeclaredVars;
   llvm::StringSet<> UsedVars;
-  
+
   public:
     DeclUsageVisitor() {}
 

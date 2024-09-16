@@ -1,0 +1,36 @@
+Links
+=====
+* https://ru.wikipedia.org/wiki/Региональные_настройки_(программирование)
+* https://ru.wikipedia.org/wiki/Locale
+* https://en.cppreference.com/w/cpp/locale/locale
+
+$ locale
+
+LANG=en_US.UTF-8
+LANGUAGE=
+LC_CTYPE="en_US.UTF-8"
+LC_NUMERIC="en_US.UTF-8"
+LC_TIME="en_US.UTF-8"
+LC_COLLATE="en_US.UTF-8"
+LC_MONETARY="en_US.UTF-8"
+LC_MESSAGES="en_US.UTF-8"
+LC_PAPER="en_US.UTF-8"
+LC_NAME="en_US.UTF-8"
+LC_ADDRESS="en_US.UTF-8"
+LC_TELEPHONE="en_US.UTF-8"
+LC_MEASUREMENT="en_US.UTF-8"
+LC_IDENTIFICATION="en_US.UTF-8"
+LC_ALL=
+
+$ localectl status
+System Locale: LANG=en_US.UTF-8
+    VC Keymap: (unset)         
+   X11 Layout: us
+    X11 Model: pc105
+
+$ locale -k LC_CTYPE
+ctype-class-names="upper";"lower";"alpha";"digit";"xdigit";"space";"print";"graph";"blank";"cntrl";"punct";"alnum";"combining";"combining_level3"
+ctype-map-names="toupper";"tolower";"totitle"
+...
+
+
