@@ -1,0 +1,4 @@
+#!/bin/bash
+#SBATCH --nodes=2 --ntasks=8 --ntasks-per-node=4
+
+mpiexec ./main-8
