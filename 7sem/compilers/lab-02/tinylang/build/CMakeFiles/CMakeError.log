@@ -1,0 +1,160 @@
+Performing C SOURCE FILE Test C_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW failed with the following output:
+Change Dir: /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_333e4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_333e4.dir/build.make CMakeFiles/cmTC_333e4.dir/build
+gmake[1]: Entering directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_333e4.dir/src.c.o
+/usr/bin/cc -DC_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW  -fPIC -fno-semantic-interposition -Werror=date-time    -Werror -Werror=unguarded-availability-new -o CMakeFiles/cmTC_333e4.dir/src.c.o -c /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: '-Werror=unguarded-availability-new': no option '-Wunguarded-availability-new'
+gmake[1]: *** [CMakeFiles/cmTC_333e4.dir/build.make:78: CMakeFiles/cmTC_333e4.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_333e4/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW failed with the following output:
+Change Dir: /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a8b28/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a8b28.dir/build.make CMakeFiles/cmTC_a8b28.dir/build
+gmake[1]: Entering directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a8b28.dir/src.cxx.o
+/usr/bin/c++ -DCXX_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time    -Werror -Werror=unguarded-availability-new -o CMakeFiles/cmTC_a8b28.dir/src.cxx.o -c /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/src.cxx
+cc1plus: error: '-Werror=unguarded-availability-new': no option '-Wunguarded-availability-new'
+gmake[1]: *** [CMakeFiles/cmTC_a8b28.dir/build.make:78: CMakeFiles/cmTC_a8b28.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_a8b28/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG failed with the following output:
+Change Dir: /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2f6a6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2f6a6.dir/build.make CMakeFiles/cmTC_2f6a6.dir/build
+gmake[1]: Entering directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2f6a6.dir/src.c.o
+/usr/bin/cc -DC_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG  -fPIC -fno-semantic-interposition -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wno-missing-field-initializers -Wimplicit-fallthrough    -Werror -Wcovered-switch-default -o CMakeFiles/cmTC_2f6a6.dir/src.c.o -c /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command-line option '-Wcovered-switch-default'; did you mean '-Wno-switch-default'?
+gmake[1]: *** [CMakeFiles/cmTC_2f6a6.dir/build.make:78: CMakeFiles/cmTC_2f6a6.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_2f6a6/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG failed with the following output:
+Change Dir: /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d34b8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d34b8.dir/build.make CMakeFiles/cmTC_d34b8.dir/build
+gmake[1]: Entering directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d34b8.dir/src.cxx.o
+/usr/bin/c++ -DCXX_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough    -Werror -Wcovered-switch-default -o CMakeFiles/cmTC_d34b8.dir/src.cxx.o -c /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Wcovered-switch-default'; did you mean '-Wno-switch-default'?
+gmake[1]: *** [CMakeFiles/cmTC_d34b8.dir/build.make:78: CMakeFiles/cmTC_d34b8.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_d34b8/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test CXX_WONT_WARN_ON_FINAL_NONVIRTUALDTOR failed with the following output:
+Change Dir: /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c055a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c055a.dir/build.make CMakeFiles/cmTC_c055a.dir/build
+gmake[1]: Entering directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c055a.dir/src.cxx.o
+/usr/bin/c++ -DCXX_WONT_WARN_ON_FINAL_NONVIRTUALDTOR  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-class-memaccess -Wno-redundant-move -Wno-pessimizing-move -Wno-noexcept-type  -Werror=non-virtual-dtor -o CMakeFiles/cmTC_c055a.dir/src.cxx.o -c /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/src.cxx
+/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/src.cxx:2:36: error: ‘class base’ has virtual functions and accessible non-virtual destructor [-Werror=non-virtual-dtor]
+    2 |                              class base {friend f; public: virtual void anchor();protected: ~base();};
+      |                                    ^~~~
+cc1plus: some warnings being treated as errors
+gmake[1]: *** [CMakeFiles/cmTC_c055a.dir/build.make:78: CMakeFiles/cmTC_c055a.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_c055a/fast] Error 2
+
+
+Source file was:
+class f {};
+                             class base {friend f; public: virtual void anchor();protected: ~base();};
+                             int main() { return 0; }
+Performing C SOURCE FILE Test C_WCOMMENT_ALLOWS_LINE_WRAP failed with the following output:
+Change Dir: /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ed1dc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ed1dc.dir/build.make CMakeFiles/cmTC_ed1dc.dir/build
+gmake[1]: Entering directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ed1dc.dir/src.c.o
+/usr/bin/cc -DC_WCOMMENT_ALLOWS_LINE_WRAP  -fPIC -fno-semantic-interposition -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wno-missing-field-initializers -Wimplicit-fallthrough  -Werror -Wcomment -o CMakeFiles/cmTC_ed1dc.dir/src.c.o -c /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/src.c
+/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/src.c:1:1: error: multi-line comment [-Werror=comment]
+    1 | // \
+      | ^
+cc1: all warnings being treated as errors
+gmake[1]: *** [CMakeFiles/cmTC_ed1dc.dir/build.make:78: CMakeFiles/cmTC_ed1dc.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_ed1dc/fast] Error 2
+
+
+Source file was:
+// \
+//
+int main() {return 0;}
+Performing C SOURCE FILE Test C_SUPPORTS_STRING_CONVERSION_FLAG failed with the following output:
+Change Dir: /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_039cc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_039cc.dir/build.make CMakeFiles/cmTC_039cc.dir/build
+gmake[1]: Entering directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_039cc.dir/src.c.o
+/usr/bin/cc -DC_SUPPORTS_STRING_CONVERSION_FLAG  -fPIC -fno-semantic-interposition -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-comment    -Werror -Wstring-conversion -o CMakeFiles/cmTC_039cc.dir/src.c.o -c /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command-line option '-Wstring-conversion'; did you mean '-Wsign-conversion'?
+gmake[1]: *** [CMakeFiles/cmTC_039cc.dir/build.make:78: CMakeFiles/cmTC_039cc.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_039cc/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_STRING_CONVERSION_FLAG failed with the following output:
+Change Dir: /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_41f20/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_41f20.dir/build.make CMakeFiles/cmTC_41f20.dir/build
+gmake[1]: Entering directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_41f20.dir/src.cxx.o
+/usr/bin/c++ -DCXX_SUPPORTS_STRING_CONVERSION_FLAG  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-class-memaccess -Wno-redundant-move -Wno-pessimizing-move -Wno-noexcept-type -Wdelete-non-virtual-dtor -Wsuggest-override -Wno-comment    -Werror -Wstring-conversion -o CMakeFiles/cmTC_41f20.dir/src.cxx.o -c /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Wstring-conversion'; did you mean '-Wsign-conversion'?
+gmake[1]: *** [CMakeFiles/cmTC_41f20.dir/build.make:78: CMakeFiles/cmTC_41f20.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_41f20/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Determining if the os_signpost_interval_begin exist failed with the following output:
+Change Dir: /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_626ea/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_626ea.dir/build.make CMakeFiles/cmTC_626ea.dir/build
+gmake[1]: Entering directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_626ea.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIC -fno-semantic-interposition -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-comment -Wmisleading-indentation -ffunction-sections -fdata-sections  -o CMakeFiles/cmTC_626ea.dir/CheckSymbolExists.c.o -c /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: os/signpost.h: No such file or directory
+    2 | #include <os/signpost.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_626ea.dir/build.make:78: CMakeFiles/cmTC_626ea.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_626ea/fast] Error 2
+
+
+File /mnt/c/cicada-main/sibsutis/7sem/compilers/lab-02/tinylang/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <os/signpost.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef os_signpost_interval_begin
+  return ((int*)(&os_signpost_interval_begin))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

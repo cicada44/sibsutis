@@ -1,0 +1,2 @@
+/usr/bin/ar Dqc libtinylangParser.a CMakeFiles/tinylangParser.dir/Parser.cpp.o
+/usr/bin/ranlib -D libtinylangParser.a

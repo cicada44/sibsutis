@@ -1,0 +1,2 @@
+/usr/bin/ar Dqc libtinylangBasic.a CMakeFiles/tinylangBasic.dir/Diagnostic.cpp.o CMakeFiles/tinylangBasic.dir/TokenKinds.cpp.o CMakeFiles/tinylangBasic.dir/Version.cpp.o
+/usr/bin/ranlib -D libtinylangBasic.a

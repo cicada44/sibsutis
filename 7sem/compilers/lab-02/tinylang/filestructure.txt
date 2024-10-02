@@ -1,0 +1,53 @@
+tinylang
+├── cmake
+│   └── modules
+│       └── AddTinylang.cmake
+├── example
+│   └── Gcd.mod
+├── include
+│   └── tinylang
+│       ├── AST
+│       │   └── AST.h
+│       ├── Basic
+│       │   ├── Diagnostic.def
+│       │   ├── Diagnostic.h
+│       │   ├── LLVM.h
+│       │   ├── TokenKinds.def
+│       │   ├── TokenKinds.h
+│       │   ├── Version.h
+│       │   └── Version.inc.in
+│       ├── Lexer
+│       │   ├── Lexer.h
+│       │   └── Token.h
+│       ├── Parser
+│       │   └── Parser.h
+│       └── Sema
+│           ├── Scope.h
+│           └── Sema.h
+├── lib                         -- components
+│   ├── Basic                   -- common functions and data types
+│   │   ├── CMakeLists.txt
+│   │   ├── Diagnostic.cpp
+│   │   ├── TokenKinds.cpp
+│   │   └── Version.cpp
+│   ├── Lexer                   -- Basic
+│   │   ├── CMakeLists.txt
+│   │   └── Lexer.cpp
+│   ├── Parser                  -- depends on Basic, Lexer, Sema
+│   │   ├── CMakeLists.txt
+│   │   ├── Parser.cpp
+│   │   └── tinylang.g
+│   ├── Sema                    -- Basic, AST
+│   │   ├── CMakeLists.txt
+│   │   ├── Scope.cpp
+│   │   └── Sema.cpp
+│   └── CMakeLists.txt
+├── tools
+│   ├── driver                 -- compiler driver
+│   │   ├── CMakeLists.txt
+│   │   └── Driver.cpp
+│   └── CMakeLists.txt
+├── CMakeLists.txt
+└── tree
+
+18 directories, 33 files
