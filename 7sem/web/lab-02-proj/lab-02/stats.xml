@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Valera>
+    <!-- <Parameters>
+        <Health>"0-100"</Health>
+        <Mana>0-100</Mana>
+        <Cheerfulness>-10, 10</Cheerfulness>
+        <Fatigue>0, 100</Fatigue>
+        <Money>0</Money>
+    </Parameters> -->
+    <Actions>
+        <Action name="Пойти на работу">
+            <Effects>
+                <Effect target="Cheerfulness" value="-5"/>
+                <Effect target="Mana" value="-30"/>
+                <Effect target="Money" value="100"/>
+                <Effect target="Fatigue" value="70"/>
+            </Effects>
+        </Action>
+        <Action name="Созерцать природу">
+            <Effects>
+                <Effect target="Cheerfulness" value="1"/>
+                <Effect target="Mana" value="-10"/>
+                <Effect target="Fatigue" value="10"/>
+            </Effects>
+        </Action>
+        <Action name="Пить вино и смотреть сериал">
+            <Effects>
+                <Effect target="Cheerfulness" value="-1"/>
+                <Effect target="Mana" value="30"/>
+                <Effect target="Fatigue" value="10"/>
+                <Effect target="Health" value="-5"/>
+                <Effect target="Money" value="-15"/>
+            </Effects>
+        </Action>
+        <Action name="Сходить в бар">
+            <Effects>
+                <Effect target="Cheerfulness" value="1"/>
+                <Effect target="Mana" value="60"/>
+                <Effect target="Fatigue" value="40"/>
+                <Effect target="Health" value="-10"/>
+                <Effect target="Money" value="-100"/>
+            </Effects>
+        </Action>
+        <Action name="Выпить с маргинальными личностями">
+            <Effects>
+                <Effect target="Cheerfulness" value="5"/>
+                <Effect target="Health" value="-80"/>
+                <Effect target="Mana" value="90"/>
+                <Effect target="Fatigue" value="80"/>
+                <Effect target="Money" value="-150"/>
+            </Effects>
+        </Action>
+        <Action name="Петь в метро">
+            <Effects>
+                <Effect target="Cheerfulness" value="1"/>
+                <Effect target="Mana" value="10"/>
+                <Effect target="Fatigue" value="20"/>
+                <Effect target="Money" value="10"/>
+            </Effects>
+        </Action>
+        <Action name="Спать">
+            <Effects>
+                <Effect target="Health" value="90"/>
+                <Effect target="Cheerfulness" value="-3"/>
+                <Effect target="Fatigue" value="-70"/>
+                <Effect target="Mana" value="-50"/>
+            </Effects>
+        </Action>
+    </Actions>
+</Valera>

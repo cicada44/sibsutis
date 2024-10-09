@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Valera xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Health>99</Health>
+  <Mana>0</Mana>
+  <Cheerfulness>0</Cheerfulness>
+  <Fatigue>0</Fatigue>
+  <Money>100</Money>
+</Valera>
