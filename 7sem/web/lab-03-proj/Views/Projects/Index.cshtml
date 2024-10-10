@@ -1,0 +1,45 @@
+@model IEnumerable<lab_3.Models.Project>
+
+<form method="get">
+    <div class="form-group">
+        <label for="startDate">Дата начала (от)</label>
+        <input type="date" name="startDate" class="form-control" value="@Context.Request.Query["startDate"]" />
+    </div>
+    <div class="form-group">
+        <label for="endDate">Дата начала (до)</label>
+        <input type="date" name="endDate" class="form-control" value="@Context.Request.Query["endDate"]" />
+    </div>
+    <div class="form-group">
+        <label for="priority">Приоритет</label>
+        <input type="number" name="priority" class="form-control" value="@Context.Request.Query["priority"]" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Фильтровать</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.NameSort">Название</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.DateSort">Дата начала</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.PrioritySort">Приоритет</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.Name</td>
+                <td>@project.StartDate.ToString("MM/dd/yyyy")</td>
+                <td>@project.Priority</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+@model lab_3.Models.Task
+
+<h1>Детали задачи</h1>
+
+<table class="table">
+    <tr>
+        <th>Название задачи</th>
+        <td>@Model.Title</td>
+    </tr>
+    <tr>
+        <th>Автор</th>
+        <td>@Model.Author.FirstName @Model.Author.LastName</td>
+    </tr>
+    <tr>
+        <th>Исполнитель</th>
+        <td>@Model.Executor?.FirstName @Model.Executor?.LastName</td>
+    </tr>
+    <tr>
+        <th>Статус</th>
+        <td>@Model.Status</td>
+    </tr>
+    <tr>
+        <th>Приоритет</th>
+        <td>@Model.Priority</td>
+    </tr>
+    <tr>
+        <th>Комментарий</th>
+        <td>@Model.Comment</td>
+    </tr>
+</table>
+
+<a href="@Url.Action("Edit", "Tasks", new { id = Model.Id })" class="btn btn-primary">Редактировать</a>
+<a href="@Url.Action("Index", "Tasks")" class="btn btn-secondary">Назад</a>

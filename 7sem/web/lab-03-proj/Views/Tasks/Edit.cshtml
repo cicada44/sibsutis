@@ -1,0 +1,50 @@
+@model lab_3.Models.Task
+
+<h1>Редактировать задачу</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label for="Title">Название</label>
+        <input type="text" class="form-control" asp-for="Title" required />
+    </div>
+
+    <div class="form-group">
+        <label for="AuthorId">Автор</label>
+        <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.Employees"></select>
+    </div>
+
+    <div class="form-group">
+        <label for="ExecutorId">Исполнитель</label>
+        <select asp-for="ExecutorId" class="form-control" asp-items="ViewBag.Employees"></select>
+    </div>
+
+    <div class="form-group">
+        <label for="ProjectId">Проект</label>
+        <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.Projects"></select>
+    </div>
+
+    <div class="form-group">
+        <label for="Status">Статус</label>
+        <select asp-for="Status" class="form-control">
+            <option value="ToDo">To Do</option>
+            <option value="InProgress">In Progress</option>
+            <option value="Done">Done</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Priority">Приоритет</label>
+        <input type="number" class="form-control" asp-for="Priority" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Comment">Комментарий</label>
+        <textarea class="form-control" asp-for="Comment"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+</form>
+
+<a href="@Url.Action("Index", "Tasks")" class="btn btn-secondary">Назад</a>

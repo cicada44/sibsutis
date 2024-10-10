@@ -1,0 +1,41 @@
+@model lab_3.Models.Project
+
+<h1>Редактировать проект</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label for="Name">Название проекта</label>
+        <input type="text" class="form-control" asp-for="Name" required />
+    </div>
+    <div class="form-group">
+        <label for="CustomerCompany">Компания-заказчик</label>
+        <input type="text" class="form-control" asp-for="CustomerCompany" required />
+    </div>
+    <div class="form-group">
+        <label for="ContractorCompany">Компания-исполнитель</label>
+        <input type="text" class="form-control" asp-for="ContractorCompany" required />
+    </div>
+    <div class="form-group">
+        <label for="StartDate">Дата начала</label>
+        <input type="date" class="form-control" asp-for="StartDate" required />
+    </div>
+    <div class="form-group">
+        <label for="EndDate">Дата окончания</label>
+        <input type="date" class="form-control" asp-for="EndDate" />
+    </div>
+    <div class="form-group">
+        <label for="Priority">Приоритет</label>
+        <input type="number" class="form-control" asp-for="Priority" required />
+    </div>
+
+    <div class="form-group">
+        <label for="ManagerId">Менеджер</label>
+        <select asp-for="ManagerId" class="form-control" asp-items="ViewBag.ManagerId"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+</form>
+
+<a href="@Url.Action("Index", "Projects")" class="btn btn-secondary">Назад</a>

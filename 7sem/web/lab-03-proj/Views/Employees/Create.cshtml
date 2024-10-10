@@ -1,0 +1,26 @@
+@model lab_3.Models.Employee
+
+<h1>Добавить сотрудника</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="FirstName">Имя</label>
+        <input type="text" class="form-control" id="FirstName" name="FirstName" required />
+    </div>
+    <div class="form-group">
+        <label for="LastName">Фамилия</label>
+        <input type="text" class="form-control" id="LastName" name="LastName" required />
+    </div>
+    <div class="form-group">
+        <label for="MiddleName">Отчество</label>
+        <input type="text" class="form-control" id="MiddleName" name="MiddleName" />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control" id="Email" name="Email" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Добавить</button>
+</form>
+
+<a href="@Url.Action("Index", "Employees")" class="btn btn-secondary">Назад</a>

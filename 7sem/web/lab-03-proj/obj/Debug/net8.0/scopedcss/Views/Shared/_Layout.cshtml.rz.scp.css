@@ -1,0 +1,89 @@
+/* 
+   Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+   for details on configuring this project to bundle and minify static web assets.
+*/
+
+/* Основной стиль страницы */
+body[b-17u9w1q4f4] {
+  font-family: 'Arial', sans-serif; /* Изменяем шрифт на Arial */
+  background-color: #f8f9fa; /* Светлый фон */
+  color: #343a40; /* Цвет текста */
+}
+
+/* Стили для навигации */
+.navbar[b-17u9w1q4f4] {
+  background-color: #004085; /* Темно-синий цвет для навигации */
+}
+
+.navbar-brand[b-17u9w1q4f4] {
+  color: #ffffff; /* Цвет текста для названия */
+  font-weight: bold; /* Жирный шрифт */
+}
+
+.navbar-nav .nav-link[b-17u9w1q4f4] {
+  color: #cce5ff; /* Цвет ссылок */
+  padding: 10px 15px; /* Увеличенные отступы для ссылок */
+}
+
+.navbar-nav .nav-link:hover[b-17u9w1q4f4] {
+  color: #ffffff; /* Цвет при наведении */
+  background-color: #0056b3; /* Фон при наведении */
+}
+
+/* Кнопки */
+.btn-primary[b-17u9w1q4f4] {
+  background-color: #007bff; /* Новый цвет для кнопок */
+  border-color: #007bff; /* Новый цвет границы */
+}
+
+.btn-primary:hover[b-17u9w1q4f4] {
+  background-color: #0056b3; /* Цвет кнопки при наведении */
+  border-color: #004085; /* Цвет границы при наведении */
+}
+
+/* Стили для активных ссылок */
+.nav-pills .nav-link.active[b-17u9w1q4f4],
+.nav-pills .show > .nav-link[b-17u9w1q4f4] {
+  background-color: #0062cc; /* Цвет фона для активных ссылок */
+  color: #ffffff; /* Цвет текста для активных ссылок */
+}
+
+/* Бордеры */
+.border-top[b-17u9w1q4f4] {
+  border-top: 2px solid #e5e5e5; /* Увеличенный верхний бордер */
+}
+
+.border-bottom[b-17u9w1q4f4] {
+  border-bottom: 2px solid #e5e5e5; /* Увеличенный нижний бордер */
+}
+
+/* Тень */
+.box-shadow[b-17u9w1q4f4] {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
+}
+
+/* Кнопка принятия политики */
+button.accept-policy[b-17u9w1q4f4] {
+  font-size: 1rem; /* Размер шрифта */
+  line-height: inherit; /* Наследование высоты строки */
+  padding: 10px 20px; /* Увеличенные отступы */
+  background-color: #28a745; /* Зеленый фон */
+  color: white; /* Белый текст */
+  border: none; /* Без границы */
+  border-radius: 5px; /* Закругленные углы */
+}
+
+button.accept-policy:hover[b-17u9w1q4f4] {
+  background-color: #218838; /* Темный зеленый при наведении */
+}
+
+/* Стили для футера */
+.footer[b-17u9w1q4f4] {
+  position: relative; /* Относительное позиционирование */
+  bottom: 0; /* Привязка к низу */
+  width: 100%; /* Ширина на всю страницу */
+  background-color: #f8f9fa; /* Цвет фона */
+  text-align: center; /* Выравнивание по центру */
+  padding: 20px 0; /* Отступы */
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Тень для футера */
+}
