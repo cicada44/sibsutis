@@ -1,0 +1,53 @@
+ALTER TABLE Comp_Types
+ADD PRIMARY KEY (Type_ID);
+ALTER TABLE Part_Types
+ADD PRIMARY KEY (Type_ID);
+ALTER TABLE Computers
+ADD PRIMARY KEY (Comp_ID);
+ALTER TABLE Customers
+ADD PRIMARY KEY (Cust_ID);
+ALTER TABLE Orders
+ADD PRIMARY KEY (Ord_ID);
+ALTER TABLE Comp_Parts
+ADD PRIMARY KEY (Part_ID);
+
+ALTER TABLE Order_Items
+ADD PRIMARY KEY (Ord_ID, Comp_ID);
+ALTER TABLE Comp_Config
+ADD PRIMARY KEY (Comp_ID, Part_ID);
+
+-- Между Computers и Comp_Types
+ALTER TABLE Computers
+ADD CONSTRAINT FK_Comp_Types
+FOREIGN KEY (Type_ID) REFERENCES Comp_Types(Type_ID)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- Между Comp_Parts и Part_Types
+ALTER TABLE Comp_Parts
+ADD CONSTRAINT FK_Part_Types
+FOREIGN KEY (Type_ID) REFERENCES Part_Types(Type_ID)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- Между Comp_Config и Computers
+ALTER TABLE Comp_Config
+ADD CONSTRAINT FK_Computers_Config
+FOREIGN KEY (Comp_ID) REFERENCES Computers(Comp_ID)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- Между Customers и Orders
+ALTER TABLE Orders
+ADD CONSTRAINT FK_Customers_Orders
+FOREIGN KEY (Cust_ID) REFERENCES Customers(Cust_ID)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- Между Orders и Order_Items
+ALTER TABLE Order_Items
+ADD CONSTRAINT FK_Orders_Items
+FOREIGN KEY (Ord_ID) REFERENCES Orders(Ord_ID)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- Между Order_Items и Computers
+ALTER TABLE Order_Items
+ADD CONSTRAINT FK_Computers_Items
+FOREIGN KEY (Comp_ID) REFERENCES Computers(Comp_ID)
+ON DELETE CASCADE ON UPDATE CASCADE;

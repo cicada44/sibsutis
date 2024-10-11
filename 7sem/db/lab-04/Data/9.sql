@@ -1,0 +1,2 @@
+ALTER TABLE Comp_Parts
+ADD COLUMN Image LONGBLOB;

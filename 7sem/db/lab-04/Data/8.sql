@@ -1,0 +1,2 @@
+ALTER TABLE Computers
+ADD COLUMN Image LONGBLOB;

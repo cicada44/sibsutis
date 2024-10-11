@@ -1,0 +1,6 @@
+-- 28. Полные данные о департаментах, которые принимали сотрудников в 2008 году
+SELECT d.*
+FROM HR.DEPARTMENTS d
+JOIN HR.EMPLOYEES e ON d.DEPARTMENT_ID = e.DEPARTMENT_ID
+WHERE EXTRACT(YEAR FROM e.HIRE_DATE) = 2008
+GROUP BY d.DEPARTMENT_ID;

@@ -1,0 +1,122 @@
+"Part_ID";"Name";"Description";"Model";"Price";"Type_ID"
+1;"Корпус Miditower ATX AirTone";"500W, black with blue/red LED";"KM-9939";2990;1
+2;"Корпус Miditower ATX ZALMAN";"Без БП";"Z9";2590;1
+3;"Корпус FullTower ATX AirTone";"with 5*12cm LED fan, 1*12cm black fan, без БП";"GF-9100B";3790;1
+4;"Корпус MicroATX Thermaltake Armor";"Без БП";"A30";3890;1
+5;"Корпус Micro ATX InWin";"600W";"MG-134";3590;1
+6;"Корпус Mini ITX InWin";"Black 120W/160W";"BM 639";2150;1
+7;"Процессор AMD";"3.5GHz (Turbo up to 4.0GHz) 16Mb DDR3-1866 Socket-AM3+ OEM";"FX-8320";5490;2
+8;"Процессор AMD";"3.5GHz (Turbo up to 4.1GHz) 14Mb DDR3-1866 Socket-AM3+ OEM";"FX-6300";4290;2
+9;"Процессор Intel Core";"3.4GHz (TB up to 3.8GHz) 6Mb 2xDDR3-1333 HDGraphics4000 TDP-77w LGA1155 OEM";"i5-3570K";7990;2
+10;"Процессор Intel Celeron";"1.90GHz 1.5Mb 2xDDR3-1066 HD Graphics TDP-35w LGA1155 OEM";"G465";1250;2
+11;"Процессор Intel Pentium";"2.9GHz 3Mb 2xDDR3-1333 HD Graphics TDP-55w LGA1155 OEM";"G2020";1990;2
+12;"Процессор Intel Core";"3.4GHz 3Mb 2xDDR3-1333 HDGraphics2000 TDP-65w LGA1155 OEM";"i3-2130";4290;2
+13;"Процессор Intel Core";"3.4GHz (TB up to 3.9GHz) 8Mb 2xDDR3-1333 HDGraphics4000 TDP-77w LGA1155 OEM";"i7-3770";10490;2
+14;"Процессор Intel Core";"3.5GHz (TB up to 3.9GHz) 8Mb 2xDDR3-1333 HDGraphics4000 TDP-77w LGA1155 BOX with cooler";"i7-3770K";12190;2
+15;"Процессор Intel Core Extreme";"3.5GHz (TB up to 4.0GHz) 15Mb 4xDDR3-1600 TDP-130w LGA2011 OEM";"i7-3970X";35990;2
+16;"Кулер Arctic Cooling Alpine";"(Al, 500-2000 PWM, TDP-75w, 22.5 dBA) for Socket-754/939/AM2/AM2+/AM3/AM3+/FM1";"64 GT";390;3
+17;"Кулер Arctic Cooling Alpine";"(Al, 500-2000 PWM, TDP-75w, 28.6 CFM, 22.5 dBA) for Socket-775/1150/1155/1156";"11 GT Rev 2";390;3
+18;"Кулер Arctic Cooling Freezer";"(Al+Cu,3трубки,900-2200 PWM, TDP-150w,45 CFM) 775/1150/55/56/754/AM2/AM3/AM3+/FM1/FM2";"7 Pro";990;3
+19;"Кулер Arctic Cooling Freezer";"(AlCu, 400 - 1350 PWM, TDP-320w, 74 CFM,14-24 dBA) LGA-1150/1155/1156/2011";"i30 CO";1990;3
+20;"Кулер CoolerMaster";"(Al+Cu, 2 трубки,1800 RPM, 20 dBA) 775/1150/1155/1156/1366/754/939/AM2/AM3/FM1";"S200";790;3
+21;"Кулер CoolerMaster Vortex";"(Al+Cu,2 теплотрубки,2200RPM,26 dBA) Socket LGA775/1150/1155/1156";"211P";850;3
+22;"Кулер DEEPCOOL";"(Al+Cu, 2500 rpm, 32 dB(A)) Socket LGA1150/1155/1156";"Theta 10";370;3
+23;"Кулер IceHammer";"(Al, 2200rpm, 42.7 CFM, 20dBA) Socket 775/1150/1155/1156/AM2/AM2+/AM3/AM3+/FM1";"IH-3080WV";450;3
+24;"Вентилятор Arctic Cooling";"для ATX корпуса 92x92 (550 - 1800 rpm, 43 CFM, 23,5dBA, 4pin, Гидродинамический)";"F9 PWM";230;4
+25;"Вентилятор DEEPCOOL";"80x80x25 прозрачный, зелёная подсветка";"XFAN 80LG";165;4
+26;"Вентилятор Noctua";"120x120 mm, 600-1200 rpm PWM, 6-18 dBa";"NF-S12B FLX";890;4
+27;"Вентилятор GlacialTech IceWind";"для ATX корпуса 70x70 mm (2800 rpm, 31dBA, втулка скольжения)";"7025";90;4
+28;"Система охлаждения DEEPCOOL";"Al+Cu, 25 dBA, 1800 rpm, для видеокарт";"V6000";1699;5
+29;"Система охлаждения Corsair Hydro";"LGA 775/1156/1155/1366 AM2/AM3";"H60/H60i";3150;5
+30;"Система охлаждения HDD DEEPCOOL";"алюминий, бесшумное охлаждение + шумоизоляция для HDD";"Icedisk 100";590;5
+31;"Плата ASUS LGA1155";"4xDDR3 3xPCI-Ex16(16+8+4) HDMI/DVI/Dsub/DP 8ch 4xSATA3 4xSATA Raid 8xUSB3 WiFi ATX";"P8Z77-V Z77";6490;6
+32;"Плата ASRock LGA1155";"4xDDR3-2800 2xPCI-E3.0(16/8+8) 8ch 4xSATA 4xSATA3 6xUSB3 eSATA3 GLAN ATX";"Z77 Extreme4";4990;6
+33;"Плата Gigabyte LGA1155";"2xDDR3-1333 1xPCI-E Dsub 4ch 4xSATA GLAN mATX";"GA-H61M-S1 H61";1550;6
+34;"Плата Pegatron";"ATOM-D525 1.8Gh+NVIDIA ION2 2xsoDIMM DDR3-1066 1xPCI-E HDMI/DVI/D-Sub 6ch 2xSATA GLAN mini-ITX";"IPXPV-ION";2690;6
+35;"Видеокарта PCI-E Sapphire AMD Radeon";"2048MB 256bit GDDR5 DVI HDMI DisplayPort";"HD7850";7290;7
+36;"Видеокарта PCI-E Zotac GeForce";"2048MB 256bit GDDR5 DVI HDMI DisplayPort";"GTX 670";12990;7
+37;"Видеокарта PCI-E Sapphire AMD Radeon";"3072MB 384bit GDDR5 DVI HDMI DisplayPort";"HD7970 Dual-X";14490;7
+38;"Видеокарта PCI-E GigaByte GeForce";"3072MB 384bit GDDR5 DVI DisplayPort HDMI";"GTX 780";25990;7
+39;"Видеокарта PCI-E Asus GeForce";"1024MB 64bit DDR3 DVI Dsub HDMI Low Profile";"210";1250;7
+40;"Видеокарта PCI-E Asus GeForce";"1024MB 128bit GDDR5 DVI Dsub HDMI";"GT 630";2790;7
+41;"Видеокарта PCI-E Asus AMD Radeon";"1024MB 128bit GDDR5 DVI HDMI";"HD7790";5990;7
+42;"Память DIMM DDR3";"4096MB PC10600 1333MHz Corsair XMS3 9-9-9-24 Retail";"CMX4GX3M1A1333C9";1490;8
+43;"Память DIMM DDR3";"8192MB PC12800 1600MHz Corsair Vengeance 10-10-10-27 Retail";"CMZ8GX3M1A1600C10";2850;8
+44;"Память DIMM DDR3";"8192MB PC12800 1600MHz Corsair 11-11-11-30";"CMX8GX3M1A1600C11";2890;8
+45;"Память DIMM DDR3";"4096MBx2 PC16000 2000MHz Corsair XMP XMS3 9-10-9-27  Retail";"CMX8GX3M2A2000C9";4190;8
+46;"Память DIMM DDR3";"8192MBx2 PC12800 1600MHz Corsair  XMS3 10-10-10-27  Retail";"CMZ16GX3M2A1600C10";5550;8
+47;"Память DIMM DDR3";"8192MBx2 PC12800 1600MHz G.Skill RipjawsX CL10-10-10-30";"F3-12800CL10D-16GBXL";4990;8
+48;"Память DIMM DDR3";"4096MBx4 PC17000 2133MHz Kingston HyperX Intel XMP  CL11-11-10-30 Retail";"KHX2133C11D3K4(16GX)";6490;8
+49;"Память SODIMM DDR3";"1024MB PC10600 1333MHz для Notebook";"NCP H7ASDR";350;8
+50;"Память SODIMM DDR2";"2048MB PC6400 800MHz для Notebook";"TMD22048M800H";1190;8
+51;"Память SODIMM DDR3";"4096 Mb (pc-10600) 1333MHz Kingston для Notebook";"KVR1333D3S9/4G";1325;8
+52;"Память SODIMM DDR3";"2x4096MB PC10600 1333MHz Kingston для Notebook";"KVR13S9S8, 4";1490;8
+53;"Жесткий диск 3.5"" SATA-3";"1Tb Seagate 7200 Barracuda Cache 64MB";"ST1000DM003";2990;9
+54;"Жесткий диск 3.5"" SATA-3";"2Tb Western Digital Caviar Green IntelliPower  Cache 64MB";"WD20EZRX";4190;9
+55;"Жесткий диск 3.5"" SATA-3";"3Tb Seagate 7200 Barracuda Cache 64MB";"ST3000DM001";5790;9
+56;"Жесткий диск 3.5"" SATA-3";"1Tb Western Digital ""VelociRaptor"" 10000 rpm Cache 64MB";"WD1000DHTZ";8490;9
+57;"Жесткий диск 3.5"" SATA-3";"500Gb Western Digital Caviar Black 7200rpm Cache 64MB";"WD5003AZEX";3150;9
+58;"Жесткий диск 2.5"" SATA-II";"320Gb Western Digital 5400rpm Cache 8MB";"WD3200BPVT";1790;9
+59;"Жесткий диск 2.5"" SATA-II";"500Gb Western Digital Black 7200rpm Cache 16MB";"WD5000BPKT";2190;9
+60;"Жесткий диск 2.5"" SATA-3";"1Tb Hitachi Travelstar 5K1000 5400rpm Cache 8MB";"HTS541010A9E680";3190;9
+61;"Привод для ноутбука внутр. DVD±RW Lite-On";"Black DVD-8x, 6x, 8x, DL-6x, RAM-5x, CD24x, 24x, 24x SATA";"DS-8A9SH";1050;10
+62;"Привод SATA DVD±RW Asus";"Black DVD-24x/6x/16x, DL-12x, RAM-12x, CD-48x/24x/48x";"DRW-24B5ST";1290;10
+63;"Привод SATA DVD±RW LG";"Black DVD-24x/8x/16x, DL-12x, RAM-5x, CD-48x/24x/48x";"GH24NS95";990;10
+64;"Привод SATA Blu-Ray LiteOn ReWriter";"Black BD-12x/8x/2x/2x DVD-16x/6x/16x, DL-8x, RAM-12x, CD-48x/48x/48x";"iHBS112-115";3950;10
+65;"Привод SATA DVD±RW Pioneer";"Black DVD-24x/8x/16x, DL-12x, CD-40x/32x/40x ""LF""";"DVR-219LBK";1290;10
+66;"Привод для ноутбука внутр. DVD±RW Samsung";"DVD-8x/8x/8x, DL-6x, RAM-5x, CD-24x/24x/24x SATA";"SN-208DB";1290;10
+67;"Привод для ноутбука DVD±RW Sony Optiarc/NEC";"Black DVD-24x, 8x, 12x, R9-12x, DL-12x, RAM-12x, CD48x, 32x, 48x";"AD-7580A";1890;10
+68;"БП ATX FinePower  600W";"КПД 80%, EPS2.92V, 600мм провода, APFC, 135мм кулер, кабель питания 1.5м";"DNP-650EPS";2590;11
+69;"БП Chieftec 550W";"реальная мощность 550W, 80+, ATX 2.3, APFC, 140mm fan, 24+4+8, 6xSATA, PCI-E(8+8)";"APS-550S";2290;11
+70;"БП HIPER M/V 600W";"реальная мощность 540W, ATX 2.3, APFC, 140mm fan, 24+4+4, 6xSATA, 2xPCIE(6+2)";"M600";2490;11
+71;"БП Chieftec 850W";"реальная мощность 850W, 80+ Bronze, ATX 2.3, APFC, 140mm fan, CM, 24+4+4+8, 8xSATA, PCI-E(8+8+8+8)";"BPS-850C";4590;11
+72;"БП ATX DNS FinePower  300W";"+ power cord 1.5 m";"DNP-350";750;11
+73;"БП ATX DNS  600W";"+ power cord 1.5 m";"DNP-650";2190;11
+74;"БП ATX DNS FinePower  650W";"КПД 80%, EPS2.92V, Cable management, 600 мм провода, APFC, 135мм кулер, кабель питания 1.5м";"DCM-700EPS";2590;11
+75;"БП Chieftec 1200W";"реальная мощность 1200W, 80+ Bronze, ATX 2.3, APFC, 140mm fan, CM, 24+4+4+8, 10xSATA, PCI-E(6x 8pin)";"BPS-1200C";6390;11
+76;"БП FSP PNF 350W";"ATX v2.2, Active PFC, 120mm Fan, 20+4 pin, OEM";"ATX-350PNF";1190;11
+77;"БП Velton 450W";"реальная мощность 350W, ATX 2.03, 120mm fan, 20+4+4, 5xSATA";"ATX-450-120mm";1190;11
+78;"БП Thermaltake Litepower 700W";"р.м 700W, ATX 2.3, APFC, 120mm fan, 24+4+4, 5xSATA, 2xPCI-E(6+2)";"LT-700P";3590;11
+79;"Внутренний TV-тюнер Beholder";"Пульт ДУ, PCI";"Behold TV 501";1399;12
+80;"Внутренний TV-тюнер AverMedia";"FM-тюнер, RDS, Пульт ДУ, PCI";"AVerTV Studio 809";2250;12
+81;"Внутренний TV-тюнер Beholder";"DVB-T, FM-тюнер, Пульт ДУ, PCI-Ex1";"Behold TV H8";2399;12
+82;"Внутренний TV-тюнер AverMedia";"FM-тюнер, Пульт, ДУ PCI";"AVerTV Super 009";1499;12
+83;"Звуковая карта ASUS ""Xonar DG"" 5.1 PCI Retail";"звук. проц. C-Media CMI8786; режимы работы VOIP, Pro-gaming и Exciter;  сиг/шум 105 дБ; диап. 10 Гц - 48 кГц";"Xonar DG";1190;13
+84;"Звуковая карта ASUS ""Xonar DS"" 7.1 PCI Retail";"сиг/шум 107 дБ;  технология DTS Connect (DTS Interactive + DTS Neo:PC)";"Xonar DS";1690;13
+85;"Звуковая карта ASUS Xonar D1 7.1 PCI";"Dolby Digital Live, Dolby Headphone, Dolby Virtual Speaker, Dolby Pro Logic IIx, DS3D GX 2.0, VocalFX (VoiceEX+ ChatEX)";"Xonar D1";2450;13
+86;"Звуковая карта ASUS Xonar DX 7.1 PCI-Ex1";"для кино и игр с интерфейсом PCI-Express x1";"Xonar DX";2750;13
+87;"Звуковая карта ASUS Xonar D2X 7.1 PCI-Ex1";"одна из самых универсальных звуковых карт (музыка, объёмный звук в играх); самый многофункциональный драйвер";"Xonar D2X";5990;13
+88;"Звуковая карта Creative Sound Blaster Recon3D PCIe";"4-ядерный проц. Sound Core3D; аудио-технологии THX TruStudio Pro";"SB1350";3390;13
+89;"Звуковая карта Creative Sound Blaster Z  PCI-eX RET";"идеально подходит для игр и развлечений; внешний сдвоенный микрофоном с фокусировкой луча";"SB1500";3390;13
+90;"Звуковая карта Creative ""X-Fi Titanium PCI Express""";"Поддержка EAX 5.0, X-Fi CMSS-3D и OpenAL; четкое и реалистичное 3-мерное звучание";"SB0880";3299;13
+91;"Звуковая карта Creative ""X-Fi Titanium HD"" PCI-Ex1 Retail";"проц. Creative X-Fi Xtreme Fidelity; технология Creative ALchemy; поддержка ASIO";"SB1270";6190;13
+92;"Звуковая карта C-Media 8738 4-Channel PCI";"Дешевая 4-х канальная звуковая карта для ПК";"C-Media 8738";180;13
+93;"Звуковая карта C-Media 8768/VIA Tremor 79550 7.1-Channel PCI";"воспроизведение звука в формате 7.1; для домашних и офисных ПК";"C-Media 8768";310;13
+94;"Плата видеозахвата AverMedia ""Game Broadcaster HD"" PCI-Ex1";"Поддерживает захват видео высокой четкости в формате 1080p. Она оснащена входами HDMI и VGA. Полная совместимость с Adobe Flash Media Live Encoder и Xsplit для ""живой"" трансляции HD-видео в сеть.";"AverMedia GB HD";4490;14
+95;"Плата видеозахвата AVerMedia ""Live Gamer HD"" PCI-Ex1";"Для ПК-геймеров. Оснащена сквозным HDMI/DVI выходом, чтобы играть и записывать на одном компьютере.";"AverMedia LG HD";6650;14
+96;"Контроллер Espada SATA RAID CARD";"Характеристики: (2 port SATA3(6G) + 1 port IDE, RAID 0/1) PCI-Ex1. Подключение внутренних устройств типа DVD и HDD с поддержкой RAID. Необходим при отсутствии IDE-порта (на современных материнках) и нехватке портов SATA.";"FG-SA3512-2IR-A4-01-CT01";990;15
+97;"Антивибрационная прокладка";"Для вентилятора 92х92mm, силикон";"BUFFER P92";30;16
+98;"Антипылевой фильтр";"Для вентилятора 80х80mm, пластик";"FAN FILTER 80";65;16
+99;"Антивибрационные ножки";"Для корпуса/оргтехники, самоклеющиеся, 4 шт.";"RUBBER CASE FEET";40;16
+100;"Антивибрационная прокладка";"Для вентилятора 80х80mm, силикон";"BUFFER P80";80;16
+101;"Шурупы с антивибрационными шайбами";"Для HDD, 4 шт.";"RUBBER HDD";80;16
+102;"Антипылевой фильтр";"Для вентилятора 80х80mm, алюминий";"FAN FILTER A80";75;16
+103;"Антипылевой фильтр";"Для вентилятора 120х120mm, пластик";"FAN FILTER 120";90;16
+104;"Антивибрационная прокладка";"Для блока питания АТХ, силикон";"BUFFER PSU";85;16
+105;"Антивибрационная прокладка";"Для вентилятора 120х120mm, силикон";"BUFFER P120";110;16
+106;"Антипылевой фильтр";"Для вентилятора 120х120mm, алюминий";"FAN FILTER A120";99;16
+107;"Фильтр для вентилятора";"Пластиковый с поролоном; размеры 123.7x123.7х10.67мм";"LFT120FI45";110;16
+108;"Шлейф FDD";"2 коннектора, 34 жилы, 61 см ; для дисковода FDD, 3.5 дюйма";"CABLE FDD";35;17
+109;"Шлейф IDE UDMA 66/100/133 Cable";"Для подключения жёстких дисков и оптических дисководов";"IDE UDMA CABLE";59;17
+110;"Круглый шлейф Revoltec IDE";"40-контактный разьем IDE, длина 480 мм, УФ-оранжевый; позволит избавиться от путаницы в проводах внутри компьютера и улучшит циркуляцию воздуха";"Revoltec IDE(48)";260;17
+111;"Круглый шлейф Revoltec IDE";"40-контактный разьем IDE, длина 900 мм, УФ-синий; позволит избавиться от путаницы в проводах внутри компьютера и улучшит циркуляцию воздуха";"Revoltec IDE(90)";450;17
+112;"Круглый шлейф Revoltec IDE";"40-контактный разьем IDE, длина 600 мм, желтый; позволит избавиться от путаницы в проводах внутри компьютера и улучшит циркуляцию воздуха";"Revoltec IDE(60)";340;17
+113;"Кабель Vantec S-ATA";"Для интерфейса S-ATA со скоростью более 150 Мб/сек; позволяет работать со сверхобъемными винчестерами и оптическими приводами (в т.ч. CD, CD-RW, DVD, DVD-RW; длина 600 мм";"Vantec S-ATA";120;17
+114;"Вентилятор Mirage Exegate Fan";"Имеет прозрачный корпус и лопасти; по углам кожуха (корпуса) встроены 4 красных светодиода для подсветки; размеры 120x120x25 мм; скорость 1500 об/мин; уровень шума 20 dBA";"12025M12B-LED1";250;4
+115;"Вентилятор Silent Anodized LED Fan gold";"Анодированное золотое покрытие и 4 ультраярких светодиода; размер 80х80х25 mm";"SB-SAL-Fan-gold";215;4
+116;"Вентилятор VIZO FREEZER";"Снабжен автоматическим термоконтролем и долговечным магнитным подшипником; размеры 80x80x25 мм; срок службы 50000 ч";"FZ8025";280;4
+117;"Вентилятор Noiseblocker NB-Multiframe";"Особая конструкция лопастей и резиновые угловые опорные элементы для снижения шума и вибрации до уровня 6 dBA на расст. 25см; специальный подшипник с долгим сроком службы; размеры 80x80x25 мм; скорость 1200 об/мин";"M8-S1";700;4
+118;"Процессор AMD Sempron 130";"1 ядро, тактовая частота 2.6 ГГц, кэш L2 512 Кб, сокет AM3";"AMD Sempron 130 Sargas";940;2
+119;"Память DIMM DDR2";"1024MB PC6400 800MHz на чипах Hynix";"DDR2 800 1GB";625;8
+120;"Корпус Zalman MS800";"Black Dual USB3.0, 6Ch Fan Contr, Side panel Acril tuning, Hot-Swap Enabled HDD bay ATX без БП";"Zalman MS800";3150;1
+121;"Видеокарта GeForce GTX 660 Ti";"GIGABYTE GeForce GTX 660 Ti 1032Mhz PCI-E 3.0 2048Mb 6008Mhz 192 bit 2xDVI HDMI HDCP";"GTX 660 Ti";10500;7
