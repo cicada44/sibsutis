@@ -1,0 +1,27 @@
+@model lab_3.Models.Project
+
+<h2>Project: @Model.Name</h2>
+
+<p>Customer Company: @Model.CustomerCompany</p>
+<p>Contractor Company: @Model.ContractorCompany</p>
+<p>Start Date: @Model.StartDate.ToShortDateString()</p>
+<p>End Date: @Model.EndDate?.ToShortDateString()</p>
+
+<h3>Employees</h3>
+<ul>
+    @if (Model.Employees != null && Model.Employees.Any())
+    {
+        foreach (var employee in Model.Employees)
+        {
+            <li>@employee.FirstName @employee.LastName</li>
+        }
+    }
+    else
+    {
+        <li>No employees.</li>
+    }
+</ul>
+
+<a asp-action="AddEmployee" asp-route-id="@Model.Id">Add Employee</a>
+<a asp-action="Edit" asp-route-id="@Model.Id">Edit Project</a>
+<a asp-action="Index">Back to Project List</a>

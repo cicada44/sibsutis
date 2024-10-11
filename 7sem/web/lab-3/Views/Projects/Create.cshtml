@@ -1,0 +1,51 @@
+@model lab_3.Models.Project
+
+<h1>Create Project</h1>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name">Project Name</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div>
+        <label asp-for="CustomerCompany">Customer Company</label>
+        <input asp-for="CustomerCompany" />
+        <span asp-validation-for="CustomerCompany"></span>
+    </div>
+
+    <div>
+        <label asp-for="ContractorCompany">Contractor Company</label>
+        <input asp-for="ContractorCompany" />
+        <span asp-validation-for="ContractorCompany"></span>
+    </div>
+
+    <div>
+        <label asp-for="StartDate">Start Date</label>
+        <input asp-for="StartDate" type="date" />
+        <span asp-validation-for="StartDate"></span>
+    </div>
+
+    <div>
+        <label asp-for="EndDate">End Date</label>
+        <input asp-for="EndDate" type="date" />
+        <span asp-validation-for="EndDate"></span>
+    </div>
+
+    <div>
+        <label asp-for="Priority">Priority</label>
+        <input asp-for="Priority" />
+        <span asp-validation-for="Priority"></span>
+    </div>
+
+    <div>
+        <label asp-for="ManagerId">Project Manager</label>
+        <select asp-for="ManagerId" asp-items="ViewBag.ManagerId"></select>
+        <span asp-validation-for="ManagerId"></span>
+    </div>
+    <br><br>
+    <button type="submit">Create Project</button>
+</form>
+
+<a asp-action="Index">Back to Project List</a>

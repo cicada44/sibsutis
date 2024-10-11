@@ -1,0 +1,41 @@
+@model lab_3.Models.Project
+
+<h1>Edit Project</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label for="Name">Project Name</label>
+        <input type="text" asp-for="Name" required />
+    </div>
+    <div>
+        <label for="CustomerCompany">Customer Company</label>
+        <input type="text" asp-for="CustomerCompany" required />
+    </div>
+    <div>
+        <label for="ContractorCompany">Contractor Company</label>
+        <input type="text" asp-for="ContractorCompany" required />
+    </div>
+    <div>
+        <label for="StartDate">Start Date</label>
+        <input type="date" asp-for="StartDate" required />
+    </div>
+    <div>
+        <label for="EndDate">End Date</label>
+        <input type="date" asp-for="EndDate" />
+    </div>
+    <div>
+        <label for="Priority">Priority</label>
+        <input type="number" asp-for="Priority" required />
+    </div>
+
+    <div>
+        <label for="ManagerId">Manager</label>
+        <select asp-for="ManagerId" asp-items="ViewBag.ManagerId"></select>
+    </div>
+
+    <button type="submit">Save Changes</button>
+</form>
+
+<a href="@Url.Action("Index", "Projects")">Back</a>

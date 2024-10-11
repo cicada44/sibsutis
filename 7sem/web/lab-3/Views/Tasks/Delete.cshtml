@@ -1,0 +1,12 @@
+@model lab_3.Models.Task
+
+<h1>Confirm Task Deletion</h1>
+
+<h4>Task: @Model.Title</h4>
+<p>Do you really want to delete this task?</p>
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Delete</button>
+    <a asp-action="Index">Cancel</a>
+</form>

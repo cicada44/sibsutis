@@ -1,0 +1,28 @@
+@model lab_3.Models.Employee
+
+<h1>Edit Employee</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label>Name</label>
+        <input type="text" asp-for="FirstName" required />
+    </div>
+    <div>
+        <label>Last Name</label>
+        <input type="text" asp-for="LastName" required />
+    </div>
+    <div>
+        <label>Middle Name</label>
+        <input type="text" asp-for="MiddleName" />
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="email" asp-for="Email" required />
+    </div>
+
+    <button type="submit">Save Changes</button>
+</form>
+
+<a href="@Url.Action("Index", "Employees")">Back</a>

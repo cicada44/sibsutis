@@ -1,0 +1,16 @@
+@model lab_3.Models.Project
+
+<h2>Add Employee to Project: @Model.Name</h2>
+
+<form asp-action="AddEmployee" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label for="employeeId">Employee</label>
+        <select name="employeeId" asp-items="ViewBag.Employees"></select>
+    </div>
+
+    <button type="submit">Add Employee</button>
+</form>
+
+<a asp-action="Details" asp-route-id="@Model.Id">Back to Project</a>

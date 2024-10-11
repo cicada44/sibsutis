@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - lab_3</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="icon" type="image/png" href="~/favicon.png" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <a asp-area="" asp-controller="Home" asp-action="Index">Main page</a>
+                <ul>
+                    <li>
+                        <a asp-controller="Projects" asp-action="Index">Projects</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Employees" asp-action="Index">Employees</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Tasks" asp-action="Index">Tasks</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <div id="error-message" class="alert alert-danger" style="display:none;">
+        <strong>Error:</strong> <span id="error-text"></span>
+    </div>
+</body>
+
+</html>

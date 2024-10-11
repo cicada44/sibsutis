@@ -1,0 +1,48 @@
+@model lab_3.Models.Task
+
+<h1>Create Task</h1>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+    </div>
+
+    <div>
+        <label asp-for="AuthorId">Task Author</label>
+        <select asp-for="AuthorId" asp-items="ViewBag.AuthorId"></select>
+    </div>
+
+    <div>
+        <label asp-for="ExecutorId">Executor</label>
+        <select asp-for="ExecutorId" asp-items="ViewBag.ExecutorId"></select>
+    </div>
+
+    <div>
+        <label asp-for="ProjectId">Project</label>
+        <select asp-for="ProjectId" asp-items="ViewBag.ProjectId"></select>
+    </div>
+
+    <div>
+        <label asp-for="Status">Status</label>
+        <select asp-for="Status">
+            <option value="ToDo">To Do</option>
+            <option value="InProgress">In Progress</option>
+            <option value="Done">Done</option>
+        </select>
+    </div>
+
+    <div>
+        <label asp-for="Priority">Priority</label>
+        <input asp-for="Priority" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="Comment">Comment</label>
+        <textarea asp-for="Comment"></textarea>
+    </div>
+
+    <button type="submit">Create Task</button>
+</form>
+
+<a asp-action="Index">Back to Task List</a>

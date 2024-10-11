@@ -1,0 +1,25 @@
+@model IEnumerable<lab_3.Models.Employee>
+
+<h5>Employee List</h5>
+
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Middle Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.FirstName</td>
+                <td>@employee.LastName</td>
+                <td>@employee.MiddleName</td>
+                <td>@employee.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>

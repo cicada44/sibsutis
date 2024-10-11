@@ -1,0 +1,12 @@
+@model lab_3.Models.Project
+
+<h1>Delete Project</h1>
+
+<h3>Are you sure you want to delete the project "@Model.Name"?</h3>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Delete</button>
+</form>
+
+<a href="@Url.Action("Index", "Projects")">Back</a>

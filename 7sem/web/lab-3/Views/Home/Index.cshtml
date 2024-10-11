@@ -1,0 +1,102 @@
+﻿@model lab_3.Models.HomeViewModel
+
+<h2>Dashboard</h2>
+
+<h3>Projects</h3>
+<table>
+    <thead>
+        <tr>
+            <th><a asp-action="Index" asp-route-sortOrder="name">Name</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="customerCompany">Customer Company</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="contractorCompany">Contractor Company</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="startDate">Start Date</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="endDate">End Date</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="priority">Priority</a></th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model.Projects)
+        {
+            <tr>
+                <td>@project.Name</td>
+                <td>@project.CustomerCompany</td>
+                <td>@project.ContractorCompany</td>
+                <td>@project.StartDate.ToShortDateString()</td>
+                <td>@project.EndDate?.ToShortDateString()</td>
+                <td>@project.Priority</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Projects", new { id = project.Id })">Edit</a>
+                    <form asp-controller="Projects" asp-action="Delete" asp-route-id="@project.Id" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="@Url.Action("Create", "Projects")">Create</a>
+
+<h3>Employees</h3>
+<table>
+    <thead>
+        <tr>
+            <th><a asp-action="Index" asp-route-sortOrder="firstName">First Name</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="lastName">Last Name</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="email">Email</a></th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model.Employees)
+        {
+            <tr>
+                <td>@employee.FirstName</td>
+                <td>@employee.LastName</td>
+                <td>@employee.Email</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Employees", new { id = employee.Id })">Edit</a>
+                    <form asp-controller="Employees" asp-action="Delete" asp-route-id="@employee.Id" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="@Url.Action("Create", "Employees")">Create</a>
+
+<h3>Tasks</h3>
+<table>
+    <thead>
+        <tr>
+            <th><a asp-action="Index" asp-route-sortOrder="title">Title</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="author">Author</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="executor">Executor</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="project">Project</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="priority">Priority</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="status">Status</a></th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model.Tasks)
+        {
+            <tr>
+                <td>@task.Title</td>
+                <td>@task.Author?.FirstName</td>
+                <td>@task.Executor?.FirstName</td>
+                <td>@task.Project?.Name</td>
+                <td>@task.Priority</td>
+                <td>@task.Status</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Tasks", new { id = task.Id })">Edit</a>
+                    <form asp-controller="Tasks" asp-action="Delete" asp-route-id="@task.Id" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="@Url.Action("Create", "Tasks")">Create</a>

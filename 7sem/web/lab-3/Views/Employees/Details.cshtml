@@ -1,0 +1,16 @@
+@model lab_3.Models.Employee
+
+<h2>Employee: @Model.LastName @Model.FirstName @Model.MiddleName</h2>
+
+<p>Email: @Model.Email</p>
+
+<h3>Projects</h3>
+<ul>
+    @foreach (var project in Model.Projects)
+    {
+        <li>@project.Name</li>
+    }
+</ul>
+
+<a asp-action="Edit" asp-route-id="@Model.Id">Edit Employee</a>
+<a asp-action="Index">Back to Employee List</a>

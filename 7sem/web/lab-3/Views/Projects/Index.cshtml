@@ -1,0 +1,47 @@
+@model IEnumerable<lab_3.Models.Project>
+
+<h5>Project List</h5>
+
+<form method="get">
+    <div>
+        <label for="startDate">Start Date (from)</label>
+        <input type="date" name="startDate" value="@Context.Request.Query["startDate"]" />
+    </div>
+    <div>
+        <label for="endDate">Start Date (to)</label>
+        <input type="date" name="endDate" value="@Context.Request.Query["endDate"]" />
+    </div>
+    <div>
+        <label for="priority">Priority</label>
+        <input type="number" name="priority" value="@Context.Request.Query["priority"]" />
+    </div>
+    <div>
+        <button type="submit">Filter</button>
+    </div>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.NameSort">Name</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.DateSort">Start Date</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.PrioritySort">Priority</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.Name</td>
+                <td>@project.StartDate.ToString("MM/dd/yyyy")</td>
+                <td>@project.Priority</td>
+            </tr>
+        }
+    </tbody>
+</table>

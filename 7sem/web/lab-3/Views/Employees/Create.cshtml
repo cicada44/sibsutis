@@ -1,0 +1,26 @@
+@model lab_3.Models.Employee
+
+<h5>Add Employee</h5>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="FirstName">First Name</label>
+        <input type="text" asp-for="FirstName" required />
+    </div>
+    <div>
+        <label asp-for="LastName">Last Name</label>
+        <input type="text" asp-for="LastName" required />
+    </div>
+    <div>
+        <label asp-for="MiddleName">Middle Name</label>
+        <input type="text" asp-for="MiddleName" />
+    </div>
+    <div>
+        <label asp-for="Email">Email</label>
+        <input type="email" asp-for="Email" required />
+    </div>
+
+    <button type="submit">Add</button>
+</form>
+
+<a asp-action="Index" asp-controller="Employees" class="btn btn-secondary">Back</a>

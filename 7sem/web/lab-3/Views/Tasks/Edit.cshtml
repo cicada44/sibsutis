@@ -1,0 +1,50 @@
+@model lab_3.Models.Task
+
+<h1>Edit Task</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label for="Title">Title</label>
+        <input type="text" asp-for="Title" required />
+    </div>
+
+    <div>
+        <label for="AuthorId">Author</label>
+        <select asp-for="AuthorId" asp-items="ViewBag.Employees"></select>
+    </div>
+
+    <div>
+        <label for="ExecutorId">Executor</label>
+        <select asp-for="ExecutorId" asp-items="ViewBag.Employees"></select>
+    </div>
+
+    <div>
+        <label for="ProjectId">Project</label>
+        <select asp-for="ProjectId" asp-items="ViewBag.Projects"></select>
+    </div>
+
+    <div>
+        <label for="Status">Status</label>
+        <select asp-for="Status">
+            <option value="ToDo">To Do</option>
+            <option value="InProgress">In Progress</option>
+            <option value="Done">Done</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="Priority">Priority</label>
+        <input type="number" asp-for="Priority" required />
+    </div>
+
+    <div>
+        <label for="Comment">Comment</label>
+        <textarea asp-for="Comment"></textarea>
+    </div>
+
+    <button type="submit">Save Changes</button>
+</form>
+
+<a href="@Url.Action("Index", "Tasks")">Back</a>

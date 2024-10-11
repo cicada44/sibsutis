@@ -1,0 +1,52 @@
+@model IEnumerable<lab_3.Models.Task>
+
+<h5>Task List</h5>
+
+<form method="get">
+    <div>
+        <label for="statusFilter">Status</label>
+        <select name="statusFilter">
+            <option value="">All</option>
+            <option value="ToDo" selected="@ViewBag.StatusFilter == " ToDo"">To Do</option>
+            <option value="InProgress" selected="@ViewBag.StatusFilter == " InProgress"">In Progress</option>
+            <option value="Done" selected="@ViewBag.StatusFilter == " Done"">Done</option>
+        </select>
+    </div>
+
+    <div>
+        <button type="submit">Filter</button>
+    </div>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th><a asp-action="Index" asp-route-sortOrder="title_desc">Title</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="author">Author</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="executor">Executor</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="project">Project</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="priority">Priority</a></th>
+            <th><a asp-action="Index" asp-route-sortOrder="status">Status</a></th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Title</td>
+                <td>@task.Author?.FirstName</td>
+                <td>@task.Executor?.FirstName</td>
+                <td>@task.Project?.Name</td>
+                <td>@task.Priority</td>
+                <td>@task.Status</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@task.Id">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@task.Id" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
