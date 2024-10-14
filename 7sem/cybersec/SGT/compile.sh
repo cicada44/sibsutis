@@ -1,0 +1,1 @@
+g++ -Wall -Wextra main.cpp -o bin/zphmcycle
