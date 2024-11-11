@@ -1,7 +1,8 @@
 #include "../include/extralib.h"
 #include "../include/md5.h"
 
-int hashMD5(FILE* input_file, MD5_CTX* md5handler) {
+int hashMD5(FILE* input_file, MD5_CTX *md5handler)
+{
     int bytes;
     unsigned char data[1024];
 
@@ -9,14 +10,15 @@ int hashMD5(FILE* input_file, MD5_CTX* md5handler) {
         return 1;
     }
 
-    MD5Init(md5handler);
-    while ((bytes = fread(data, 1, 1024, input_file)) != 0)
-        MD5Update(md5handler, data, bytes);
-    MD5Final(md5handler);
+    MD5Init (md5handler);
+    while ((bytes = fread (data, 1, 1024, input_file)) != 0)
+        MD5Update (md5handler, data, bytes);
+    MD5Final (md5handler);
     return 0;
 }
 
-int RSA_sign(char* input_file) {
+int RSA_sign(char *input_file)
+{
     long long int p, q, n, eiler_res, d, c, s[16];
     FILE* in_file = fopen(input_file, "rb");
     char* fd_input = strcat(input_file, ".pkey");
@@ -25,6 +27,7 @@ int RSA_sign(char* input_file) {
 
     fd_input = strcat(input_file, ".rsa_sgn");
     FILE* sgn_file = fopen(input_file, "wb");
+
 
     p = generate_prime_number(RSA_RAND_LIM);
     q = generate_prime_number(RSA_RAND_LIM);
@@ -40,7 +43,7 @@ int RSA_sign(char* input_file) {
     }
 
     for (int i = 0; i < 16; i++) {
-        s[i] = expmod_func((long long int)md5handler.digest[i], c, n);
+        s[i] = expmod_func((long long int) md5handler.digest[i], c, n);
         fwrite(&s[i], 8, 1, sgn_file);
     }
 
@@ -50,7 +53,8 @@ int RSA_sign(char* input_file) {
     return 0;
 }
 
-int RSA_sign_check(char* input_file) {
+int RSA_sign_check(char *input_file)
+{
     FILE* in_file = fopen(input_file, "rb");
     char* fd_input = strcat(input_file, ".pkey");
     FILE* fd_public = fopen(input_file, "rb");
@@ -68,12 +72,13 @@ int RSA_sign_check(char* input_file) {
 
     fread(&d, 8, 1, fd_public);
     fread(&n, 8, 1, fd_public);
-    // printf("d: %ld, n: %ld\n", d, n);
+   // printf("d: %ld, n: %ld\n", d, n);
+
 
     int flg = 0;
     for (int i = 0; i < 16; i++) {
         fread(&s[i], 8, 1, sgn_file);
-        //   printf("s[%d] %ld ", i, s[i]);
+     //   printf("s[%d] %ld ", i, s[i]);
         if (md5handler.digest[i] != expmod_func(s[i], d, n)) {
             flg = 1;
             break;
@@ -91,7 +96,9 @@ int RSA_sign_check(char* input_file) {
     return 0;
 }
 
-int ELG_sign(char* input_file) {
+
+int ELG_sign(char* input_file)
+{
     FILE* in_file = fopen(input_file, "rb");
 
     char* fd_input = strcat(input_file, ".pelg");
@@ -122,10 +129,8 @@ int ELG_sign(char* input_file) {
 
     for (int i = 0; i < 16; i++) {
         generation_c_d(&k, &k_inv, p - 1);
-        h = (long long int)md5handler.digest[i];
-        if ((long long int)h >= p) {
-            return -1;
-        }
+        h = (long long int) md5handler.digest[i];
+        if ((long long int) h >= p ) { return -1; }
         r = expmod_func(g, k, p);
         u = (h - secret_a * r) % (p - 1);
         u += u < 0 ? p - 1 : 0;
@@ -141,7 +146,8 @@ int ELG_sign(char* input_file) {
     return 0;
 }
 
-int ELG_sign_check(char* input_file) {
+int ELG_sign_check(char* input_file)
+{
     FILE* in_file = fopen(input_file, "rb");
 
     char* fd_input = strcat(input_file, ".pelg");
@@ -167,10 +173,8 @@ int ELG_sign_check(char* input_file) {
     long long int left, right;
     int flg = 0;
     for (int i = 0; i < 16; i++) {
-        h = (long long int)md5handler.digest[i];
-        if ((long long int)h >= p) {
-            return -1;
-        }
+        h = (long long int) md5handler.digest[i];
+        if ((long long int) h >= p ) { return -1; }
         fread(&r, 8, 1, out_file);
         fread(&s, 8, 1, out_file);
         left = (expmod_func(free_a, r, p) * expmod_func(r, s, p)) % p;
@@ -185,14 +189,16 @@ int ELG_sign_check(char* input_file) {
     fclose(in_file);
     fclose(fd_public);
 
-    if (flg) return 1;
+    if (flg)
+        return 1;
     return 0;
 }
 
-int GOST_sign(char* input_file) {
+int GOST_sign(char* input_file)
+{
     long long int q, b, y;
     long long int p;
-    long long int a, s, r, k, h, x;
+    long long int a, s, r, k, h , x;
 
     FILE* in_file = fopen(input_file, "rb");
     char* fd_input = strcat(input_file, ".pgst");
@@ -231,7 +237,7 @@ int GOST_sign(char* input_file) {
     }
 
     for (int i = 0; i < 16; i++) {
-        h = (long long int)md5handler.digest[i];
+        h = (long long int) md5handler.digest[i];
         while (1) {
             k = random() % q;
             r = expmod_func(a, k, p) % q;
@@ -254,7 +260,8 @@ int GOST_sign(char* input_file) {
     return 0;
 }
 
-int GOST_sign_check(char* input_file) {
+int GOST_sign_check(char* input_file)
+{
     FILE* in_file = fopen(input_file, "rb");
 
     char* fd_input = strcat(input_file, ".pgst");
@@ -279,7 +286,7 @@ int GOST_sign_check(char* input_file) {
 
     int flg = 0;
     for (int i = 0; i < 16; i++) {
-        h = (long long int)md5handler.digest[i];
+        h = (long long int) md5handler.digest[i];
         fread(&r, 8, 1, out_file);
         fread(&s, 8, 1, out_file);
         if (r >= q || s >= q) {
@@ -302,6 +309,7 @@ int GOST_sign_check(char* input_file) {
     fclose(in_file);
     fclose(fd_public);
 
-    if (flg) return 1;
+    if (flg)
+        return 1;
     return 0;
 }
