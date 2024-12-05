@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XJaFqJNU7mXDCzV/NssfL3AwlScLCydCdLVpIM7iuYE=",
+  "Hash": "JWsf4asp0zAaS+BAoOzGrJ9qdTjO3Wp4wwDKeVZLMjM=",
   "Source": "lab-3",
   "BasePath": "_content/lab-3",
   "Mode": "Default",
@@ -17,10 +17,10 @@
   ],
   "Assets": [
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\obj\\Debug\\net8.0\\scopedcss\\bundle\\lab-3.styles.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\obj\\Debug\\net8.0\\scopedcss\\bundle\\lab-3.styles.css",
       "SourceId": "lab-3",
       "SourceType": "Computed",
-      "ContentRoot": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/lab-3",
       "RelativePath": "lab-3.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\obj\\Debug\\net8.0\\scopedcss\\bundle\\lab-3.styles.css"
+      "OriginalItemSpec": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\obj\\Debug\\net8.0\\scopedcss\\bundle\\lab-3.styles.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\lab-3.bundle.scp.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\lab-3.bundle.scp.css",
       "SourceId": "lab-3",
       "SourceType": "Computed",
-      "ContentRoot": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/lab-3",
       "RelativePath": "lab-3.bundle.scp.css",
       "AssetKind": "All",
@@ -52,10 +52,10 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\lab-3.bundle.scp.css"
+      "OriginalItemSpec": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\lab-3.bundle.scp.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\css\\site.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\css\\site.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -74,7 +74,7 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\favicon.ico",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\favicon.ico",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -93,7 +93,7 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\js\\site.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\js\\site.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -112,7 +112,7 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -131,7 +131,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -150,7 +150,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -169,7 +169,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -188,7 +188,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -207,7 +207,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -226,7 +226,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -245,7 +245,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -264,7 +264,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -283,7 +283,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -302,7 +302,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -321,7 +321,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -340,7 +340,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -359,7 +359,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -378,7 +378,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -397,7 +397,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -416,7 +416,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -435,7 +435,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -454,7 +454,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -473,7 +473,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -492,7 +492,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -511,7 +511,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -530,7 +530,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -549,7 +549,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -568,7 +568,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -587,7 +587,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -606,7 +606,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -625,7 +625,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -644,7 +644,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -663,7 +663,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -682,7 +682,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -701,7 +701,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -720,7 +720,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -739,7 +739,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -758,7 +758,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -777,7 +777,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -796,7 +796,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -815,7 +815,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -834,7 +834,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -853,7 +853,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -872,7 +872,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -891,7 +891,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -910,7 +910,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -929,7 +929,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -948,7 +948,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -967,7 +967,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -986,7 +986,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -1005,7 +1005,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -1024,7 +1024,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -1043,7 +1043,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -1062,7 +1062,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -1081,7 +1081,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -1100,7 +1100,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -1119,7 +1119,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -1138,7 +1138,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -1157,7 +1157,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
@@ -1176,7 +1176,7 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "c:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "lab-3",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\cicada-main\\sibsutis\\7sem\\web\\lab-3\\wwwroot\\",
