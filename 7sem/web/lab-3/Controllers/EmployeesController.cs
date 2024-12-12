@@ -42,7 +42,7 @@ namespace lab_3.Controllers
         // Обработка данных формы создания сотрудника (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FirstName,LastName,MiddleName,Email")] Employee employee)
+        public async Task<IActionResult> Create([Bind("FirstName,LastName,MiddleName,Rank,Email")] Employee employee)
         {
             if (!ModelState.IsValid) return View(employee);
 
@@ -63,7 +63,7 @@ namespace lab_3.Controllers
         // Обработка данных формы редактирования сотрудника (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,MiddleName,Email")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,MiddleName,Rank,Email")] Employee employee)
         {
             if (id != employee.Id) return NotFound();
             if (!ModelState.IsValid) return View(employee);

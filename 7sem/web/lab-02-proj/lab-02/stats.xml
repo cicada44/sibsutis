@@ -66,5 +66,13 @@
                 <Effect target="Mana" value="-50"/>
             </Effects>
         </Action>
+        <Action name="Почитать книгу">
+            <Effects>
+                <Effect target="Health" value="5"/>
+                <Effect target="Cheerfulness" value="3"/>
+                <Effect target="Fatigue" value="20"/>
+                <Effect target="Mana" value="-100"/>
+            </Effects>
+        </Action>
     </Actions>
 </Valera>

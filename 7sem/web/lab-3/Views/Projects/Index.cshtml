@@ -16,11 +16,19 @@
         <input type="number" name="priority" value="@Context.Request.Query["priority"]" />
     </div>
     <div>
+        <label for="some other action">Other</label>
+        <input type="number" name="other" value="@Context.Request.Query["other"]" />
+    </div>
+    <div>
         <button type="submit">Filter</button>
     </div>
 </form>
 
 <table>
+        <style>
+            table {border-collapse: collapse;}
+            th, td {border: 1px solid black; padding: 8px;}
+        </style>
     <thead>
         <tr>
             <th>

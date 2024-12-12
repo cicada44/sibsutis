@@ -66,9 +66,9 @@ namespace lab_3.Controllers
             }
             // Обязательно включите сотрудников при извлечении проекта
             var project = await _context.Projects
-                .Include(p => p.Employees) // Включаем сотрудников проекта
-                .Include(p => p.Tasks) // Если хотите также видеть задачи
-                .Include(p => p.Manager) // Если нужно также отображать менеджера
+                .Include(p => p.Employees)
+                .Include(p => p.Tasks)
+                .Include(p => p.Manager)
                 .FirstOrDefaultAsync(p => p.Id == id);
             if (project == null)
             {

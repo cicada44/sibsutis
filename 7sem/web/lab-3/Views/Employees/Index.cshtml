@@ -3,11 +3,16 @@
 <h5>Employee List</h5>
 
 <table>
+    <style>
+            table {border-collapse: collapse;}
+            th, td {border: 1px solid black; padding: 8px;}
+        </style>
     <thead>
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Middle Name</th>
+            <th>Rank</th>
             <th>Email</th>
         </tr>
     </thead>
@@ -18,6 +23,7 @@
                 <td>@employee.FirstName</td>
                 <td>@employee.LastName</td>
                 <td>@employee.MiddleName</td>
+                <td>@employee.Rank</td>
                 <td>@employee.Email</td>
             </tr>
         }
