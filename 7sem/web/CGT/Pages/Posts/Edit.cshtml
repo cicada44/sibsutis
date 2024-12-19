@@ -1,0 +1,104 @@
+@page "{id:int}"
+@model f1news.Pages.Posts.EditModel
+
+<div class="edit-post-container">
+    <h1 class="edit-post-header">Редактировать пост</h1>
+
+    <form method="post" class="edit-post-form">
+        <input type="hidden" asp-for="Post.Id" />
+
+        <div class="form-group">
+            <label for="title" class="form-label">Заголовок:</label>
+            <input type="text" asp-for="Post.Title" id="title" class="form-control" />
+            <span asp-validation-for="Post.Title" class="form-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="content" class="form-label">Контент:</label>
+            <textarea asp-for="Post.Content" id="content" class="form-control large-textarea"></textarea>
+            <span asp-validation-for="Post.Content" class="form-error"></span>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary save-button">Сохранить</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Verdana', sans-serif;
+    }
+
+    .edit-post-container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .edit-post-header {
+        text-align: center;
+        color: #007bff;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+    }
+
+    .edit-post-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        font-weight: bold;
+        color: #333333;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        outline: none;
+    }
+
+    .form-error {
+        color: #dc3545;
+        font-size: 0.85rem;
+    }
+
+    .large-textarea {
+        height: 200px;
+        resize: vertical;
+    }
+
+    .form-actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .save-button {
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .save-button:hover {
+        background-color: #0056b3;
+    }
+</style>

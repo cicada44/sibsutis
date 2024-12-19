@@ -1,0 +1,37 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div style="display: flex; align-items: center; justify-content: flex-end; gap: 15px;">
+        <span style="color: #ffffff; font-weight: bold; font-size: 1rem;">
+            @(UserManager.GetUserName(User).Split('@')[0])
+        </span>
+        <form method="post" asp-page="/Identity/Logout" style="margin: 0;">
+            <button type="submit" style="
+                background-color: #007bff; 
+                color: #ffffff; 
+                border: none; 
+                padding: 5px 10px; 
+                border-radius: 5px; 
+                font-size: 0.9rem;
+                cursor: pointer;">Logout</button>
+        </form>
+    </div>
+}
+else
+{
+    <div style="display: flex; gap: 10px;">
+        <a asp-page="/Identity/Login" style="
+            color: #007bff; 
+            font-weight: bold; 
+            font-size: 1rem; 
+            text-decoration: none;">Login</a>
+        <a asp-page="/Identity/Register" style="
+            color: #007bff; 
+            font-weight: bold; 
+            font-size: 1rem; 
+            text-decoration: none;">Register</a>
+    </div>
+}

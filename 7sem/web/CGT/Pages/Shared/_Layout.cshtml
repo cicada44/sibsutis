@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>F1 news | RU</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/f1news.styles.css" asp-append-version="true" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Гарантирует, что высота страницы будет минимум 100% от высоты окна */
+            background-color: #eaecee; /* Нежный серый фон */
+            font-family: 'Verdana', sans-serif;
+            color: #333333; /* Глубокий серый для текста */
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: #1a1a1d; /* Тёмно-серый фон */
+            color: white;
+            border-bottom: 3px solid #007bff;
+            padding: 10px 15px;
+        }
+
+        .navbar-brand h2 {
+            color: #ffffff; /* Белый цвет для заголовка */
+            text-transform: uppercase;
+            font-size: 1.8rem;
+        }
+
+        .container {
+            flex: 1; /* Заставляет контейнер занимать всё доступное пространство */
+        }
+
+        footer {
+            background-color: #1a1a1d;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto; /* Фиксирует футер внизу */
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" asp-page="/Index"><h2>F1 news | RU</h2></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+                    <div class="d-flex">
+                        @await Html.PartialAsync("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2024 F1 news | Все права защищены</p>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,10 @@
+@page "{id:int}"
+@model f1news.Pages.Posts.DeleteModel
+
+<h1>Удалить пост</h1>
+<p>Вы уверены, что хотите удалить пост "@Model.Post.Title"?</p>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Удалить</button>
+    <a asp-page="/Index" class="btn btn-secondary">Отмена</a>
+</form>

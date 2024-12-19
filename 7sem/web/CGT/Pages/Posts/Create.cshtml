@@ -1,0 +1,16 @@
+@page
+@model f1news.Pages.Posts.CreateModel
+
+<h1>Создать пост</h1>
+
+<form method="post">
+    <label>Заголовок:</label>
+    <input type="text" asp-for="Post.Title" class="form-control" />
+    <span asp-validation-for="Post.Title" class="text-danger"></span>
+
+    <label>Контент:</label>
+    <textarea asp-for="Post.Content" class="form-control"></textarea>
+    <span asp-validation-for="Post.Content" class="text-danger"></span>
+    <br>
+    <button type="submit" class="btn btn-success">Создать</button>
+</form>

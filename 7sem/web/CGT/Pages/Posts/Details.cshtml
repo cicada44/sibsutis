@@ -1,0 +1,50 @@
+@page "{id:int}"
+@model f1news.Pages.Posts.DetailsModel
+
+<div class="details-post-container">
+    <h1 class="details-post-header">@Model.Post.Title</h1>
+
+    <div class="details-post-content">
+        <p>@Model.Post.Content</p>
+    </div>
+
+    <div class="details-post-date">
+        <small>Опубликовано: @Model.Post.CreatedAt.ToString("dd.MM.yyyy HH:mm")</small>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Verdana', sans-serif;
+    }
+
+    .details-post-container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .details-post-header {
+        text-align: center;
+        color: #007bff;
+        margin-bottom: 20px;
+        font-size: 2rem;
+    }
+
+    .details-post-content {
+        font-size: 1.2rem;
+        color: #333333;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+
+    .details-post-date {
+        text-align: right;
+        color: #888888;
+        font-size: 0.9rem;
+    }
+</style>

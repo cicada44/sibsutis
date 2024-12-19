@@ -1,0 +1,93 @@
+@page
+@model f1news.Pages.Identity.LoginModel
+
+<div class="login-container">
+    <h2 class="login-header">Login</h2>
+
+    <form method="post" class="login-form">
+        <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input asp-for="Input.Email" class="form-control" id="email" />
+            <span asp-validation-for="Input.Email" class="form-error"></span>
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input asp-for="Input.Password" type="password" class="form-control" id="password" />
+            <span asp-validation-for="Input.Password" class="form-error"></span>
+        </div>
+        <div class="form-check">
+            <input asp-for="Input.RememberMe" type="checkbox" class="form-check-input" id="rememberMe" />
+            <label for="rememberMe" class="form-check-label">Remember Me</label>
+        </div>
+        <button type="submit" class="btn btn-primary login-button">Login</button>
+    </form>
+</div>
+
+<style>
+    .login-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-header {
+        text-align: center;
+        color: #1a1a1d;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+    }
+
+    .login-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        font-weight: bold;
+        color: #333333;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .form-check-label {
+        margin-left: 5px;
+        font-size: 0.9rem;
+    }
+
+    .form-error {
+        color: #dc3545;
+        font-size: 0.85rem;
+    }
+
+    .login-button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .login-button:hover {
+        background-color: #0056b3;
+    }
+</style>
