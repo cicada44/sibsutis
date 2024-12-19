@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using f1news.Data;
 using f1news.Models;
+using System.Linq;
 
 namespace f1news.Pages.Posts
 {
@@ -28,41 +30,58 @@ namespace f1news.Pages.Posts
         [BindProperty]
         public Post Post { get; set; }
 
+        [BindProperty]
+        public string NewCommentAuthor { get; set; }
+
+        [BindProperty]
+        public string NewCommentContent { get; set; }
+
+        public List<Comment> Comments { get; set; } // Для хранения списка комментариев
+
         public IActionResult OnGet(int id)
         {
-            // Проверка: текущий пользователь — администратор?
-            var currentUserEmail = _userManager.GetUserName(User);
-            if (currentUserEmail != _adminSettings.AdminEmail)
-            {
-                return Forbid(); // Запретить доступ
-            }
+            Post = _context.Posts
+                .Include(p => p.Comments) // Подгружаем связанные комментарии
+                .FirstOrDefault(p => p.Id == id);
 
-            Post = _context.Posts.Find(id);
             if (Post == null)
             {
                 return NotFound();
             }
 
+            Comments = Post.Comments.ToList(); // Инициализируем список комментариев
             return Page();
         }
 
-        public IActionResult OnPost()
+
+
+        public IActionResult OnPostAddComment(int id, string newCommentAuthor, string newCommentContent)
         {
-            // Проверка: текущий пользователь — администратор?
-            var currentUserEmail = _userManager.GetUserName(User);
-            if (currentUserEmail != _adminSettings.AdminEmail)
+            if (string.IsNullOrWhiteSpace(newCommentAuthor) || string.IsNullOrWhiteSpace(newCommentContent))
             {
-                return Forbid(); // Запретить доступ
+                ModelState.AddModelError(string.Empty, "Имя автора и текст комментария не могут быть пустыми.");
+                return RedirectToPage(new { id });
             }
-
-            if (!ModelState.IsValid)
+        
+            var post = _context.Posts.Find(id);
+            if (post == null)
             {
-                return Page();
+                return NotFound();
             }
-
-            _context.Posts.Update(Post);
-            _context.SaveChanges();
-            return RedirectToPage("/Index");
+        
+            var newComment = new Comment
+            {
+                PostId = id,
+                Author = newCommentAuthor,
+                Content = newCommentContent,
+                CreatedAt = DateTime.Now
+            };
+        
+            _context.Comments.Add(newComment); // Добавляем комментарий в таблицу
+            _context.SaveChanges(); // Сохраняем изменения в базе данных
+        
+            return RedirectToPage(new { id }); // Перезагружаем страницу поста
         }
+
     }
 }

@@ -13,6 +13,42 @@
     </div>
 </div>
 
+<div class="comments-section">
+    <h2>Комментарии</h2>
+    @if (!Model.Comments.Any())
+    {
+        <p>Пока нет комментариев. Будьте первым, кто оставит отзыв!</p>
+    }
+    else
+    {
+        @foreach (var comment in Model.Comments)
+        {
+            <div class="comment">
+                <div class="comment-author">
+                    <strong>@comment.Author</strong>
+                    <span class="comment-date">@comment.CreatedAt.ToString("dd.MM.yyyy HH:mm")</span>
+                </div>
+                <div class="comment-content">
+                    <p>@comment.Content</p>
+                </div>
+            </div>
+        }
+    }
+
+    <form method="post" asp-page-handler="AddComment" class="add-comment-form">
+        <input type="hidden" name="id" value="@Model.Post.Id" />
+        <div class="form-group">
+            <label for="newCommentAuthor">Ваше имя:</label>
+            <input type="text" id="newCommentAuthor" name="newCommentAuthor" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="newCommentContent">Комментарий:</label>
+            <textarea id="newCommentContent" name="newCommentContent" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary add-comment-button">Добавить комментарий</button>
+    </form>
+</div>
+
 <style>
     body {
         background-color: #f8f9fa;
@@ -46,5 +82,71 @@
         text-align: right;
         color: #888888;
         font-size: 0.9rem;
+    }
+
+    .comments-section {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .comments-section h2 {
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    .comment {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .comment:last-child {
+        border-bottom: none;
+    }
+
+    .comment-author {
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        color: #007bff;
+    }
+
+    .comment-date {
+        font-size: 0.85rem;
+        color: #888888;
+    }
+
+    .comment-content {
+        font-size: 1rem;
+        color: #333333;
+        line-height: 1.6;
+    }
+
+    .add-comment-form {
+        margin-top: 20px;
+    }
+
+    .add-comment-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .add-comment-button {
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .add-comment-button:hover {
+        background-color: #0056b3;
     }
 </style>
