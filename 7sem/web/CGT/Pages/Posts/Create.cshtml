@@ -1,16 +1,102 @@
 @page
 @model f1news.Pages.Posts.CreateModel
 
-<h1>Создать пост</h1>
+<div class="create-post-container">
+    <h1 class="create-post-header">Создать пост</h1>
 
-<form method="post">
-    <label>Заголовок:</label>
-    <input type="text" asp-for="Post.Title" class="form-control" />
-    <span asp-validation-for="Post.Title" class="text-danger"></span>
+    <form method="post" class="create-post-form">
+        <div class="form-group">
+            <label for="postTitle" class="form-label">Заголовок:</label>
+            <input type="text" id="postTitle" asp-for="Post.Title" class="form-control" />
+            <span asp-validation-for="Post.Title" class="form-error"></span>
+        </div>
 
-    <label>Контент:</label>
-    <textarea asp-for="Post.Content" class="form-control"></textarea>
-    <span asp-validation-for="Post.Content" class="text-danger"></span>
-    <br>
-    <button type="submit" class="btn btn-success">Создать</button>
-</form>
+        <div class="form-group">
+            <label for="postContent" class="form-label">Контент:</label>
+            <textarea id="postContent" asp-for="Post.Content" class="form-control large-textarea"></textarea>
+            <span asp-validation-for="Post.Content" class="form-error"></span>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary create-button">Создать</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Verdana', sans-serif;
+    }
+
+    .create-post-container {
+        max-width: 700px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .create-post-header {
+        text-align: center;
+        color: #007bff;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+    }
+
+    .create-post-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        font-weight: bold;
+        color: #333333;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        outline: none;
+    }
+
+    .form-error {
+        color: #dc3545;
+        font-size: 0.85rem;
+    }
+
+    .large-textarea {
+        height: 150px;
+        resize: vertical;
+    }
+
+    .form-actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .create-button {
+        background-color: #28a745;
+        color: #ffffff;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .create-button:hover {
+        background-color: #218838;
+    }
+</style>

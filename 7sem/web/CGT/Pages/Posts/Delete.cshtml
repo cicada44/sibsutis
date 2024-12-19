@@ -1,10 +1,78 @@
 @page "{id:int}"
 @model f1news.Pages.Posts.DeleteModel
 
-<h1>Удалить пост</h1>
-<p>Вы уверены, что хотите удалить пост "@Model.Post.Title"?</p>
+<div class="delete-post-container">
+    <h1 class="delete-post-header">Удалить пост</h1>
+    <p class="delete-post-message">Вы уверены, что хотите удалить пост "<strong>@Model.Post.Title</strong>"?</p>
 
-<form method="post">
-    <button type="submit" class="btn btn-danger">Удалить</button>
-    <a asp-page="/Index" class="btn btn-secondary">Отмена</a>
-</form>
+    <form method="post" class="delete-post-actions">
+        <button type="submit" class="btn btn-danger delete-button">Удалить</button>
+        <a asp-page="/Index" class="btn btn-secondary cancel-button">Отмена</a>
+    </form>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Verdana', sans-serif;
+    }
+
+    .delete-post-container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+    }
+
+    .delete-post-header {
+        color: #dc3545;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .delete-post-message {
+        font-size: 1.2rem;
+        color: #333333;
+        margin-bottom: 30px;
+    }
+
+    .delete-post-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .delete-button {
+        background-color: #dc3545;
+        color: #ffffff;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .delete-button:hover {
+        background-color: #c82333;
+    }
+
+    .cancel-button {
+        background-color: #6c757d;
+        color: #ffffff;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .cancel-button:hover {
+        background-color: #5a6268;
+    }
+</style>
